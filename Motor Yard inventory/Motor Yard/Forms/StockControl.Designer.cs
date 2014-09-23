@@ -93,9 +93,9 @@
             this.label_RepeatItemCode_ClearStock = new System.Windows.Forms.Label();
             this.label_ItemCode_ClearStock = new System.Windows.Forms.Label();
             this.tabPageStockStatus = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btn_checkstock = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.tabPageAddNewStock.SuspendLayout();
             this.groupBoxAddDetails_AddStock.SuspendLayout();
@@ -110,8 +110,8 @@
             this.tabPageClearStock.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClearButton)).BeginInit();
             this.tabPageStockStatus.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -136,7 +136,7 @@
             this.tabPageAddNewStock.BackColor = System.Drawing.Color.Transparent;
             this.tabPageAddNewStock.Controls.Add(this.groupBoxAddDetails_AddStock);
             this.tabPageAddNewStock.Controls.Add(this.groupBoxVehicleDetails_AddStock);
-            this.tabPageAddNewStock.Font = new System.Drawing.Font("Times New Roman", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabPageAddNewStock.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPageAddNewStock.Location = new System.Drawing.Point(4, 24);
             this.tabPageAddNewStock.Name = "tabPageAddNewStock";
             this.tabPageAddNewStock.Padding = new System.Windows.Forms.Padding(3);
@@ -172,7 +172,7 @@
             // 
             // textBoxUnitPrice_AddStock
             // 
-            this.textBoxUnitPrice_AddStock.Location = new System.Drawing.Point(110, 215);
+            this.textBoxUnitPrice_AddStock.Location = new System.Drawing.Point(110, 257);
             this.textBoxUnitPrice_AddStock.Name = "textBoxUnitPrice_AddStock";
             this.textBoxUnitPrice_AddStock.Size = new System.Drawing.Size(186, 21);
             this.textBoxUnitPrice_AddStock.TabIndex = 26;
@@ -180,7 +180,7 @@
             // labelUnitPrice_AddStock
             // 
             this.labelUnitPrice_AddStock.AutoSize = true;
-            this.labelUnitPrice_AddStock.Location = new System.Drawing.Point(22, 221);
+            this.labelUnitPrice_AddStock.Location = new System.Drawing.Point(24, 265);
             this.labelUnitPrice_AddStock.Name = "labelUnitPrice_AddStock";
             this.labelUnitPrice_AddStock.Size = new System.Drawing.Size(60, 15);
             this.labelUnitPrice_AddStock.TabIndex = 25;
@@ -207,7 +207,7 @@
             // 
             // textBoxQuantityIn_AddStock
             // 
-            this.textBoxQuantityIn_AddStock.Location = new System.Drawing.Point(110, 180);
+            this.textBoxQuantityIn_AddStock.Location = new System.Drawing.Point(110, 215);
             this.textBoxQuantityIn_AddStock.Name = "textBoxQuantityIn_AddStock";
             this.textBoxQuantityIn_AddStock.Size = new System.Drawing.Size(186, 21);
             this.textBoxQuantityIn_AddStock.TabIndex = 21;
@@ -221,7 +221,7 @@
             // 
             // dateTimePicker_AddStock
             // 
-            this.dateTimePicker_AddStock.Location = new System.Drawing.Point(110, 251);
+            this.dateTimePicker_AddStock.Location = new System.Drawing.Point(110, 178);
             this.dateTimePicker_AddStock.Name = "dateTimePicker_AddStock";
             this.dateTimePicker_AddStock.Size = new System.Drawing.Size(200, 21);
             this.dateTimePicker_AddStock.TabIndex = 19;
@@ -247,7 +247,7 @@
             // labelDate_AddStock
             // 
             this.labelDate_AddStock.AutoSize = true;
-            this.labelDate_AddStock.Location = new System.Drawing.Point(22, 256);
+            this.labelDate_AddStock.Location = new System.Drawing.Point(28, 184);
             this.labelDate_AddStock.Name = "labelDate_AddStock";
             this.labelDate_AddStock.Size = new System.Drawing.Size(32, 15);
             this.labelDate_AddStock.TabIndex = 14;
@@ -256,7 +256,7 @@
             // labelQuantityIn_AddStock
             // 
             this.labelQuantityIn_AddStock.AutoSize = true;
-            this.labelQuantityIn_AddStock.Location = new System.Drawing.Point(22, 183);
+            this.labelQuantityIn_AddStock.Location = new System.Drawing.Point(25, 221);
             this.labelQuantityIn_AddStock.Name = "labelQuantityIn_AddStock";
             this.labelQuantityIn_AddStock.Size = new System.Drawing.Size(69, 15);
             this.labelQuantityIn_AddStock.TabIndex = 13;
@@ -290,7 +290,7 @@
             // labelPartName_AddStock
             // 
             this.labelPartName_AddStock.AutoSize = true;
-            this.labelPartName_AddStock.Location = new System.Drawing.Point(22, 110);
+            this.labelPartName_AddStock.Location = new System.Drawing.Point(24, 110);
             this.labelPartName_AddStock.Name = "labelPartName_AddStock";
             this.labelPartName_AddStock.Size = new System.Drawing.Size(63, 15);
             this.labelPartName_AddStock.TabIndex = 10;
@@ -335,6 +335,7 @@
             // 
             // comboBoxEngineCapacity_AddStock
             // 
+            this.comboBoxEngineCapacity_AddStock.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxEngineCapacity_AddStock.FormattingEnabled = true;
             this.comboBoxEngineCapacity_AddStock.Location = new System.Drawing.Point(146, 257);
             this.comboBoxEngineCapacity_AddStock.Name = "comboBoxEngineCapacity_AddStock";
@@ -344,6 +345,7 @@
             // 
             // comboBoxFuelType_AddStock
             // 
+            this.comboBoxFuelType_AddStock.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxFuelType_AddStock.FormattingEnabled = true;
             this.comboBoxFuelType_AddStock.Location = new System.Drawing.Point(146, 180);
             this.comboBoxFuelType_AddStock.Name = "comboBoxFuelType_AddStock";
@@ -353,6 +355,7 @@
             // 
             // comboBoxModelName_AddStock
             // 
+            this.comboBoxModelName_AddStock.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxModelName_AddStock.FormattingEnabled = true;
             this.comboBoxModelName_AddStock.Location = new System.Drawing.Point(146, 105);
             this.comboBoxModelName_AddStock.Name = "comboBoxModelName_AddStock";
@@ -362,16 +365,18 @@
             // 
             // comboBoxBrandName_AddStock
             // 
+            this.comboBoxBrandName_AddStock.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxBrandName_AddStock.FormattingEnabled = true;
             this.comboBoxBrandName_AddStock.Location = new System.Drawing.Point(146, 33);
+            this.comboBoxBrandName_AddStock.MaxDropDownItems = 20;
             this.comboBoxBrandName_AddStock.Name = "comboBoxBrandName_AddStock";
             this.comboBoxBrandName_AddStock.Size = new System.Drawing.Size(186, 23);
             this.comboBoxBrandName_AddStock.TabIndex = 14;
-           
             this.comboBoxBrandName_AddStock.TextChanged += new System.EventHandler(this.comboBoxBrandName_AddStock_TextChanged);
             // 
             // textBoxYear_AddStock
             // 
+            this.textBoxYear_AddStock.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxYear_AddStock.Location = new System.Drawing.Point(146, 330);
             this.textBoxYear_AddStock.Name = "textBoxYear_AddStock";
             this.textBoxYear_AddStock.Size = new System.Drawing.Size(186, 21);
@@ -379,6 +384,7 @@
             // 
             // textBoxEngineId_AddStock
             // 
+            this.textBoxEngineId_AddStock.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxEngineId_AddStock.Location = new System.Drawing.Point(146, 298);
             this.textBoxEngineId_AddStock.Name = "textBoxEngineId_AddStock";
             this.textBoxEngineId_AddStock.Size = new System.Drawing.Size(186, 21);
@@ -386,6 +392,7 @@
             // 
             // textBoxFuelId_AddStock
             // 
+            this.textBoxFuelId_AddStock.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxFuelId_AddStock.Location = new System.Drawing.Point(146, 219);
             this.textBoxFuelId_AddStock.Name = "textBoxFuelId_AddStock";
             this.textBoxFuelId_AddStock.Size = new System.Drawing.Size(186, 21);
@@ -393,6 +400,7 @@
             // 
             // textBoxModelId_AddStock
             // 
+            this.textBoxModelId_AddStock.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxModelId_AddStock.Location = new System.Drawing.Point(146, 147);
             this.textBoxModelId_AddStock.Name = "textBoxModelId_AddStock";
             this.textBoxModelId_AddStock.Size = new System.Drawing.Size(186, 21);
@@ -400,6 +408,7 @@
             // 
             // textBoxBrandId_AddStock
             // 
+            this.textBoxBrandId_AddStock.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxBrandId_AddStock.Location = new System.Drawing.Point(146, 74);
             this.textBoxBrandId_AddStock.Name = "textBoxBrandId_AddStock";
             this.textBoxBrandId_AddStock.Size = new System.Drawing.Size(186, 21);
@@ -410,7 +419,7 @@
             this.labelYear_AddStock.AutoSize = true;
             this.labelYear_AddStock.Location = new System.Drawing.Point(22, 336);
             this.labelYear_AddStock.Name = "labelYear_AddStock";
-            this.labelYear_AddStock.Size = new System.Drawing.Size(28, 15);
+            this.labelYear_AddStock.Size = new System.Drawing.Size(31, 15);
             this.labelYear_AddStock.TabIndex = 8;
             this.labelYear_AddStock.Text = "Year";
             // 
@@ -419,7 +428,7 @@
             this.labelEngineCapacity_AddStock.AutoSize = true;
             this.labelEngineCapacity_AddStock.Location = new System.Drawing.Point(21, 265);
             this.labelEngineCapacity_AddStock.Name = "labelEngineCapacity_AddStock";
-            this.labelEngineCapacity_AddStock.Size = new System.Drawing.Size(90, 15);
+            this.labelEngineCapacity_AddStock.Size = new System.Drawing.Size(93, 15);
             this.labelEngineCapacity_AddStock.TabIndex = 7;
             this.labelEngineCapacity_AddStock.Text = "Engine Capacity";
             // 
@@ -428,7 +437,7 @@
             this.labelEngineId_AddStock.AutoSize = true;
             this.labelEngineId_AddStock.Location = new System.Drawing.Point(22, 304);
             this.labelEngineId_AddStock.Name = "labelEngineId_AddStock";
-            this.labelEngineId_AddStock.Size = new System.Drawing.Size(58, 15);
+            this.labelEngineId_AddStock.Size = new System.Drawing.Size(57, 15);
             this.labelEngineId_AddStock.TabIndex = 6;
             this.labelEngineId_AddStock.Text = "Engine Id";
             // 
@@ -437,7 +446,7 @@
             this.labelFuelTpye_AddStock.AutoSize = true;
             this.labelFuelTpye_AddStock.Location = new System.Drawing.Point(21, 188);
             this.labelFuelTpye_AddStock.Name = "labelFuelTpye_AddStock";
-            this.labelFuelTpye_AddStock.Size = new System.Drawing.Size(57, 15);
+            this.labelFuelTpye_AddStock.Size = new System.Drawing.Size(59, 15);
             this.labelFuelTpye_AddStock.TabIndex = 5;
             this.labelFuelTpye_AddStock.Text = "Fuel Type";
             // 
@@ -446,7 +455,7 @@
             this.labelModelName_AddStock.AutoSize = true;
             this.labelModelName_AddStock.Location = new System.Drawing.Point(21, 113);
             this.labelModelName_AddStock.Name = "labelModelName_AddStock";
-            this.labelModelName_AddStock.Size = new System.Drawing.Size(71, 15);
+            this.labelModelName_AddStock.Size = new System.Drawing.Size(74, 15);
             this.labelModelName_AddStock.TabIndex = 4;
             this.labelModelName_AddStock.Text = "Model Name";
             // 
@@ -455,7 +464,7 @@
             this.labelBrandName_AddStock.AutoSize = true;
             this.labelBrandName_AddStock.Location = new System.Drawing.Point(21, 41);
             this.labelBrandName_AddStock.Name = "labelBrandName_AddStock";
-            this.labelBrandName_AddStock.Size = new System.Drawing.Size(70, 15);
+            this.labelBrandName_AddStock.Size = new System.Drawing.Size(73, 15);
             this.labelBrandName_AddStock.TabIndex = 3;
             this.labelBrandName_AddStock.Text = "Brand Name";
             // 
@@ -464,7 +473,7 @@
             this.labelFuelId_AddStock.AutoSize = true;
             this.labelFuelId_AddStock.Location = new System.Drawing.Point(21, 224);
             this.labelFuelId_AddStock.Name = "labelFuelId_AddStock";
-            this.labelFuelId_AddStock.Size = new System.Drawing.Size(48, 15);
+            this.labelFuelId_AddStock.Size = new System.Drawing.Size(47, 15);
             this.labelFuelId_AddStock.TabIndex = 2;
             this.labelFuelId_AddStock.Text = " Fuel Id";
             // 
@@ -522,10 +531,10 @@
             // label_Items_UpdateStock
             // 
             this.label_Items_UpdateStock.AutoSize = true;
-            this.label_Items_UpdateStock.Font = new System.Drawing.Font("Times New Roman", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Items_UpdateStock.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_Items_UpdateStock.Location = new System.Drawing.Point(300, 181);
             this.label_Items_UpdateStock.Name = "label_Items_UpdateStock";
-            this.label_Items_UpdateStock.Size = new System.Drawing.Size(33, 15);
+            this.label_Items_UpdateStock.Size = new System.Drawing.Size(36, 15);
             this.label_Items_UpdateStock.TabIndex = 9;
             this.label_Items_UpdateStock.Text = "Items";
             // 
@@ -562,40 +571,40 @@
             // label_ItemHand
             // 
             this.label_ItemHand.AutoSize = true;
-            this.label_ItemHand.Font = new System.Drawing.Font("Times New Roman", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_ItemHand.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_ItemHand.Location = new System.Drawing.Point(22, 173);
             this.label_ItemHand.Name = "label_ItemHand";
-            this.label_ItemHand.Size = new System.Drawing.Size(101, 15);
+            this.label_ItemHand.Size = new System.Drawing.Size(106, 15);
             this.label_ItemHand.TabIndex = 3;
             this.label_ItemHand.Text = "Quantity On Hand";
             // 
             // label_Date
             // 
             this.label_Date.AutoSize = true;
-            this.label_Date.Font = new System.Drawing.Font("Times New Roman", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Date.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_Date.Location = new System.Drawing.Point(22, 126);
             this.label_Date.Name = "label_Date";
-            this.label_Date.Size = new System.Drawing.Size(30, 15);
+            this.label_Date.Size = new System.Drawing.Size(32, 15);
             this.label_Date.TabIndex = 2;
             this.label_Date.Text = "Date";
             // 
             // label_QuantityIn
             // 
             this.label_QuantityIn.AutoSize = true;
-            this.label_QuantityIn.Font = new System.Drawing.Font("Times New Roman", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_QuantityIn.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_QuantityIn.Location = new System.Drawing.Point(22, 87);
             this.label_QuantityIn.Name = "label_QuantityIn";
-            this.label_QuantityIn.Size = new System.Drawing.Size(66, 15);
+            this.label_QuantityIn.Size = new System.Drawing.Size(69, 15);
             this.label_QuantityIn.TabIndex = 1;
             this.label_QuantityIn.Text = "Quantity In";
             // 
             // label_ItemCode
             // 
             this.label_ItemCode.AutoSize = true;
-            this.label_ItemCode.Font = new System.Drawing.Font("Times New Roman", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_ItemCode.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_ItemCode.Location = new System.Drawing.Point(22, 43);
             this.label_ItemCode.Name = "label_ItemCode";
-            this.label_ItemCode.Size = new System.Drawing.Size(57, 15);
+            this.label_ItemCode.Size = new System.Drawing.Size(61, 15);
             this.label_ItemCode.TabIndex = 0;
             this.label_ItemCode.Text = "Item Code";
             // 
@@ -748,6 +757,26 @@
             this.tabPageStockStatus.Text = "Stock Status";
             this.tabPageStockStatus.Click += new System.EventHandler(this.tabPageStockStatus_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btn_checkstock);
+            this.groupBox1.Location = new System.Drawing.Point(6, 17);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(815, 107);
+            this.groupBox1.TabIndex = 1;
+            this.groupBox1.TabStop = false;
+            // 
+            // btn_checkstock
+            // 
+            this.btn_checkstock.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_checkstock.Location = new System.Drawing.Point(686, 40);
+            this.btn_checkstock.Name = "btn_checkstock";
+            this.btn_checkstock.Size = new System.Drawing.Size(75, 23);
+            this.btn_checkstock.TabIndex = 0;
+            this.btn_checkstock.Text = "Check";
+            this.btn_checkstock.UseVisualStyleBackColor = true;
+            this.btn_checkstock.Click += new System.EventHandler(this.btn_checkstock_Click);
+            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToOrderColumns = true;
@@ -760,25 +789,6 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(815, 322);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.btn_checkstock);
-            this.groupBox1.Location = new System.Drawing.Point(6, 17);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(815, 107);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            // 
-            // btn_checkstock
-            // 
-            this.btn_checkstock.Location = new System.Drawing.Point(686, 40);
-            this.btn_checkstock.Name = "btn_checkstock";
-            this.btn_checkstock.Size = new System.Drawing.Size(75, 23);
-            this.btn_checkstock.TabIndex = 0;
-            this.btn_checkstock.Text = "Check";
-            this.btn_checkstock.UseVisualStyleBackColor = true;
-            this.btn_checkstock.Click += new System.EventHandler(this.btn_checkstock_Click);
             // 
             // Stock_Control
             // 
@@ -809,8 +819,8 @@
             this.tabPageClearStock.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClearButton)).EndInit();
             this.tabPageStockStatus.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
