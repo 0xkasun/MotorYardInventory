@@ -115,17 +115,45 @@ namespace Motor_Yard
         private void pictureBoxUpdateButton_Click(object sender, EventArgs e)
         {
             string itemCode = textBox_ItemCode_UpdateStock.Text;
-            string QuantityIn=textBox_QuantityIn_UpdateStock.Text;
-
+            string QuantityIn = textBox_QuantityIn_UpdateStock.Text;
             DatabaseConnections db = new DatabaseConnections();
             long QuantityHand = db.CheckQuantity(itemCode);
-
-            if(QuantityHand>-1)
-            MessageBox.Show("Item Code : "+itemCode+"\nQuantity In : "+QuantityIn, "Verify Item Code and Quantity In", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-            
+            string Qh = Convert.ToString(QuantityHand);
+            textBox_QuantityOnHand_UpdateStock.Text = Qh;
+            if (QuantityHand > 0)
+            {
+                DialogResult result1 = MessageBox.Show("Item Code : " + itemCode + "\nQuantity In : " + QuantityIn, "Verify Item Code and Quantity In", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (result1 == DialogResult.OK)
+                {
+                    DatabaseConnections db2 = new DatabaseConnections();
+                    db2.UpdateStock(itemCode, QuantityIn);
+                    textBox_ItemCode_UpdateStock.Text = null;
+                    textBox_QuantityIn_UpdateStock.Text = null;
+                    textBox_QuantityOnHand_UpdateStock.Text = null;
+                }
+                if (result1 == DialogResult.Cancel)
+                {
+                    textBox_ItemCode_UpdateStock.Text = null;
+                    textBox_QuantityIn_UpdateStock.Text = null;
+                    textBox_QuantityOnHand_UpdateStock.Text = null;
+                }
+            }
             else
             {
-            MessageBox.Show("Check Item code : " + itemCode, "Invalid Item Code", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                DialogResult result2 = MessageBox.Show("Check Item code : " + itemCode, "Invalid Item Code", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                if (result2 == DialogResult.Retry)
+                {
+                    textBox_ItemCode_UpdateStock.Text = null;
+                    textBox_QuantityIn_UpdateStock.Text = null;
+                    textBox_QuantityOnHand_UpdateStock.Text = null;
+                }
+
+                if (result2 == DialogResult.Cancel)
+                {
+                    Main_Menu main_menu = new Main_Menu();
+                    main_menu.Show();
+                    this.Hide();
+                }
             }
         }
 
@@ -151,6 +179,31 @@ namespace Motor_Yard
 
             DatabaseConnections db=new DatabaseConnections();
             db.AddNewStock( brand_id, brand_name, model_id, model_name, fuel_id, fuel_type, engine_id, engine_capacity, year, year,cat_id, cat_name, part_id, part_name, quantity_in,unit_price) ;
+
+            textBoxBrandId_AddStock.Text = null;
+            textBoxModelId_AddStock.Text = null;
+            textBoxFuelId_AddStock.Text = null;
+            textBoxEngineId_AddStock.Text = null;
+            textBoxYear_AddStock.Text = null;
+            textBoxCatId_AddStock.Text = null;
+            textBoxPartId_AddStock.Text = null;
+            textBoxQuantityIn_AddStock.Text = null;
+            textBoxUnitPrice_AddStock.Text = null;
+            comboBoxBrandName_AddStock.Text = null;
+            comboBoxModelName_AddStock.Text = null;
+            comboBoxFuelType_AddStock.Text = null;
+            comboBoxEngineCapacity_AddStock.Text = null;
+            comboBoxCatName_AddStock.Text = null;
+            comboBoxPartName_AddStock.Text = null;
+        }
+
+        private void textBox_QuantityIn_UpdateStock_MouseClick(object sender, MouseEventArgs e)
+        {
+            string itemCode = textBox_ItemCode_UpdateStock.Text;
+            DatabaseConnections db = new DatabaseConnections();
+            long QuantityHand = db.CheckQuantity(itemCode);
+            string Qh = Convert.ToString(QuantityHand);
+            textBox_QuantityOnHand_UpdateStock.Text = Qh;
         }     
     }
 }

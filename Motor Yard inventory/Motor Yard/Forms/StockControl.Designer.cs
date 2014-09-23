@@ -521,6 +521,7 @@
             this.textBox_QuantityIn_UpdateStock.Name = "textBox_QuantityIn_UpdateStock";
             this.textBox_QuantityIn_UpdateStock.Size = new System.Drawing.Size(116, 21);
             this.textBox_QuantityIn_UpdateStock.TabIndex = 7;
+            this.textBox_QuantityIn_UpdateStock.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox_QuantityIn_UpdateStock_MouseClick);
             // 
             // textBox_ItemCode_UpdateStock
             // 
