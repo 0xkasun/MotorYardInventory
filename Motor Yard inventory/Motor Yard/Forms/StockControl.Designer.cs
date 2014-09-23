@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Stock_Control));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageAddNewStock = new System.Windows.Forms.TabPage();
             this.groupBoxAddDetails_AddStock = new System.Windows.Forms.GroupBox();
@@ -181,7 +182,7 @@
             // 
             // pictureBoxAddButton
             // 
-            this.pictureBoxAddButton.Image = global::Motor_Yard.Properties.Resources.images;
+            this.pictureBoxAddButton.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxAddButton.Image")));
             this.pictureBoxAddButton.Location = new System.Drawing.Point(57, 312);
             this.pictureBoxAddButton.Name = "pictureBoxAddButton";
             this.pictureBoxAddButton.Size = new System.Drawing.Size(99, 85);
@@ -502,7 +503,7 @@
             // 
             // pictureBoxUpdateButton
             // 
-            this.pictureBoxUpdateButton.Image = global::Motor_Yard.Properties.Resources.updat;
+            this.pictureBoxUpdateButton.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxUpdateButton.Image")));
             this.pictureBoxUpdateButton.Location = new System.Drawing.Point(161, 288);
             this.pictureBoxUpdateButton.Name = "pictureBoxUpdateButton";
             this.pictureBoxUpdateButton.Size = new System.Drawing.Size(93, 76);
@@ -618,7 +619,7 @@
             // 
             // pictureBoxDeleteButton
             // 
-            this.pictureBoxDeleteButton.Image = global::Motor_Yard.Properties.Resources.delete2;
+            this.pictureBoxDeleteButton.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxDeleteButton.Image")));
             this.pictureBoxDeleteButton.Location = new System.Drawing.Point(154, 258);
             this.pictureBoxDeleteButton.Name = "pictureBoxDeleteButton";
             this.pictureBoxDeleteButton.Size = new System.Drawing.Size(90, 76);
@@ -685,7 +686,7 @@
             // 
             // pictureBoxClearButton
             // 
-            this.pictureBoxClearButton.Image = global::Motor_Yard.Properties.Resources.clear;
+            this.pictureBoxClearButton.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxClearButton.Image")));
             this.pictureBoxClearButton.Location = new System.Drawing.Point(170, 188);
             this.pictureBoxClearButton.Name = "pictureBoxClearButton";
             this.pictureBoxClearButton.Size = new System.Drawing.Size(82, 76);

@@ -11,3 +11,4 @@ E:\GIt_Hubb\Motor Yard inventory\Motor Yard\obj\Debug\Motor_Yard.Properties.Reso
 E:\GIt_Hubb\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.csproj.GenerateResource.Cache
 E:\GIt_Hubb\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.exe
 E:\GIt_Hubb\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.pdb
+E:\GIt_Hubb\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.csprojResolveAssemblyReference.cache
