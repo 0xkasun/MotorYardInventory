@@ -52,95 +52,7 @@ namespace Motor_Yard
             }
 
 
-            try
-            {
-                con.Open();
-                cmd.CommandText = "INSERT INTO Brand ([brand_id],[brand_name]) VALUES ('" + Convert.ToInt64(BrandId) + "','" + BrandName + "')";
-                cmd.ExecuteNonQuery();
-                con.Close();
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message);
-            }
-
-            try
-            {
-                con.Open();
-                cmd.CommandText = "INSERT INTO Model([model_id],[model_name]) VALUES ('" + Convert.ToInt64(ModelId) + "','" + ModelName + "')";
-                cmd.ExecuteNonQuery();
-                con.Close();
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message);
-            }
-
-            try
-            {
-                con.Open();
-                cmd.CommandText = "INSERT INTO Fuel([fuel_id],[fuel_type]) VALUES ('" + Convert.ToInt64(FuelId) + "','" + FuelType + "')";
-                cmd.ExecuteNonQuery();
-                con.Close();
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message);
-            }
-
-            try
-            {
-                con.Open();
-                cmd.CommandText = "INSERT INTO Engine([engine_id],[engine_capacity]) VALUES ('" + Convert.ToInt64(EngineId) + "','" + Convert.ToInt64(EngineCapacity) + "')";
-                cmd.ExecuteNonQuery();
-                con.Close();
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message);
-            }
-
-            try
-            {
-                con.Open();
-                cmd.CommandText = "INSERT INTO Yearr([year_id],[year_num]) VALUES ('" + Convert.ToInt64(Year) + "','" + Yearr + "')";
-                cmd.ExecuteNonQuery();
-                con.Close();
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message);
-            }
-            try
-            {
-                con.Open();
-                cmd.CommandText = "INSERT INTO SparePart([part_id],[part_name],[unit_price]) VALUES ('" + Convert.ToInt64(PartId) + "','" + PartName + "','" + UnitPrice + "')";
-                cmd.ExecuteNonQuery();
-                con.Close();
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message);
-            }
-
-            try
-            {
-                con.Open();
-                cmd.CommandText = "INSERT INTO Category([cat_id],[cat_name]) VALUES ('" + Convert.ToInt64(CatId) + "','" + CatName + "')";
-                cmd.ExecuteNonQuery();
-                con.Close();
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message);
-            }
+            
             try
             {
                 con.Open();
@@ -267,19 +179,24 @@ namespace Motor_Yard
         public void DeleteItem(String itemCode)
         {
 
+            try
+            {
+                con.Open();
+                String del = "Delete from Inventory_Item where inventory_id='" + itemCode + "'";
+                cmd.CommandText = del;
+                cmd.ExecuteNonQuery();
+                con.Close();
 
-            con.Open();
-            String del = "Delete from Inventory_Item where inventory_id='" + itemCode + "'";
-            cmd.CommandText = del;
-            cmd.ExecuteNonQuery();
+                con.Open();
+                String del2 = "Delete from Client_InventoryItem where inventory_id='" + itemCode + "'";
+                cmd.CommandText = del2;
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }catch(Exception e){
 
-            String del2 = "Delete from Client_InventoryItem where inventory_id='" + itemCode + "'";
-            cmd.CommandText = del2;
-            cmd.ExecuteNonQuery();
-            con.Close();
-
-
-
+                MessageBox.Show(e.Message);
+            
+            }
 
         }
 
@@ -299,13 +216,213 @@ namespace Motor_Yard
             }
             catch (Exception e)
             {
-
-                //throw;
                 MessageBox.Show(e.Message);
-
             }
 
 
+        }
+
+
+        
+
+
+        public long GetId(string check, string table)
+        {
+
+            if (table == "Brand")
+
+            {
+                
+                String load = "select brand_id from Brand where brand_name='" + check + "' ";
+                cmd.CommandText = load;
+                itemCode = 0;
+                try
+                {
+                    con.Open();
+                    dr = cmd.ExecuteReader();
+                    if (dr.HasRows)
+                    {
+                        while (dr.Read())
+                        {
+                            itemCode = Convert.ToInt64(dr[0].ToString());
+                        }
+                    }
+
+                    con.Close();
+                }
+                catch (Exception e)
+                {
+
+                    MessageBox.Show(e.Message);
+                }
+
+            }
+
+            if (table == "Category")
+            {
+                String load = "select cat_id from Category where cat_name='" + check + "' ";
+                cmd.CommandText = load;
+                itemCode = 0;
+                try
+                {
+                    con.Open();
+                    dr = cmd.ExecuteReader();
+                    if (dr.HasRows)
+                    {
+                        while (dr.Read())
+                        {
+                            itemCode = Convert.ToInt64(dr[0].ToString());
+                            
+                        }
+                    }
+
+                    con.Close();
+                }
+                catch (Exception e)
+                {
+
+                    MessageBox.Show(e.Message);
+                }
+
+            }
+
+            if (table == "Engine")
+            {
+                String load = "select engine_id from Engine where engine_capacity='" + check + "' ";
+                cmd.CommandText = load;
+                itemCode = 0;
+                try
+                {
+                    con.Open();
+                    dr = cmd.ExecuteReader();
+                    if (dr.HasRows)
+                    {
+                        while (dr.Read())
+                        {
+                            itemCode = Convert.ToInt64(dr[0].ToString());
+                        }
+                    }
+
+                    con.Close();
+                }
+                catch (Exception e)
+                {
+
+                    MessageBox.Show(e.Message);
+                }
+
+            }
+
+            if (table == "Fuel")
+            {
+                String load = "select fuel_id from Fuel where fuel_type='" + check + "' ";
+                cmd.CommandText = load;
+                itemCode = 0;
+                try
+                {
+                    con.Open();
+                    dr = cmd.ExecuteReader();
+                    if (dr.HasRows)
+                    {
+                        while (dr.Read())
+                        {
+                            itemCode = Convert.ToInt64(dr[0].ToString());
+                        }
+                    }
+
+                    con.Close();
+                }
+                catch (Exception e)
+                {
+
+                    MessageBox.Show(e.Message);
+                }
+
+            }
+
+            if (table == "Model")
+            {
+                String load = "select model_id from Model where model_name='" + check + "' ";
+                cmd.CommandText = load;
+                itemCode = 0;
+                try
+                {
+                    con.Open();
+                    dr = cmd.ExecuteReader();
+                    if (dr.HasRows)
+                    {
+                        while (dr.Read())
+                        {
+                            itemCode = Convert.ToInt64(dr[0].ToString());
+                        }
+                    }
+
+                    con.Close();
+                }
+                catch (Exception e)
+                {
+
+                    MessageBox.Show(e.Message);
+                }
+
+            }
+
+            if (table == "Year")
+            {
+                String load = "select year_id from Yearr where year_num='" + check + "' ";
+                cmd.CommandText = load;
+                itemCode = 0;
+                try
+                {
+                    con.Open();
+                    dr = cmd.ExecuteReader();
+                    if (dr.HasRows)
+                    {
+                        while (dr.Read())
+                        {
+                            itemCode = Convert.ToInt64(dr[0].ToString());
+                        }
+                    }
+
+                    con.Close();
+                }
+                catch (Exception e)
+                {
+
+                    MessageBox.Show(e.Message);
+                }
+
+            }
+
+            if (table == "SparePart")
+            {
+                String load = "select part_id from SparePart where part_name='" + check + "' ";
+                cmd.CommandText = load;
+                itemCode = 0;
+                try
+                {
+                    con.Open();
+                    dr = cmd.ExecuteReader();
+                    if (dr.HasRows)
+                    {
+                        while (dr.Read())
+                        {
+                            itemCode = Convert.ToInt64(dr[0].ToString());
+                        }
+                    }
+
+                    con.Close();
+                }
+                catch (Exception e)
+                {
+
+                    MessageBox.Show(e.Message);
+                }
+
+            }
+        
+
+            return itemCode;
         }
 
     }

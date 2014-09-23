@@ -114,9 +114,27 @@ namespace Motor_Yard
             String itemCode = textBox_ItemCode_DeleteStock.Text;
             String repeatitemCode = textBox_RepeatItemCode_DeleteStock.Text;
 
-            if (itemCode == repeatitemCode)
+            if (itemCode == repeatitemCode && (itemCode != "" || repeatitemCode != ""))
             {
-                MessageBox.Show("ItemCode : " + itemCode + "\n Item Name : Door ", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult result1 = MessageBox.Show("ItemCode : " + itemCode + "\n Item Name : Door ", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result1 == DialogResult.Yes)
+                {
+                    DatabaseConnections db = new DatabaseConnections();
+
+                    textBox_ItemCode_DeleteStock.Text = null;
+                    textBox_RepeatItemCode_DeleteStock.Text = null;
+
+                    db.DeleteItem(itemCode);
+                    MessageBox.Show("success!");
+
+
+                }
+                else
+                {
+                    textBox_ItemCode_DeleteStock.Text = null;
+                    textBox_RepeatItemCode_DeleteStock.Text = null;
+
+                }
             }
 
             else
@@ -219,6 +237,7 @@ namespace Motor_Yard
             textBox_QuantityOnHand_UpdateStock.Text = Qh;
         }
 
+<<<<<<< HEAD
         private void btn_checkstock_Click(object sender, EventArgs e)
         {
             //todo if a code search is needed impliment it here
@@ -245,6 +264,120 @@ namespace Motor_Yard
 		MessageBox.Show(ex.Message);
 		//throw;
 	};
+=======
+
+        private void tabPageStockStatus_Click(object sender, EventArgs e)
+        {
+
+>>>>>>> 6eab227791ea43ef3d2cc63ff30074fd352e3a19
         }     
+
+        private void comboBoxBrandName_AddStock_TextChanged(object sender, EventArgs e)
+        {
+            string check = comboBoxBrandName_AddStock.Text;
+            if (check != "")
+            {
+                DatabaseConnections db = new DatabaseConnections();
+                long Id1 = db.GetId(check, "Brand");
+                string ItemId1 = Convert.ToString(Id1);
+                textBoxBrandId_AddStock.Text = ItemId1;
+            }
+
+            else
+            {
+                textBoxBrandId_AddStock.Text = "";
+            }
+            
+
+        }
+
+        private void comboBoxModelName_AddStock_TextChanged(object sender, EventArgs e)
+        {
+            string check = comboBoxModelName_AddStock.Text;
+            if (check != "")
+            {
+                DatabaseConnections db = new DatabaseConnections();
+                long Id2 = db.GetId(check, "Model");
+                string ItemId2 = Convert.ToString(Id2);
+                textBoxModelId_AddStock.Text = ItemId2;
+            }
+
+            else
+            {
+                textBoxModelId_AddStock.Text = "";
+            }
+        }
+
+        private void comboBoxFuelType_AddStock_TextChanged(object sender, EventArgs e)
+        {
+            string check = comboBoxFuelType_AddStock.Text;
+            if (check != "")
+            {
+                DatabaseConnections db = new DatabaseConnections();
+                long Id3 = db.GetId(check, "Fuel");
+                string ItemId3 = Convert.ToString(Id3);
+                textBoxFuelId_AddStock.Text = ItemId3;
+            }
+
+            else
+            {
+                textBoxFuelId_AddStock.Text = "";
+            }
+        }
+
+        private void comboBoxEngineCapacity_AddStock_TextChanged(object sender, EventArgs e)
+        {
+            string check = comboBoxEngineCapacity_AddStock.Text;
+            if (check != "")
+            {
+                DatabaseConnections db = new DatabaseConnections();
+                long Id4 = db.GetId(check, "Engine");
+                string ItemId4 = Convert.ToString(Id4);
+                textBoxEngineId_AddStock.Text = ItemId4;
+            }
+
+            else
+            {
+                textBoxEngineId_AddStock.Text = "";
+            }
+        }
+
+        private void comboBoxCatName_AddStock_TextChanged(object sender, EventArgs e)
+        {
+            string check = comboBoxCatName_AddStock.Text;
+            if (check != "")
+            {
+                DatabaseConnections db = new DatabaseConnections();
+                long Id5 = db.GetId(check, "Category");
+                string ItemId5 = Convert.ToString(Id5);
+                textBoxCatId_AddStock.Text = ItemId5;
+            }
+
+            else
+            {
+                textBoxCatId_AddStock.Text = "";
+            }
+        }
+
+        private void comboBoxPartName_AddStock_TextChanged(object sender, EventArgs e)
+        {
+            string check = comboBoxPartName_AddStock.Text;
+            if (check != "")
+            {
+                DatabaseConnections db = new DatabaseConnections();
+                long Id6 = db.GetId(check, "SparePart");
+                string ItemId6 = Convert.ToString(Id6);
+                textBoxPartId_AddStock.Text = ItemId6;
+            }
+
+            else
+            {
+                textBoxPartId_AddStock.Text = "";
+            }
+        }
+
+        
+    
+
     }
 }

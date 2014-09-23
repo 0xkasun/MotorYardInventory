@@ -232,6 +232,7 @@
             this.comboBoxPartName_AddStock.Name = "comboBoxPartName_AddStock";
             this.comboBoxPartName_AddStock.Size = new System.Drawing.Size(186, 23);
             this.comboBoxPartName_AddStock.TabIndex = 17;
+            this.comboBoxPartName_AddStock.TextChanged += new System.EventHandler(this.comboBoxPartName_AddStock_TextChanged);
             // 
             // comboBoxCatName_AddStock
             // 
@@ -240,6 +241,7 @@
             this.comboBoxCatName_AddStock.Name = "comboBoxCatName_AddStock";
             this.comboBoxCatName_AddStock.Size = new System.Drawing.Size(186, 23);
             this.comboBoxCatName_AddStock.TabIndex = 15;
+            this.comboBoxCatName_AddStock.TextChanged += new System.EventHandler(this.comboBoxCatName_AddStock_TextChanged);
             // 
             // labelDate_AddStock
             // 
@@ -337,6 +339,7 @@
             this.comboBoxEngineCapacity_AddStock.Name = "comboBoxEngineCapacity_AddStock";
             this.comboBoxEngineCapacity_AddStock.Size = new System.Drawing.Size(186, 23);
             this.comboBoxEngineCapacity_AddStock.TabIndex = 17;
+            this.comboBoxEngineCapacity_AddStock.TextChanged += new System.EventHandler(this.comboBoxEngineCapacity_AddStock_TextChanged);
             // 
             // comboBoxFuelType_AddStock
             // 
@@ -345,6 +348,7 @@
             this.comboBoxFuelType_AddStock.Name = "comboBoxFuelType_AddStock";
             this.comboBoxFuelType_AddStock.Size = new System.Drawing.Size(186, 23);
             this.comboBoxFuelType_AddStock.TabIndex = 16;
+            this.comboBoxFuelType_AddStock.TextChanged += new System.EventHandler(this.comboBoxFuelType_AddStock_TextChanged);
             // 
             // comboBoxModelName_AddStock
             // 
@@ -353,6 +357,7 @@
             this.comboBoxModelName_AddStock.Name = "comboBoxModelName_AddStock";
             this.comboBoxModelName_AddStock.Size = new System.Drawing.Size(186, 23);
             this.comboBoxModelName_AddStock.TabIndex = 15;
+            this.comboBoxModelName_AddStock.TextChanged += new System.EventHandler(this.comboBoxModelName_AddStock_TextChanged);
             // 
             // comboBoxBrandName_AddStock
             // 
@@ -361,6 +366,8 @@
             this.comboBoxBrandName_AddStock.Name = "comboBoxBrandName_AddStock";
             this.comboBoxBrandName_AddStock.Size = new System.Drawing.Size(186, 23);
             this.comboBoxBrandName_AddStock.TabIndex = 14;
+           
+            this.comboBoxBrandName_AddStock.TextChanged += new System.EventHandler(this.comboBoxBrandName_AddStock_TextChanged);
             // 
             // textBoxYear_AddStock
             // 
@@ -738,6 +745,7 @@
             this.tabPageStockStatus.Size = new System.Drawing.Size(827, 458);
             this.tabPageStockStatus.TabIndex = 4;
             this.tabPageStockStatus.Text = "Stock Status";
+            this.tabPageStockStatus.Click += new System.EventHandler(this.tabPageStockStatus_Click);
             // 
             // dataGridView1
             // 
