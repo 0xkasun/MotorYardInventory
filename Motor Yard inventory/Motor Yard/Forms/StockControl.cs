@@ -99,8 +99,6 @@ namespace Motor_Yard
                     textBox_RepeatItemCode_ClearStock.Text = "";
                     textBox_ItemCode_ClearStock.Text = "";
                 }
-                //todo
-                // add method here if no is selected 
             }
 
             else

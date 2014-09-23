@@ -84,6 +84,7 @@ E:\GIt_Hubb\Motor Yard inventory\Motor Yard\obj\Debug\Motor_Yard.Properties.Reso
 E:\GIt_Hubb\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.csproj.GenerateResource.Cache
 E:\GIt_Hubb\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.exe
 E:\GIt_Hubb\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.pdb
+
 I:\Projects\GroupProjects\MotorYardInventory\Motor Yard inventory\Motor Yard\bin\Debug\Motor Yard.exe.config
 I:\Projects\GroupProjects\MotorYardInventory\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.exe
 I:\Projects\GroupProjects\MotorYardInventory\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.pdb
@@ -98,3 +99,5 @@ I:\Projects\GroupProjects\MotorYardInventory\Motor Yard inventory\Motor Yard\obj
 I:\Projects\GroupProjects\MotorYardInventory\Motor Yard inventory\Motor Yard\obj\Debug\Motor_Yard.Customers.resources
 I:\Projects\GroupProjects\MotorYardInventory\Motor Yard inventory\Motor Yard\obj\Debug\Motor_Yard.Properties.Resources.resources
 I:\Projects\GroupProjects\MotorYardInventory\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.csproj.GenerateResource.Cache
+
+E:\GIt_Hubb\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.csprojResolveAssemblyReference.cache
