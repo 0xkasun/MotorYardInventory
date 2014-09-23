@@ -267,16 +267,24 @@ namespace Motor_Yard
         public void DeleteItem(String itemCode)
         {
 
+            try
+            {
+                con.Open();
+                String del = "Delete from Inventory_Item where inventory_id='" + itemCode + "'";
+                cmd.CommandText = del;
+                cmd.ExecuteNonQuery();
+                con.Close();
 
-            con.Open();
-            String del = "Delete from Inventory_Item where inventory_id='" + itemCode + "'";
-            cmd.CommandText = del;
-            cmd.ExecuteNonQuery();
+                con.Open();
+                String del2 = "Delete from Client_InventoryItem where inventory_id='" + itemCode + "'";
+                cmd.CommandText = del2;
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }catch(Exception e){
 
-            String del2 = "Delete from Client_InventoryItem where inventory_id='" + itemCode + "'";
-            cmd.CommandText = del2;
-            cmd.ExecuteNonQuery();
-            con.Close();
+                MessageBox.Show(e);
+            
+            }
 
 
 
