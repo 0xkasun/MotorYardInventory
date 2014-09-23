@@ -57,6 +57,7 @@ J:\New folder\Motor_Yard\Motor_Yard\Motor Yard inventory\Motor Yard\obj\Debug\Mo
 J:\New folder\Motor_Yard\Motor_Yard\Motor Yard inventory\Motor Yard\obj\Debug\Motor_Yard.Customers.resources
 J:\New folder\Motor_Yard\Motor_Yard\Motor Yard inventory\Motor Yard\obj\Debug\Motor_Yard.Properties.Resources.resources
 J:\New folder\Motor_Yard\Motor_Yard\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.csproj.GenerateResource.Cache
+<<<<<<< HEAD
 F:\Study\GIT\Git_sourcetree2\Motor Yard inventory\Motor Yard\bin\Debug\Motor Yard.exe.config
 F:\Study\GIT\Git_sourcetree2\Motor Yard inventory\Motor Yard\bin\Debug\Motor Yard.exe
 F:\Study\GIT\Git_sourcetree2\Motor Yard inventory\Motor Yard\bin\Debug\Motor Yard.pdb
@@ -71,3 +72,19 @@ F:\Study\GIT\Git_sourcetree2\Motor Yard inventory\Motor Yard\obj\Debug\Motor_Yar
 F:\Study\GIT\Git_sourcetree2\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.csproj.GenerateResource.Cache
 F:\Study\GIT\Git_sourcetree2\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.exe
 F:\Study\GIT\Git_sourcetree2\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.pdb
+=======
+I:\Projects\GroupProjects\MotorYardInventory\Motor Yard inventory\Motor Yard\bin\Debug\Motor Yard.exe.config
+I:\Projects\GroupProjects\MotorYardInventory\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.exe
+I:\Projects\GroupProjects\MotorYardInventory\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.pdb
+I:\Projects\GroupProjects\MotorYardInventory\Motor Yard inventory\Motor Yard\bin\Debug\Motor Yard.exe
+I:\Projects\GroupProjects\MotorYardInventory\Motor Yard inventory\Motor Yard\bin\Debug\Motor Yard.pdb
+I:\Projects\GroupProjects\MotorYardInventory\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.csprojResolveAssemblyReference.cache
+I:\Projects\GroupProjects\MotorYardInventory\Motor Yard inventory\Motor Yard\obj\Debug\Motor_Yard.LogIn.resources
+I:\Projects\GroupProjects\MotorYardInventory\Motor Yard inventory\Motor Yard\obj\Debug\Motor_Yard.Main_Menu.resources
+I:\Projects\GroupProjects\MotorYardInventory\Motor Yard inventory\Motor Yard\obj\Debug\Motor_Yard.Stock_Control.resources
+I:\Projects\GroupProjects\MotorYardInventory\Motor Yard inventory\Motor Yard\obj\Debug\Motor_Yard.Reports.resources
+I:\Projects\GroupProjects\MotorYardInventory\Motor Yard inventory\Motor Yard\obj\Debug\Motor_Yard.Catalog.resources
+I:\Projects\GroupProjects\MotorYardInventory\Motor Yard inventory\Motor Yard\obj\Debug\Motor_Yard.Customers.resources
+I:\Projects\GroupProjects\MotorYardInventory\Motor Yard inventory\Motor Yard\obj\Debug\Motor_Yard.Properties.Resources.resources
+I:\Projects\GroupProjects\MotorYardInventory\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.csproj.GenerateResource.Cache
+>>>>>>> 82450a815e2e22271e126cf1b51dbc3cc74916eb

@@ -87,7 +87,16 @@ namespace Motor_Yard
 
             if (itemCode == repeatitemCode)
             {
-                MessageBox.Show("ItemCode : " + itemCode + "\nQuantity on Hand : " + 12, "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult confirm = MessageBox.Show("ItemCode : " + itemCode + "\nQuantity on Hand : " + 12, "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (confirm == DialogResult.Yes)
+                {
+                    DatabaseConnections db = new DatabaseConnections();
+                    db.Clearstock(itemCode);
+                    textBox_RepeatItemCode_ClearStock.Text = "";
+                    textBox_ItemCode_ClearStock.Text = "";
+                }
+                //todo
+                // add method here if no is selected 
             }
 
             else

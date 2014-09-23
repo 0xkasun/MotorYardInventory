@@ -211,6 +211,31 @@ namespace Motor_Yard
 
         }
 
+        public void Clearstock(String itemcode)
+        {
+            CinId = Convert.ToInt64((client_Id.ToString()) + itemcode);
+            int quantity = 0;
+            sql = "UPDATE Client_InventoryItem SET quantity='" + quantity + "' WHERE cin_id='" + CinId + "' ";
+            cmd.CommandText = sql;
+
+            try
+            {
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+                MessageBox.Show("Stock cleared", "Done", MessageBoxButtons.OK);
+            }
+            catch (Exception e)
+            {
+
+                //throw;
+                MessageBox.Show(e.Message);
+
+            }
+
+
+        }
+
     }
 
     
