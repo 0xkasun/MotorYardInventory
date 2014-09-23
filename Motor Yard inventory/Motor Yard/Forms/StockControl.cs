@@ -213,6 +213,11 @@ namespace Motor_Yard
             long QuantityHand = db.CheckQuantity(itemCode);
             string Qh = Convert.ToString(QuantityHand);
             textBox_QuantityOnHand_UpdateStock.Text = Qh;
+        }
+
+        private void tabPageStockStatus_Click(object sender, EventArgs e)
+        {
+
         }     
     }
 }

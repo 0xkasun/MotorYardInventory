@@ -730,6 +730,7 @@
             this.tabPageStockStatus.Size = new System.Drawing.Size(827, 458);
             this.tabPageStockStatus.TabIndex = 4;
             this.tabPageStockStatus.Text = "Stock Status";
+            this.tabPageStockStatus.Click += new System.EventHandler(this.tabPageStockStatus_Click);
             // 
             // Stock_Control
             // 

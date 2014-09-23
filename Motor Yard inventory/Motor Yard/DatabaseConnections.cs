@@ -282,7 +282,7 @@ namespace Motor_Yard
                 con.Close();
             }catch(Exception e){
 
-                MessageBox.Show(e);
+                MessageBox.Show(e.Message);
             
             }
 
