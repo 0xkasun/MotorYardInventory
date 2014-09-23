@@ -57,3 +57,17 @@ J:\New folder\Motor_Yard\Motor_Yard\Motor Yard inventory\Motor Yard\obj\Debug\Mo
 J:\New folder\Motor_Yard\Motor_Yard\Motor Yard inventory\Motor Yard\obj\Debug\Motor_Yard.Customers.resources
 J:\New folder\Motor_Yard\Motor_Yard\Motor Yard inventory\Motor Yard\obj\Debug\Motor_Yard.Properties.Resources.resources
 J:\New folder\Motor_Yard\Motor_Yard\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.csproj.GenerateResource.Cache
+F:\Study\GIT\Git_sourcetree2\Motor Yard inventory\Motor Yard\bin\Debug\Motor Yard.exe.config
+F:\Study\GIT\Git_sourcetree2\Motor Yard inventory\Motor Yard\bin\Debug\Motor Yard.exe
+F:\Study\GIT\Git_sourcetree2\Motor Yard inventory\Motor Yard\bin\Debug\Motor Yard.pdb
+F:\Study\GIT\Git_sourcetree2\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.csprojResolveAssemblyReference.cache
+F:\Study\GIT\Git_sourcetree2\Motor Yard inventory\Motor Yard\obj\Debug\Motor_Yard.LogIn.resources
+F:\Study\GIT\Git_sourcetree2\Motor Yard inventory\Motor Yard\obj\Debug\Motor_Yard.Main_Menu.resources
+F:\Study\GIT\Git_sourcetree2\Motor Yard inventory\Motor Yard\obj\Debug\Motor_Yard.Stock_Control.resources
+F:\Study\GIT\Git_sourcetree2\Motor Yard inventory\Motor Yard\obj\Debug\Motor_Yard.Reports.resources
+F:\Study\GIT\Git_sourcetree2\Motor Yard inventory\Motor Yard\obj\Debug\Motor_Yard.Catalog.resources
+F:\Study\GIT\Git_sourcetree2\Motor Yard inventory\Motor Yard\obj\Debug\Motor_Yard.Customers.resources
+F:\Study\GIT\Git_sourcetree2\Motor Yard inventory\Motor Yard\obj\Debug\Motor_Yard.Properties.Resources.resources
+F:\Study\GIT\Git_sourcetree2\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.csproj.GenerateResource.Cache
+F:\Study\GIT\Git_sourcetree2\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.exe
+F:\Study\GIT\Git_sourcetree2\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.pdb
