@@ -65,7 +65,15 @@ namespace Motor_Yard
                 tabPageUpdateStock.Enabled = false;
             }
 
+            textBoxBrandId_AddStock.Enabled = false;
+            textBoxCatId_AddStock.Enabled = false;
+            textBoxFuelId_AddStock.Enabled = false;
+            textBoxModelId_AddStock.Enabled = false;
+            textBoxPartId_AddStock.Enabled = false;
+            textBoxEngineId_AddStock.Enabled = false;
+
         }
+
         long brand_id;
         long cinId;
         long model_id;
@@ -143,72 +151,101 @@ namespace Motor_Yard
 
         private void pictureBoxUpdateButton_Click(object sender, EventArgs e)
         {
-            string itemCode = textBox_ItemCode_UpdateStock.Text;
-            string QuantityIn = textBox_QuantityIn_UpdateStock.Text;
-            DatabaseConnections db = new DatabaseConnections();
-            long QuantityHand = db.CheckQuantity(itemCode);
-            string Qh = Convert.ToString(QuantityHand);
-            textBox_QuantityOnHand_UpdateStock.Text = Qh;
-            if (QuantityHand > 0)
+
+            if (textBox_ItemCode_UpdateStock.Text != "" && textBox_QuantityIn_UpdateStock.Text != "")
             {
-                DialogResult result1 = MessageBox.Show("Item Code : " + itemCode + "\nQuantity In : " + QuantityIn, "Verify Item Code and Quantity In", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                if (result1 == DialogResult.OK)
+                string itemCode = textBox_ItemCode_UpdateStock.Text;
+                string QuantityIn = textBox_QuantityIn_UpdateStock.Text;
+
+                DatabaseConnections db = new DatabaseConnections();
+                long QuantityHand = db.CheckQuantity(itemCode);
+                string Qh = Convert.ToString(QuantityHand);
+                textBox_QuantityOnHand_UpdateStock.Text = Qh;
+                if (QuantityHand > 0)
                 {
-                    DatabaseConnections db2 = new DatabaseConnections();
-                    db2.UpdateStock(itemCode, QuantityIn);
-                    textBox_ItemCode_UpdateStock.Text = null;
-                    textBox_QuantityIn_UpdateStock.Text = null;
-                    textBox_QuantityOnHand_UpdateStock.Text = null;
+                    DialogResult result1 = MessageBox.Show("Item Code : " + itemCode + "\nQuantity In : " + QuantityIn, "Verify Item Code and Quantity In", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    if (result1 == DialogResult.OK)
+                    {
+                        DatabaseConnections db2 = new DatabaseConnections();
+                        db2.UpdateStock(itemCode, QuantityIn);
+                        textBox_ItemCode_UpdateStock.Text = null;
+                        textBox_QuantityIn_UpdateStock.Text = null;
+                        textBox_QuantityOnHand_UpdateStock.Text = null;
+                    }
+                    if (result1 == DialogResult.Cancel)
+                    {
+                        textBox_ItemCode_UpdateStock.Text = null;
+                        textBox_QuantityIn_UpdateStock.Text = null;
+                        textBox_QuantityOnHand_UpdateStock.Text = null;
+                    }
                 }
-                if (result1 == DialogResult.Cancel)
+                else
                 {
-                    textBox_ItemCode_UpdateStock.Text = null;
-                    textBox_QuantityIn_UpdateStock.Text = null;
-                    textBox_QuantityOnHand_UpdateStock.Text = null;
+                    DialogResult result2 = MessageBox.Show("Check Item code : " + itemCode, "Invalid Item Code", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                    if (result2 == DialogResult.Retry)
+                    {
+                        textBox_ItemCode_UpdateStock.Text = null;
+                        textBox_QuantityIn_UpdateStock.Text = null;
+                        textBox_QuantityOnHand_UpdateStock.Text = null;
+                    }
+
+                    if (result2 == DialogResult.Cancel)
+                    {
+                        this.Hide();
+                    }
                 }
             }
             else
             {
-                DialogResult result2 = MessageBox.Show("Check Item code : " + itemCode, "Invalid Item Code", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
-                if (result2 == DialogResult.Retry)
+                if (textBox_ItemCode_UpdateStock.Text != "")
                 {
-                    textBox_ItemCode_UpdateStock.Text = null;
-                    textBox_QuantityIn_UpdateStock.Text = null;
-                    textBox_QuantityOnHand_UpdateStock.Text = null;
+                    MessageBox.Show("Enter data to Quantity in data Field!", "Warnnig", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
-                if (result2 == DialogResult.Cancel)
+                else if (textBox_QuantityIn_UpdateStock.Text != "")
                 {
-                    Main_Menu main_menu = new Main_Menu();
-                    main_menu.Show();
-                    this.Hide();
+                    MessageBox.Show("Enter data to ItemCode data Field!", "Warnnig", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+                else
+                {
+                    MessageBox.Show("Can't keep empty data Field!\n Enter ItemCode and Quantity In", "Warnnig", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                }
+                
             }
+            
         }
 
         private void pictureBoxAddButton_Click(object sender, EventArgs e)
         {
+            if (brand_id != 0 && model_id != 0 && fuel_id != 0 && engine_id != 0 && cat_id != 0 && part_id != 0 && year != 0 && textBoxQuantityIn_AddStock.Text != "" && textBoxUnitPrice_AddStock.Text != "" && brand_name != "" && model_name != "" && fuel_type != "" && comboBoxEngineCapacity_AddStock.Text != "" && cat_name != "" && part_name != "")
+            {
+                brand_id = Convert.ToInt64(textBoxBrandId_AddStock.Text);
+                model_id = Convert.ToInt64(textBoxModelId_AddStock.Text);
+                fuel_id = Convert.ToInt64(textBoxFuelId_AddStock.Text);
+                engine_id = Convert.ToInt64(textBoxEngineId_AddStock.Text);
+                year = Convert.ToInt64(textBoxYear_AddStock.Text);
+                cat_id = Convert.ToInt64(textBoxCatId_AddStock.Text);
+                part_id = Convert.ToInt64(textBoxPartId_AddStock.Text);
+                quantity_in = Convert.ToInt64(textBoxQuantityIn_AddStock.Text);
+                unit_price = Convert.ToInt64(textBoxUnitPrice_AddStock.Text);
+                brand_name = comboBoxBrandName_AddStock.Text;
+                model_name = comboBoxModelName_AddStock.Text;
+                fuel_type = comboBoxFuelType_AddStock.Text;
+                engine_capacity = Convert.ToInt64(comboBoxEngineCapacity_AddStock.Text);
+                cat_name = comboBoxCatName_AddStock.Text;
+                part_name = comboBoxPartName_AddStock.Text;
 
-            brand_id = Convert.ToInt64(textBoxBrandId_AddStock.Text);
-            model_id = Convert.ToInt64(textBoxModelId_AddStock.Text);
-            fuel_id = Convert.ToInt64(textBoxFuelId_AddStock.Text);
-            engine_id = Convert.ToInt64(textBoxEngineId_AddStock.Text);
-            year=Convert.ToInt64(textBoxYear_AddStock.Text);
-            cat_id = Convert.ToInt64(textBoxCatId_AddStock.Text);
-            part_id = Convert.ToInt64(textBoxPartId_AddStock.Text);
-            quantity_in=Convert.ToInt64(textBoxQuantityIn_AddStock.Text);
-            unit_price = Convert.ToInt64(textBoxUnitPrice_AddStock.Text);
-            brand_name=comboBoxBrandName_AddStock.Text;
-            model_name=comboBoxModelName_AddStock.Text;
-            fuel_type=comboBoxFuelType_AddStock.Text;
-            engine_capacity = Convert.ToInt64(comboBoxEngineCapacity_AddStock.Text);
-            cat_name=comboBoxCatName_AddStock.Text;
-            part_name=comboBoxPartName_AddStock.Text;
+                DatabaseConnections db = new DatabaseConnections();
+                db.AddNewStock(brand_id, brand_name, model_id, model_name, fuel_id, fuel_type, engine_id, engine_capacity, year, year, cat_id, cat_name, part_id, part_name, quantity_in, unit_price);
 
+            }
 
-            DatabaseConnections db=new DatabaseConnections();
-            db.AddNewStock( brand_id, brand_name, model_id, model_name, fuel_id, fuel_type, engine_id, engine_capacity, year, year,cat_id, cat_name, part_id, part_name, quantity_in,unit_price) ;
-
+            else
+            {
+                MessageBox.Show("Can't keep empty feilds", "Warnning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            
             textBoxBrandId_AddStock.Text = null;
             textBoxModelId_AddStock.Text = null;
             textBoxFuelId_AddStock.Text = null;
