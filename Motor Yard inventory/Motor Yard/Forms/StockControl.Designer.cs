@@ -92,6 +92,9 @@
             this.label_RepeatItemCode_ClearStock = new System.Windows.Forms.Label();
             this.label_ItemCode_ClearStock = new System.Windows.Forms.Label();
             this.tabPageStockStatus = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_checkstock = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPageAddNewStock.SuspendLayout();
             this.groupBoxAddDetails_AddStock.SuspendLayout();
@@ -105,6 +108,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDeleteButton)).BeginInit();
             this.tabPageClearStock.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClearButton)).BeginInit();
+            this.tabPageStockStatus.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -723,6 +729,8 @@
             // tabPageStockStatus
             // 
             this.tabPageStockStatus.BackColor = System.Drawing.Color.Transparent;
+            this.tabPageStockStatus.Controls.Add(this.groupBox1);
+            this.tabPageStockStatus.Controls.Add(this.dataGridView1);
             this.tabPageStockStatus.Font = new System.Drawing.Font("Times New Roman", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPageStockStatus.Location = new System.Drawing.Point(4, 24);
             this.tabPageStockStatus.Name = "tabPageStockStatus";
@@ -730,6 +738,38 @@
             this.tabPageStockStatus.Size = new System.Drawing.Size(827, 458);
             this.tabPageStockStatus.TabIndex = 4;
             this.tabPageStockStatus.Text = "Stock Status";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToOrderColumns = true;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(6, 130);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(815, 322);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btn_checkstock);
+            this.groupBox1.Location = new System.Drawing.Point(6, 17);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(815, 107);
+            this.groupBox1.TabIndex = 1;
+            this.groupBox1.TabStop = false;
+            // 
+            // btn_checkstock
+            // 
+            this.btn_checkstock.Location = new System.Drawing.Point(686, 40);
+            this.btn_checkstock.Name = "btn_checkstock";
+            this.btn_checkstock.Size = new System.Drawing.Size(75, 23);
+            this.btn_checkstock.TabIndex = 0;
+            this.btn_checkstock.Text = "Check";
+            this.btn_checkstock.UseVisualStyleBackColor = true;
+            this.btn_checkstock.Click += new System.EventHandler(this.btn_checkstock_Click);
             // 
             // Stock_Control
             // 
@@ -759,6 +799,9 @@
             this.tabPageClearStock.ResumeLayout(false);
             this.tabPageClearStock.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClearButton)).EndInit();
+            this.tabPageStockStatus.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -829,5 +872,8 @@
         private System.Windows.Forms.PictureBox pictureBoxClearButton;
         private System.Windows.Forms.TextBox textBoxUnitPrice_AddStock;
         private System.Windows.Forms.Label labelUnitPrice_AddStock;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btn_checkstock;
     }
 }

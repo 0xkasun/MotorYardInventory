@@ -7,11 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.OleDb;
+using System.Configuration;
 
 namespace Motor_Yard
 {
     public partial class Stock_Control : Form
     {
+     
+        
         public Stock_Control(int index)
         {
             InitializeComponent();
@@ -213,6 +217,34 @@ namespace Motor_Yard
             long QuantityHand = db.CheckQuantity(itemCode);
             string Qh = Convert.ToString(QuantityHand);
             textBox_QuantityOnHand_UpdateStock.Text = Qh;
+        }
+
+        private void btn_checkstock_Click(object sender, EventArgs e)
+        {
+            //todo if a code search is needed impliment it here
+            
+            OleDbConnection con=new OleDbConnection();
+            OleDbCommand com=new OleDbCommand();
+
+            string connectionStr = ConfigurationManager.ConnectionStrings["Test"].ConnectionString;
+            con.ConnectionString = @connectionStr;
+            com.Connection = con;
+
+           try 
+	{	        
+		 con.Open();
+            String sql = "SELECT inventory_id,unit_price,quantity FROM Client_InventoryItem";
+            OleDbDataAdapter dataadapter = new OleDbDataAdapter(sql, con);
+            DataTable dt = new DataTable();
+            dataadapter.Fill(dt);
+            dataGridView1.DataSource = dt;
+            con.Close();
+	}
+	catch (Exception ex)
+	{
+		MessageBox.Show(ex.Message);
+		//throw;
+	};
         }     
     }
 }

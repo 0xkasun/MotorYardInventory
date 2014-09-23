@@ -57,8 +57,7 @@ J:\New folder\Motor_Yard\Motor_Yard\Motor Yard inventory\Motor Yard\obj\Debug\Mo
 J:\New folder\Motor_Yard\Motor_Yard\Motor Yard inventory\Motor Yard\obj\Debug\Motor_Yard.Customers.resources
 J:\New folder\Motor_Yard\Motor_Yard\Motor Yard inventory\Motor Yard\obj\Debug\Motor_Yard.Properties.Resources.resources
 J:\New folder\Motor_Yard\Motor_Yard\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.csproj.GenerateResource.Cache
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 F:\Study\GIT\Git_sourcetree2\Motor Yard inventory\Motor Yard\bin\Debug\Motor Yard.exe.config
 F:\Study\GIT\Git_sourcetree2\Motor Yard inventory\Motor Yard\bin\Debug\Motor Yard.exe
 F:\Study\GIT\Git_sourcetree2\Motor Yard inventory\Motor Yard\bin\Debug\Motor Yard.pdb
@@ -73,7 +72,7 @@ F:\Study\GIT\Git_sourcetree2\Motor Yard inventory\Motor Yard\obj\Debug\Motor_Yar
 F:\Study\GIT\Git_sourcetree2\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.csproj.GenerateResource.Cache
 F:\Study\GIT\Git_sourcetree2\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.exe
 F:\Study\GIT\Git_sourcetree2\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.pdb
-=======
+
 E:\GIt_Hubb\Motor Yard inventory\Motor Yard\bin\Debug\Motor Yard.exe.config
 E:\GIt_Hubb\Motor Yard inventory\Motor Yard\bin\Debug\Motor Yard.exe
 E:\GIt_Hubb\Motor Yard inventory\Motor Yard\bin\Debug\Motor Yard.pdb
@@ -87,8 +86,7 @@ E:\GIt_Hubb\Motor Yard inventory\Motor Yard\obj\Debug\Motor_Yard.Properties.Reso
 E:\GIt_Hubb\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.csproj.GenerateResource.Cache
 E:\GIt_Hubb\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.exe
 E:\GIt_Hubb\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.pdb
->>>>>>> b47daeabad5eb3c9ae7b5e18c5de87f5f4258e04
-=======
+
 I:\Projects\GroupProjects\MotorYardInventory\Motor Yard inventory\Motor Yard\bin\Debug\Motor Yard.exe.config
 I:\Projects\GroupProjects\MotorYardInventory\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.exe
 I:\Projects\GroupProjects\MotorYardInventory\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.pdb
@@ -103,4 +101,4 @@ I:\Projects\GroupProjects\MotorYardInventory\Motor Yard inventory\Motor Yard\obj
 I:\Projects\GroupProjects\MotorYardInventory\Motor Yard inventory\Motor Yard\obj\Debug\Motor_Yard.Customers.resources
 I:\Projects\GroupProjects\MotorYardInventory\Motor Yard inventory\Motor Yard\obj\Debug\Motor_Yard.Properties.Resources.resources
 I:\Projects\GroupProjects\MotorYardInventory\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.csproj.GenerateResource.Cache
->>>>>>> 82450a815e2e22271e126cf1b51dbc3cc74916eb
+
