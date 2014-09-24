@@ -178,23 +178,32 @@ namespace Motor_Yard
         }
         public void DeleteItem(String itemCode)
         {
-
-            try
+            if (CheckQuantity(itemCode) != 0)
             {
-                con.Open();
-                String del = "Delete from Inventory_Item where inventory_id='" + itemCode + "'";
-                cmd.CommandText = del;
-                cmd.ExecuteNonQuery();
-                con.Close();
+                try
+                {
+                    con.Open();
+                    String del = "Delete from Inventory_Item where inventory_id='" + itemCode + "'";
+                    cmd.CommandText = del;
+                    cmd.ExecuteNonQuery();
+                    con.Close();
 
-                con.Open();
-                String del2 = "Delete from Client_InventoryItem where inventory_id='" + itemCode + "'";
-                cmd.CommandText = del2;
-                cmd.ExecuteNonQuery();
-                con.Close();
-            }catch(Exception e){
+                    con.Open();
+                    String del2 = "Delete from Client_InventoryItem where inventory_id='" + itemCode + "'";
+                    cmd.CommandText = del2;
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    MessageBox.Show("success!");
+                }
+                catch (Exception e)
+                {
 
-                MessageBox.Show(e.Message);
+                    MessageBox.Show(e.Message);
+
+                }
+            }
+            else {
+                MessageBox.Show("invalid itemcode");
             
             }
 
