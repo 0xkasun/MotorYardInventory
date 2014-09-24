@@ -218,7 +218,8 @@ namespace Motor_Yard
 
         private void pictureBoxAddButton_Click(object sender, EventArgs e)
         {
-            if (brand_id != 0 && model_id != 0 && fuel_id != 0 && engine_id != 0 && cat_id != 0 && part_id != 0 && year != 0 && textBoxQuantityIn_AddStock.Text != "" && textBoxUnitPrice_AddStock.Text != "" && brand_name != "" && model_name != "" && fuel_type != "" && comboBoxEngineCapacity_AddStock.Text != "" && cat_name != "" && part_name != "")
+            if (textBoxBrandId_AddStock.Text != "" && textBoxModelId_AddStock.Text != "" && textBoxFuelId_AddStock.Text != "" && textBoxEngineId_AddStock.Text != "" && textBoxCatId_AddStock.Text != "" && textBoxPartId_AddStock.Text != "" && textBoxYear_AddStock.Text != "" && textBoxQuantityIn_AddStock.Text != "" && textBoxUnitPrice_AddStock.Text != ""
+                && comboBoxBrandName_AddStock.Text != "" && comboBoxModelName_AddStock.Text != "" && comboBoxFuelType_AddStock.Text != "" && comboBoxEngineCapacity_AddStock.Text != "" && comboBoxCatName_AddStock.Text != "" && comboBoxPartName_AddStock.Text != "")
             {
                 brand_id = Convert.ToInt64(textBoxBrandId_AddStock.Text);
                 model_id = Convert.ToInt64(textBoxModelId_AddStock.Text);
