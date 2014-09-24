@@ -97,7 +97,7 @@ namespace Motor_Yard
             String itemCode = textBox_ItemCode_ClearStock.Text;
             String repeatitemCode = textBox_RepeatItemCode_ClearStock.Text;
 
-            if (itemCode == repeatitemCode)
+            if (itemCode == repeatitemCode && (itemCode!="" || repeatitemCode!=""))
             {
                 DialogResult confirm = MessageBox.Show("ItemCode : " + itemCode + "\nQuantity on Hand : " + 12, "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (confirm == DialogResult.Yes)
@@ -131,7 +131,7 @@ namespace Motor_Yard
                     textBox_RepeatItemCode_DeleteStock.Text = null;
 
                     db.DeleteItem(itemCode);
-                    MessageBox.Show("success!");
+                    
 
 
                 }
