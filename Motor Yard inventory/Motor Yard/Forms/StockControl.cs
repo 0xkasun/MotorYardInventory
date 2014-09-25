@@ -99,13 +99,29 @@ namespace Motor_Yard
 
             if (itemCode == repeatitemCode && (itemCode!="" || repeatitemCode!=""))
             {
-                DialogResult confirm = MessageBox.Show("ItemCode : " + itemCode + "\nQuantity on Hand : " + 12, "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (confirm == DialogResult.Yes)
+                DatabaseConnections db = new DatabaseConnections();
+                long QuantityHand = db.CheckQuantity(itemCode);
+
+                DialogResult confirm = MessageBox.Show("ItemCode : " + itemCode + "\nQuantity on Hand : " + QuantityHand, "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (confirm == DialogResult.Yes && QuantityHand > 0)
                 {
-                    DatabaseConnections db = new DatabaseConnections();
-                    db.Clearstock(itemCode);
+                    DatabaseConnections db1 = new DatabaseConnections();
+                    db1.Clearstock(itemCode);
                     textBox_RepeatItemCode_ClearStock.Text = "";
                     textBox_ItemCode_ClearStock.Text = "";
+                }
+
+                else if(confirm == DialogResult.Yes && QuantityHand == 0)
+                {
+                    textBox_ItemCode_ClearStock.Text = null;
+                    textBox_RepeatItemCode_ClearStock.Text =null;
+                    MessageBox.Show("Item is Not In the Database\n         or \nItem Quantity is  0.\n\n\nCheck Item Code Again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                else
+                {
+                    textBox_ItemCode_ClearStock.Text = null;
+                    textBox_RepeatItemCode_ClearStock.Text =null;
                 }
             }
 
@@ -122,19 +138,33 @@ namespace Motor_Yard
 
             if (itemCode == repeatitemCode && (itemCode != "" || repeatitemCode != ""))
             {
-                DialogResult result1 = MessageBox.Show("ItemCode : " + itemCode + "\n Item Name : Door ", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (result1 == DialogResult.Yes)
-                {
-                    DatabaseConnections db = new DatabaseConnections();
+                DatabaseConnections db = new DatabaseConnections();
+                long QuantityHand = db.CheckQuantity(itemCode);
 
+                DialogResult result1 = MessageBox.Show("ItemCode : " + itemCode + "\n Item Name : ", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result1 == DialogResult.Yes && QuantityHand==0)
+                {
+                    DatabaseConnections db1 = new DatabaseConnections();
                     textBox_ItemCode_DeleteStock.Text = null;
                     textBox_RepeatItemCode_DeleteStock.Text = null;
-
-                    db.DeleteItem(itemCode);
-                    
-
-
+                    db1.DeleteItem(itemCode);
                 }
+                else if (result1 == DialogResult.Yes && QuantityHand > 0)
+                {
+                    DialogResult result= MessageBox.Show("Item Quantity is  " + QuantityHand + " Please clear the stock before delete the Item.", "Warnning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                    if (result == DialogResult.OK)
+                    {
+                        Stock_Control stock = new Stock_Control(4);
+                        stock.Show();
+                    }
+
+                    else
+                    {
+                        this.Hide();
+                    }
+                }
+    
+
                 else
                 {
                     textBox_ItemCode_DeleteStock.Text = null;
