@@ -44,7 +44,9 @@
             this.ratings_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.discountOffered_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.requests_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.optionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logOutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,7 +58,7 @@
             this.ToolStripMenuItem_Report,
             this.ToolStripMenuItem_Catalog,
             this.ToolStripMenuItem_Customers,
-            this.logOutToolStripMenuItem});
+            this.optionToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(7, 3, 0, 3);
@@ -126,21 +128,21 @@
             // sales_ToolStripMenuItem
             // 
             this.sales_ToolStripMenuItem.Name = "sales_ToolStripMenuItem";
-            this.sales_ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.sales_ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.sales_ToolStripMenuItem.Text = "Sales";
             this.sales_ToolStripMenuItem.Click += new System.EventHandler(this.sales_ToolStripMenuItem_Click);
             // 
             // totalIncome_ToolStripMenuItem
             // 
             this.totalIncome_ToolStripMenuItem.Name = "totalIncome_ToolStripMenuItem";
-            this.totalIncome_ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.totalIncome_ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.totalIncome_ToolStripMenuItem.Text = "Total Income";
             this.totalIncome_ToolStripMenuItem.Click += new System.EventHandler(this.totalIncome_ToolStripMenuItem_Click);
             // 
             // taxesPayable_ToolStripMenuItem
             // 
             this.taxesPayable_ToolStripMenuItem.Name = "taxesPayable_ToolStripMenuItem";
-            this.taxesPayable_ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.taxesPayable_ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.taxesPayable_ToolStripMenuItem.Text = "Taxes Payable";
             this.taxesPayable_ToolStripMenuItem.Click += new System.EventHandler(this.taxesPayable_ToolStripMenuItem_Click);
             // 
@@ -184,13 +186,28 @@
             this.requests_ToolStripMenuItem.Text = "Requests";
             this.requests_ToolStripMenuItem.Click += new System.EventHandler(this.requests_ToolStripMenuItem_Click);
             // 
-            // logOutToolStripMenuItem
+            // optionToolStripMenuItem
             // 
-            this.logOutToolStripMenuItem.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(59, 19);
-            this.logOutToolStripMenuItem.Text = "LogOut";
-            this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
+            this.optionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.usersToolStripMenuItem,
+            this.logOutToolStripMenuItem1});
+            this.optionToolStripMenuItem.Name = "optionToolStripMenuItem";
+            this.optionToolStripMenuItem.Size = new System.Drawing.Size(56, 19);
+            this.optionToolStripMenuItem.Text = "Option";
+            // 
+            // usersToolStripMenuItem
+            // 
+            this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
+            this.usersToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.usersToolStripMenuItem.Text = "Users";
+            this.usersToolStripMenuItem.Click += new System.EventHandler(this.usersToolStripMenuItem_Click);
+            // 
+            // logOutToolStripMenuItem1
+            // 
+            this.logOutToolStripMenuItem1.Name = "logOutToolStripMenuItem1";
+            this.logOutToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.logOutToolStripMenuItem1.Text = "LogOut";
+            this.logOutToolStripMenuItem1.Click += new System.EventHandler(this.logOutToolStripMenuItem1_Click);
             // 
             // Main_Menu
             // 
@@ -229,6 +246,8 @@
         private System.Windows.Forms.ToolStripMenuItem ratings_ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem discountOffered_ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem requests_ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem optionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem usersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem1;
     }
 }
