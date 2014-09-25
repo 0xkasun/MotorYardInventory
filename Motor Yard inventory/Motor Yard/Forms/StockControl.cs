@@ -99,7 +99,7 @@ namespace Motor_Yard
 
             if (itemCode == repeatitemCode && (itemCode!="" || repeatitemCode!=""))
             {
-                DialogResult confirm = MessageBox.Show("ItemCode : " + itemCode + "\nQuantity on Hand : " + 12, "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult confirm = MessageBox.Show("ItemCode : " + itemCode , "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (confirm == DialogResult.Yes)
                 {
                     DatabaseConnections db = new DatabaseConnections();
@@ -122,7 +122,7 @@ namespace Motor_Yard
 
             if (itemCode == repeatitemCode && (itemCode != "" || repeatitemCode != ""))
             {
-                DialogResult result1 = MessageBox.Show("ItemCode : " + itemCode + "\n Item Name : Door ", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult result1 = MessageBox.Show("ItemCode : " + itemCode, "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result1 == DialogResult.Yes)
                 {
                     DatabaseConnections db = new DatabaseConnections();
