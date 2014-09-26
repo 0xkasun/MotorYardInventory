@@ -74,20 +74,19 @@ namespace Motor_Yard
 
         }
 
-        long brand_id;
-        long cinId;
-        long model_id;
-        long fuel_id;
-        long engine_id;
-        long year;
-        long cat_id;
-        long part_id;
+        string brand_id;
+        string model_id;
+        string fuel_id;
+        string engine_id;
+        string year;
+        string cat_id;
+        string part_id;
         long quantity_in;
         long unit_price;
         string brand_name;
         string model_name;
         string fuel_type;
-        long engine_capacity;
+        string engine_capacity;
         string cat_name;
         string part_name;
 
@@ -161,6 +160,8 @@ namespace Motor_Yard
                     else
                     {
                         this.Hide();
+                        textBox_ItemCode_DeleteStock.Text = null;
+                        textBox_RepeatItemCode_DeleteStock.Text = null;
                     }
                 }
 
@@ -258,19 +259,19 @@ namespace Motor_Yard
             if (textBoxBrandId_AddStock.Text != "" && textBoxModelId_AddStock.Text != "" && textBoxFuelId_AddStock.Text != "" && textBoxEngineId_AddStock.Text != "" && textBoxCatId_AddStock.Text != "" && textBoxPartId_AddStock.Text != "" && textBoxYear_AddStock.Text != "" && textBoxQuantityIn_AddStock.Text != "" && textBoxUnitPrice_AddStock.Text != ""
                 && comboBoxBrandName_AddStock.Text != "" && comboBoxModelName_AddStock.Text != "" && comboBoxFuelType_AddStock.Text != "" && comboBoxEngineCapacity_AddStock.Text != "" && comboBoxCatName_AddStock.Text != "" && comboBoxPartName_AddStock.Text != "")
             {
-                brand_id = Convert.ToInt64(textBoxBrandId_AddStock.Text);
-                model_id = Convert.ToInt64(textBoxModelId_AddStock.Text);
-                fuel_id = Convert.ToInt64(textBoxFuelId_AddStock.Text);
-                engine_id = Convert.ToInt64(textBoxEngineId_AddStock.Text);
-                year = Convert.ToInt64(textBoxYear_AddStock.Text);
-                cat_id = Convert.ToInt64(textBoxCatId_AddStock.Text);
-                part_id = Convert.ToInt64(textBoxPartId_AddStock.Text);
+                brand_id = textBoxBrandId_AddStock.Text;
+                model_id = textBoxModelId_AddStock.Text;
+                fuel_id = textBoxFuelId_AddStock.Text;
+                engine_id = textBoxEngineId_AddStock.Text;
+                year = textBoxYear_AddStock.Text;
+                cat_id = textBoxCatId_AddStock.Text;
+                part_id = textBoxPartId_AddStock.Text;
                 quantity_in = Convert.ToInt64(textBoxQuantityIn_AddStock.Text);
                 unit_price = Convert.ToInt64(textBoxUnitPrice_AddStock.Text);
                 brand_name = comboBoxBrandName_AddStock.Text;
                 model_name = comboBoxModelName_AddStock.Text;
                 fuel_type = comboBoxFuelType_AddStock.Text;
-                engine_capacity = Convert.ToInt64(comboBoxEngineCapacity_AddStock.Text);
+                engine_capacity = comboBoxEngineCapacity_AddStock.Text;
                 cat_name = comboBoxCatName_AddStock.Text;
                 part_name = comboBoxPartName_AddStock.Text;
 
@@ -351,8 +352,7 @@ namespace Motor_Yard
             if (check != "")
             {
                 DatabaseConnections db = new DatabaseConnections();
-                long Id1 = db.GetId(check, "Brand");
-                string ItemId1 = Convert.ToString(Id1);
+                string ItemId1 = db.GetId(check, "Brand");
                 textBoxBrandId_AddStock.Text = ItemId1;
             }
 
@@ -370,8 +370,7 @@ namespace Motor_Yard
             if (check != "")
             {
                 DatabaseConnections db = new DatabaseConnections();
-                long Id2 = db.GetId(check, "Model");
-                string ItemId2 = Convert.ToString(Id2);
+                string ItemId2 = db.GetId(check, "Model");
                 textBoxModelId_AddStock.Text = ItemId2;
             }
 
@@ -387,8 +386,7 @@ namespace Motor_Yard
             if (check != "")
             {
                 DatabaseConnections db = new DatabaseConnections();
-                long Id3 = db.GetId(check, "Fuel");
-                string ItemId3 = Convert.ToString(Id3);
+                string ItemId3 = db.GetId(check, "Fuel");
                 textBoxFuelId_AddStock.Text = ItemId3;
             }
 
@@ -404,8 +402,7 @@ namespace Motor_Yard
             if (check != "")
             {
                 DatabaseConnections db = new DatabaseConnections();
-                long Id4 = db.GetId(check, "Engine");
-                string ItemId4 = Convert.ToString(Id4);
+                string ItemId4 = db.GetId(check, "Engine");
                 textBoxEngineId_AddStock.Text = ItemId4;
             }
 
@@ -421,8 +418,7 @@ namespace Motor_Yard
             if (check != "")
             {
                 DatabaseConnections db = new DatabaseConnections();
-                long Id5 = db.GetId(check, "Category");
-                string ItemId5 = Convert.ToString(Id5);
+                string ItemId5 = db.GetId(check, "Category");
                 textBoxCatId_AddStock.Text = ItemId5;
             }
 
@@ -438,8 +434,7 @@ namespace Motor_Yard
             if (check != "")
             {
                 DatabaseConnections db = new DatabaseConnections();
-                long Id6 = db.GetId(check, "SparePart");
-                string ItemId6 = Convert.ToString(Id6);
+                string ItemId6 = db.GetId(check, "SparePart");
                 textBoxPartId_AddStock.Text = ItemId6;
             }
 
