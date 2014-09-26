@@ -433,7 +433,7 @@ namespace Motor_Yard
             return itemCode;
         }
 
-<<<<<<< HEAD
+
         //new Func
         public String getItemDetails_String(String itemCode) {
 
@@ -442,43 +442,57 @@ namespace Motor_Yard
             char[] ch= itemCode.ToCharArray();
             int i=0;
             int j;
+            int p = 0;
 
             while (i < len) {
                 String s = "";
                 for (j = 0; j < 3; j++) {
 
-                    s = s + ch[i];
+                    s = s + ch[j+i];
                 
                 }
-                ar[i]=s;
+                
+                ar[p]=s;
                 i = i + j;
+                p++;
 
                 }
-            long brandID = Convert.ToInt64(ar[0]);
-            long modelID = Convert.ToInt64(ar[1]);
-            long yearID = Convert.ToInt64(ar[4]);
-            long fuelID = Convert.ToInt64(ar[2]);
+            
+            String brandID = (ar[0]);
+            String modelID = (ar[1]);
+            String yearID = (ar[4]);
+            String fuelID = (ar[2]);
+           
 
-            String details = this.getDetails(brandID, "Brand") + this.getDetails(brandID, "Model") + " of " + this.getDetails(brandID, "Year") + " ," + this.getDetails(brandID, "Fuel");
+            String details = getDetails(brandID, "Brand") +"-"+ getDetails(modelID, "Model") + " of " + getDetails(yearID, "Year") + " ," + getDetails(fuelID, "Fuel");
 
             return details;
         
         
         }
-        public String getDetails(long check, String table) {
-            String name="";
+        public String getDetails(String check, String table)
+        {
+            String name = "";
 
             if (table == "Brand")
             {
-
+                
                 String load = "select brand_name from Brand where brand_id='" + check + "' ";
                 cmd.CommandText = load;
                 try
                 {
                     con.Open();
                     dr = cmd.ExecuteReader();
-                    name = dr.ToString();
-                    
+                    if (dr.HasRows)
+                    {
+                        while (dr.Read())
+                        {
+                            name = (dr[0].ToString());
+                        }
+                    }
+                   
+                   
+
 
                     con.Close();
                 }
@@ -487,20 +501,26 @@ namespace Motor_Yard
 
                     MessageBox.Show(e.Message);
                 }
-                
+
 
             }
 
             if (table == "Model")
             {
 
-                String load = "select brand_name from Brand where brand_id='" + check + "' ";
+                String load = "select model_name from Model where model_id='" + check + "' ";
                 cmd.CommandText = load;
                 try
                 {
                     con.Open();
                     dr = cmd.ExecuteReader();
-                    name = dr.ToString();
+                    if (dr.HasRows)
+                    {
+                        while (dr.Read())
+                        {
+                            name = (dr[0].ToString());
+                        }
+                    }
 
 
                     con.Close();
@@ -517,13 +537,19 @@ namespace Motor_Yard
             if (table == "Yearr")
             {
 
-                String load = "select brand_name from Brand where brand_id='" + check + "' ";
+                String load = "select year from Yearr where year_id='" + check + "' ";
                 cmd.CommandText = load;
                 try
                 {
                     con.Open();
                     dr = cmd.ExecuteReader();
-                    name = dr.ToString();
+                    if (dr.HasRows)
+                    {
+                        while (dr.Read())
+                        {
+                            name = (dr[0].ToString());
+                        }
+                    }
 
 
                     con.Close();
@@ -540,13 +566,19 @@ namespace Motor_Yard
             if (table == "Fuel")
             {
 
-                String load = "select brand_name from Brand where brand_id='" + check + "' ";
+                String load = "select fuel_type from Fuel where fuel_id='" + check + "' ";
                 cmd.CommandText = load;
                 try
                 {
                     con.Open();
                     dr = cmd.ExecuteReader();
-                    name = dr.ToString();
+                    if (dr.HasRows)
+                    {
+                        while (dr.Read())
+                        {
+                            name = (dr[0].ToString());
+                        }
+                    }
 
 
                     con.Close();
@@ -560,9 +592,9 @@ namespace Motor_Yard
 
             }
             return name;
-        
-        
-=======
+
+        }
+
         public string GetClientId()
         {
             String load = "select id from passwords";
@@ -586,7 +618,7 @@ namespace Motor_Yard
                 MessageBox.Show(e.Message);
             }
             return client_Id;
->>>>>>> d088c93bcd895202baf192f13b29222d96e98460
+
         }
 
     }
