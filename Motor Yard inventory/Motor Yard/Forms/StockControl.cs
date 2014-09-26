@@ -163,6 +163,13 @@ namespace Motor_Yard
                         this.Hide();
                     }
                 }
+
+                else if (result1 == DialogResult.Yes && QuantityHand == -1)
+                {
+                    MessageBox.Show("Invalid ItemCode", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    textBox_ItemCode_DeleteStock.Text = null;
+                    textBox_RepeatItemCode_DeleteStock.Text = null;
+                }
     
 
                 else
@@ -191,7 +198,7 @@ namespace Motor_Yard
                 long QuantityHand = db.CheckQuantity(itemCode);
                 string Qh = Convert.ToString(QuantityHand);
                 textBox_QuantityOnHand_UpdateStock.Text = Qh;
-                if (QuantityHand > 0)
+                if (QuantityHand !=-1)
                 {
                     DialogResult result1 = MessageBox.Show("Item Code : " + itemCode + "\nQuantity In : " + QuantityIn, "Verify Item Code and Quantity In", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                     if (result1 == DialogResult.OK)

@@ -24,57 +24,65 @@ namespace Motor_Yard
         OleDbDataReader dr;
         string sql;
         public static long itemCode;
-        public static long client_Id;
+        public static string client_Id;
         public static int QuantityHand;
-        public static long CinId;
+        public static string InventoryId;
+        public static string CinId;
 
 
         public void AddNewStock(long BrandId, string BrandName, long ModelId, string ModelName, long FuelId, string FuelType, long EngineId, long EngineCapacity, long Year, long Yearr, long CatId, string CatName, long PartId, string PartName, long QuantityIn, long UnitPrice)
         {
+            string client_Id = GetClientId();
+            InventoryId = Convert.ToString(BrandId) + Convert.ToString(ModelId) + Convert.ToString(FuelId) + Convert.ToString(EngineId) + Convert.ToString(Year) + Convert.ToString(CatId) + Convert.ToString(PartId);
+            CinId =client_Id.ToString() + InventoryId;
 
-            string inventoryId = Convert.ToString(BrandId) + Convert.ToString(ModelId) + Convert.ToString(FuelId) + Convert.ToString(EngineId) + Convert.ToString(Year) + Convert.ToString(CatId) + Convert.ToString(PartId);
-            long InventoryId = Convert.ToInt64(inventoryId);
-            CinId = Convert.ToInt64(client_Id.ToString() + inventoryId);
-
-
-            try
+            if (InventoryId.Length == 21)
             {
-                con.Open();
-                cmd.CommandText = "INSERT INTO Inventory_Item ([inventory_id],[brand_id],[model_id],[fuel_id],[engine_id],[year_id],[cat_id],[part_id]) VALUES('" + InventoryId + "','" + BrandId + "','" + ModelId + "','" + FuelId + "','" + EngineId + "','" + Year + "','" + CatId + "','" + PartId + "')";
-                cmd.ExecuteNonQuery();
-                con.Close();
+                try
+                {
+                    con.Open();
+                    cmd.CommandText = "INSERT INTO Inventory_Item ([inventory_id],[brand_id],[model_id],[fuel_id],[engine_id],[year_id],[cat_id],[part_id]) VALUES('" + InventoryId + "','" + BrandId + "','" + ModelId + "','" + FuelId + "','" + EngineId + "','" + Year + "','" + CatId + "','" + PartId + "')";
+                    cmd.ExecuteNonQuery();
+                    con.Close();
 
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.Message);
+                }
+
+
+
+                try
+                {
+                    con.Open();
+                    cmd.CommandText = "INSERT INTO Client_InventoryItem([cin_id],[client_id],[inventory_id],[unit_price],[quantity]) VALUES ('" + CinId + "','" + client_Id + "','" + InventoryId + "','" + UnitPrice + "','" + QuantityIn + "')";
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.Message);
+                }
+                MessageBox.Show("Data Added!");
             }
-            catch (Exception ex)
+
+            else
             {
-
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Invalid Details\nCheck all the entry and corresponding id numbers", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-
             
-            try
-            {
-                con.Open();
-                cmd.CommandText = "INSERT INTO Client_InventoryItem([cin_id],[client_id],[inventory_id],[unit_price],[quantity]) VALUES ('" + CinId + "','" + client_Id + "','" + InventoryId + "','" + UnitPrice + "','" + QuantityIn + "')";
-                cmd.ExecuteNonQuery();
-                con.Close();
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message);
-            }
-            MessageBox.Show("Data Added!");
         
         }
 
 
         public int CheckQuantity(string ItemCode)
         {
-            CinId = Convert.ToInt64((client_Id.ToString()) + ItemCode);
+            CinId = client_Id + ItemCode;
             String load = "select quantity from Client_InventoryItem where cin_id='" + CinId + "' ";
-            QuantityHand = 0;
+            QuantityHand = -1;
             cmd.CommandText = load;
 
             try
@@ -110,7 +118,7 @@ namespace Motor_Yard
 
         public void UpdateStock(string ItemCode, string QuantityIn)
         {
-            CinId = Convert.ToInt64((client_Id.ToString()) + ItemCode);
+            CinId =client_Id + ItemCode;
             long NewQuantity;
             NewQuantity = QuantityHand + Convert.ToInt64(QuantityIn);
             cmd.CommandText = "UPDATE Client_InventoryItem SET quantity= '" + NewQuantity + "' WHERE cin_id='" + CinId + "'";
@@ -134,10 +142,9 @@ namespace Motor_Yard
 
         public int Login(String user, String password)
         {
-            String load = "select password,id from passwords where username='" + user + "' ";
+            String load = "select password from User_Password where user_name='" + user + "' ";
             int outint = 0;
             cmd.CommandText = load;
-
             try
             {
                 con.Open();
@@ -146,7 +153,7 @@ namespace Motor_Yard
                 {
                     while (dr.Read())
                     {
-                        client_Id=Convert.ToInt64(dr[1].ToString());
+                        
                         if (dr[0].ToString() == password)
                         {
 
@@ -169,49 +176,41 @@ namespace Motor_Yard
                 }
                 con.Close();
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
-                throw;
+                MessageBox.Show(e.Message);
             }
             return outint;
         }
         public void DeleteItem(String itemCode)
         {
-            if (CheckQuantity(itemCode) != 0)
+            try
             {
-                try
-                {
-                    con.Open();
-                    String del = "Delete from Inventory_Item where inventory_id='" + itemCode + "'";
-                    cmd.CommandText = del;
-                    cmd.ExecuteNonQuery();
-                    con.Close();
+                con.Open();
+                String del = "Delete from Inventory_Item where inventory_id='" + itemCode + "'";
+                cmd.CommandText = del;
+                cmd.ExecuteNonQuery();
+                con.Close();
 
-                    con.Open();
-                    String del2 = "Delete from Client_InventoryItem where inventory_id='" + itemCode + "'";
-                    cmd.CommandText = del2;
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                    MessageBox.Show("success!");
-                }
-                catch (Exception e)
-                {
-
-                    MessageBox.Show(e.Message);
-
-                }
+                con.Open();
+                String del2 = "Delete from Client_InventoryItem where inventory_id='" + itemCode + "'";
+                cmd.CommandText = del2;
+                cmd.ExecuteNonQuery();
+                con.Close();
+                MessageBox.Show("Success!");
             }
-            else {
-                MessageBox.Show("invalid itemcode");
-            
-            }
+            catch (Exception e)
+            {
 
+                MessageBox.Show(e.Message);
+
+            }
         }
 
         public void Clearstock(String itemcode)
         {
-            CinId = Convert.ToInt64((client_Id.ToString()) + itemcode);
+            CinId =client_Id + itemcode;
             int quantity = 0;
             sql = "UPDATE Client_InventoryItem SET quantity='" + quantity + "' WHERE cin_id='" + CinId + "' ";
             cmd.CommandText = sql;
@@ -434,6 +433,7 @@ namespace Motor_Yard
             return itemCode;
         }
 
+<<<<<<< HEAD
         //new Func
         public String getItemDetails_String(String itemCode) {
 
@@ -562,6 +562,31 @@ namespace Motor_Yard
             return name;
         
         
+=======
+        public string GetClientId()
+        {
+            String load = "select id from passwords";
+            cmd.CommandText = load;
+
+            try
+            {
+                con.Open();
+                dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        client_Id = dr[0].ToString();
+                    }
+                }
+                con.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            return client_Id;
+>>>>>>> d088c93bcd895202baf192f13b29222d96e98460
         }
 
     }

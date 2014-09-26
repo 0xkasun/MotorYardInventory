@@ -99,3 +99,4 @@ I:\Projects\GroupProjects\MotorYardInventory\Motor Yard inventory\Motor Yard\obj
 I:\Projects\GroupProjects\MotorYardInventory\Motor Yard inventory\Motor Yard\obj\Debug\Motor_Yard.Properties.Resources.resources
 I:\Projects\GroupProjects\MotorYardInventory\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.csproj.GenerateResource.Cache
 E:\GIt_Hubb\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.csprojResolveAssemblyReference.cache
+E:\GIt_Hubb\Motor Yard inventory\Motor Yard\obj\Debug\Motor_Yard.UserLogIn.resources
