@@ -101,3 +101,4 @@ I:\Projects\GroupProjects\MotorYardInventory\Motor Yard inventory\Motor Yard\obj
 E:\GIt_Hubb\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.csprojResolveAssemblyReference.cache
 E:\GIt_Hubb\Motor Yard inventory\Motor Yard\obj\Debug\Motor_Yard.UserLogIn.resources
 F:\Study\GIT\Git_sourcetree2\Motor Yard inventory\Motor Yard\obj\Debug\Motor_Yard.UserLogIn.resources
+I:\Projects\GroupProjects\MotorYardInventory\Motor Yard inventory\Motor Yard\obj\Debug\Motor_Yard.UserLogIn.resources

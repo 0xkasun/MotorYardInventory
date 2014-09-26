@@ -98,16 +98,16 @@ namespace Motor_Yard
 
             if (itemCode == repeatitemCode && (itemCode!="" || repeatitemCode!=""))
             {
-<<<<<<< HEAD
+
                 DialogResult confirm = MessageBox.Show("ItemCode : " + itemCode , "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (confirm == DialogResult.Yes)
-=======
+                if (confirm == DialogResult.Yes) { }
+
                 DatabaseConnections db = new DatabaseConnections();
                 long QuantityHand = db.CheckQuantity(itemCode);
+            
+                DialogResult confirmm = MessageBox.Show("ItemCode : " + itemCode + "\nQuantity on Hand : " + QuantityHand, "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (confirmm == DialogResult.Yes && QuantityHand > 0)
 
-                DialogResult confirm = MessageBox.Show("ItemCode : " + itemCode + "\nQuantity on Hand : " + QuantityHand, "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (confirm == DialogResult.Yes && QuantityHand > 0)
->>>>>>> e4d4b9cfd1577e8cbf4974f1a37a72d6833e3e59
                 {
                     DatabaseConnections db1 = new DatabaseConnections();
                     db1.Clearstock(itemCode);
@@ -142,63 +142,63 @@ namespace Motor_Yard
 
             if (itemCode == repeatitemCode && (itemCode != "" || repeatitemCode != ""))
             {
-<<<<<<< HEAD
+
                 DialogResult result1 = MessageBox.Show("ItemCode : " + itemCode, "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result1 == DialogResult.Yes)
                 {
-                    DatabaseConnections db = new DatabaseConnections();
-=======
-                DatabaseConnections db = new DatabaseConnections();
-                long QuantityHand = db.CheckQuantity(itemCode);
->>>>>>> e4d4b9cfd1577e8cbf4974f1a37a72d6833e3e59
+                    //DatabaseConnections db = new DatabaseConnections();
 
-                DialogResult result1 = MessageBox.Show("ItemCode : " + itemCode + "\n Item Name : " + db.getItemDetails_String(itemCode), "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (result1 == DialogResult.Yes && QuantityHand==0)
-                {
-                    DatabaseConnections db1 = new DatabaseConnections();
-                    textBox_ItemCode_DeleteStock.Text = null;
-                    textBox_RepeatItemCode_DeleteStock.Text = null;
-                    db1.DeleteItem(itemCode);
-                }
-                else if (result1 == DialogResult.Yes && QuantityHand > 0)
-                {
-                    DialogResult result= MessageBox.Show("Item Quantity is  " + QuantityHand + " Please clear the stock before delete the Item.", "Warnning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-                    if (result == DialogResult.OK)
+                    DatabaseConnections db = new DatabaseConnections();
+                    long QuantityHand = db.CheckQuantity(itemCode);
+
+
+                    DialogResult result1 = MessageBox.Show("ItemCode : " + itemCode + "\n Item Name : " + db.getItemDetails_String(itemCode), "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (result1 == DialogResult.Yes && QuantityHand == 0)
                     {
-                        Stock_Control stock = new Stock_Control(4);
-                        stock.Show();
+                        DatabaseConnections db1 = new DatabaseConnections();
+                        textBox_ItemCode_DeleteStock.Text = null;
+                        textBox_RepeatItemCode_DeleteStock.Text = null;
+                        db1.DeleteItem(itemCode);
+                    }
+                    else if (result1 == DialogResult.Yes && QuantityHand > 0)
+                    {
+                        DialogResult result = MessageBox.Show("Item Quantity is  " + QuantityHand + " Please clear the stock before delete the Item.", "Warnning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                        if (result == DialogResult.OK)
+                        {
+                            Stock_Control stock = new Stock_Control(4);
+                            stock.Show();
+                        }
+
+                        else
+                        {
+                            this.Hide();
+                            textBox_ItemCode_DeleteStock.Text = null;
+                            textBox_RepeatItemCode_DeleteStock.Text = null;
+                        }
                     }
 
-                    else
+                    else if (result1 == DialogResult.Yes && QuantityHand == -1)
                     {
-                        this.Hide();
+                        MessageBox.Show("Invalid ItemCode", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         textBox_ItemCode_DeleteStock.Text = null;
                         textBox_RepeatItemCode_DeleteStock.Text = null;
                     }
-                }
 
-                else if (result1 == DialogResult.Yes && QuantityHand == -1)
-                {
-                    MessageBox.Show("Invalid ItemCode", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    textBox_ItemCode_DeleteStock.Text = null;
-                    textBox_RepeatItemCode_DeleteStock.Text = null;
+
+                    else
+                    {
+                        textBox_ItemCode_DeleteStock.Text = null;
+                        textBox_RepeatItemCode_DeleteStock.Text = null;
+
+                    }
                 }
-    
 
                 else
                 {
-                    textBox_ItemCode_DeleteStock.Text = null;
-                    textBox_RepeatItemCode_DeleteStock.Text = null;
-
+                    MessageBox.Show("Check Item Code", "", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
                 }
             }
-
-            else
-            {
-                MessageBox.Show("Check Item Code", "", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
-            }
         }
-
         private void pictureBoxUpdateButton_Click(object sender, EventArgs e)
         {
 
