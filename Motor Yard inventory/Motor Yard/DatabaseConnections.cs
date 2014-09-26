@@ -436,6 +436,168 @@ namespace Motor_Yard
             return itemCode;
         }
 
+
+        //new Func
+        public String getItemDetails_String(String itemCode) {
+
+            String[] ar= new String[7];
+            int len = itemCode.Length;
+            char[] ch= itemCode.ToCharArray();
+            int i=0;
+            int j;
+            int p = 0;
+
+            while (i < len) {
+                String s = "";
+                for (j = 0; j < 3; j++) {
+
+                    s = s + ch[j+i];
+                
+                }
+                
+                ar[p]=s;
+                i = i + j;
+                p++;
+
+                }
+            
+            String brandID = (ar[0]);
+            String modelID = (ar[1]);
+            String yearID = (ar[4]);
+            String fuelID = (ar[2]);
+           
+
+            String details = getDetails(brandID, "Brand") +"-"+ getDetails(modelID, "Model") + " of " + getDetails(yearID, "Year") + " ," + getDetails(fuelID, "Fuel");
+
+            return details;
+        
+        
+        }
+        public String getDetails(String check, String table)
+        {
+            String name = "";
+
+            if (table == "Brand")
+            {
+                
+                String load = "select brand_name from Brand where brand_id='" + check + "' ";
+                cmd.CommandText = load;
+                try
+                {
+                    con.Open();
+                    dr = cmd.ExecuteReader();
+                    if (dr.HasRows)
+                    {
+                        while (dr.Read())
+                        {
+                            name = (dr[0].ToString());
+                        }
+                    }
+                   
+                   
+
+
+                    con.Close();
+                }
+                catch (Exception e)
+                {
+
+                    MessageBox.Show(e.Message);
+                }
+
+
+            }
+
+            if (table == "Model")
+            {
+
+                String load = "select model_name from Model where model_id='" + check + "' ";
+                cmd.CommandText = load;
+                try
+                {
+                    con.Open();
+                    dr = cmd.ExecuteReader();
+                    if (dr.HasRows)
+                    {
+                        while (dr.Read())
+                        {
+                            name = (dr[0].ToString());
+                        }
+                    }
+
+
+                    con.Close();
+                }
+                catch (Exception e)
+                {
+
+                    MessageBox.Show(e.Message);
+                }
+
+
+            }
+
+            if (table == "Yearr")
+            {
+
+                String load = "select year from Yearr where year_id='" + check + "' ";
+                cmd.CommandText = load;
+                try
+                {
+                    con.Open();
+                    dr = cmd.ExecuteReader();
+                    if (dr.HasRows)
+                    {
+                        while (dr.Read())
+                        {
+                            name = (dr[0].ToString());
+                        }
+                    }
+
+
+                    con.Close();
+                }
+                catch (Exception e)
+                {
+
+                    MessageBox.Show(e.Message);
+                }
+
+
+            }
+
+            if (table == "Fuel")
+            {
+
+                String load = "select fuel_type from Fuel where fuel_id='" + check + "' ";
+                cmd.CommandText = load;
+                try
+                {
+                    con.Open();
+                    dr = cmd.ExecuteReader();
+                    if (dr.HasRows)
+                    {
+                        while (dr.Read())
+                        {
+                            name = (dr[0].ToString());
+                        }
+                    }
+
+
+                    con.Close();
+                }
+                catch (Exception e)
+                {
+
+                    MessageBox.Show(e.Message);
+                }
+
+
+            }
+            return name;
+
+        }
+
         public string GetClientId()
         {
             String load = "select id from passwords";
@@ -459,6 +621,7 @@ namespace Motor_Yard
                 MessageBox.Show(e.Message);
             }
             return client_Id;
+
         }
 
     }
