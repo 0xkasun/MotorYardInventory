@@ -87,6 +87,8 @@
             this.label_RepeatItemCode_DeleteStock = new System.Windows.Forms.Label();
             this.label_ItemCode_DeleteStock = new System.Windows.Forms.Label();
             this.tabPageClearStock = new System.Windows.Forms.TabPage();
+            this.textBoxReason_ClearStock = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.pictureBoxClearButton = new System.Windows.Forms.PictureBox();
             this.textBox_ItemCode_ClearStock = new System.Windows.Forms.TextBox();
             this.textBox_RepeatItemCode_ClearStock = new System.Windows.Forms.TextBox();
@@ -142,7 +144,7 @@
             this.tabPageAddNewStock.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageAddNewStock.Size = new System.Drawing.Size(827, 458);
             this.tabPageAddNewStock.TabIndex = 0;
-            this.tabPageAddNewStock.Text = "Add New Stock";
+            this.tabPageAddNewStock.Text = "Add New Item";
             // 
             // groupBoxAddDetails_AddStock
             // 
@@ -515,7 +517,7 @@
             this.tabPageUpdateStock.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageUpdateStock.Size = new System.Drawing.Size(827, 458);
             this.tabPageUpdateStock.TabIndex = 1;
-            this.tabPageUpdateStock.Text = "Update Stock";
+            this.tabPageUpdateStock.Text = "Update Iteem";
             // 
             // pictureBoxUpdateButton
             // 
@@ -532,7 +534,7 @@
             // 
             this.label_Items_UpdateStock.AutoSize = true;
             this.label_Items_UpdateStock.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Items_UpdateStock.Location = new System.Drawing.Point(300, 181);
+            this.label_Items_UpdateStock.Location = new System.Drawing.Point(300, 163);
             this.label_Items_UpdateStock.Name = "label_Items_UpdateStock";
             this.label_Items_UpdateStock.Size = new System.Drawing.Size(36, 15);
             this.label_Items_UpdateStock.TabIndex = 9;
@@ -555,7 +557,7 @@
             // 
             // textBox_QuantityOnHand_UpdateStock
             // 
-            this.textBox_QuantityOnHand_UpdateStock.Location = new System.Drawing.Point(161, 173);
+            this.textBox_QuantityOnHand_UpdateStock.Location = new System.Drawing.Point(161, 157);
             this.textBox_QuantityOnHand_UpdateStock.Name = "textBox_QuantityOnHand_UpdateStock";
             this.textBox_QuantityOnHand_UpdateStock.Size = new System.Drawing.Size(116, 21);
             this.textBox_QuantityOnHand_UpdateStock.TabIndex = 5;
@@ -572,7 +574,7 @@
             // 
             this.label_ItemHand.AutoSize = true;
             this.label_ItemHand.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_ItemHand.Location = new System.Drawing.Point(22, 173);
+            this.label_ItemHand.Location = new System.Drawing.Point(22, 163);
             this.label_ItemHand.Name = "label_ItemHand";
             this.label_ItemHand.Size = new System.Drawing.Size(106, 15);
             this.label_ItemHand.TabIndex = 3;
@@ -631,7 +633,7 @@
             this.tabPageDeleteStock.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageDeleteStock.Size = new System.Drawing.Size(827, 458);
             this.tabPageDeleteStock.TabIndex = 2;
-            this.tabPageDeleteStock.Text = "Delete Stock";
+            this.tabPageDeleteStock.Text = "Delete Item";
             // 
             // pictureBoxDeleteButton
             // 
@@ -687,6 +689,8 @@
             // tabPageClearStock
             // 
             this.tabPageClearStock.BackColor = System.Drawing.Color.Transparent;
+            this.tabPageClearStock.Controls.Add(this.textBoxReason_ClearStock);
+            this.tabPageClearStock.Controls.Add(this.label2);
             this.tabPageClearStock.Controls.Add(this.pictureBoxClearButton);
             this.tabPageClearStock.Controls.Add(this.textBox_ItemCode_ClearStock);
             this.tabPageClearStock.Controls.Add(this.textBox_RepeatItemCode_ClearStock);
@@ -699,6 +703,22 @@
             this.tabPageClearStock.Size = new System.Drawing.Size(827, 458);
             this.tabPageClearStock.TabIndex = 3;
             this.tabPageClearStock.Text = "Clear Stock";
+            // 
+            // textBoxReason_ClearStock
+            // 
+            this.textBoxReason_ClearStock.Location = new System.Drawing.Point(170, 119);
+            this.textBoxReason_ClearStock.Name = "textBoxReason_ClearStock";
+            this.textBoxReason_ClearStock.Size = new System.Drawing.Size(198, 21);
+            this.textBoxReason_ClearStock.TabIndex = 14;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(33, 125);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(45, 15);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Reason";
             // 
             // pictureBoxClearButton
             // 
@@ -894,5 +914,7 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btn_checkstock;
+        private System.Windows.Forms.TextBox textBoxReason_ClearStock;
+        private System.Windows.Forms.Label label2;
     }
 }

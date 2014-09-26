@@ -90,11 +90,16 @@ namespace Motor_Yard
             customers.Show();
         }
 
-        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+        private void logOutToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             LogIn lg = new LogIn();
             lg.Show();
             this.Hide();
+        }
+
+        private void usersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
