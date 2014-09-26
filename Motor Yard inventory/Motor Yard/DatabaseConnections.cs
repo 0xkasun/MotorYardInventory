@@ -434,6 +434,136 @@ namespace Motor_Yard
             return itemCode;
         }
 
+        //new Func
+        public String getItemDetails_String(String itemCode) {
+
+            String[] ar= new String[7];
+            int len = itemCode.Length;
+            char[] ch= itemCode.ToCharArray();
+            int i=0;
+            int j;
+
+            while (i < len) {
+                String s = "";
+                for (j = 0; j < 3; j++) {
+
+                    s = s + ch[i];
+                
+                }
+                ar[i]=s;
+                i = i + j;
+
+                }
+            long brandID = Convert.ToInt64(ar[0]);
+            long modelID = Convert.ToInt64(ar[1]);
+            long yearID = Convert.ToInt64(ar[4]);
+            long fuelID = Convert.ToInt64(ar[2]);
+
+            String details = this.getDetails(brandID, "Brand") + this.getDetails(brandID, "Model") + " of " + this.getDetails(brandID, "Year") + " ," + this.getDetails(brandID, "Fuel");
+
+            return details;
+        
+        
+        }
+        public String getDetails(long check, String table) {
+            String name="";
+
+            if (table == "Brand")
+            {
+
+                String load = "select brand_name from Brand where brand_id='" + check + "' ";
+                cmd.CommandText = load;
+                try
+                {
+                    con.Open();
+                    dr = cmd.ExecuteReader();
+                    name = dr.ToString();
+                    
+
+                    con.Close();
+                }
+                catch (Exception e)
+                {
+
+                    MessageBox.Show(e.Message);
+                }
+                
+
+            }
+
+            if (table == "Model")
+            {
+
+                String load = "select brand_name from Brand where brand_id='" + check + "' ";
+                cmd.CommandText = load;
+                try
+                {
+                    con.Open();
+                    dr = cmd.ExecuteReader();
+                    name = dr.ToString();
+
+
+                    con.Close();
+                }
+                catch (Exception e)
+                {
+
+                    MessageBox.Show(e.Message);
+                }
+
+
+            }
+
+            if (table == "Yearr")
+            {
+
+                String load = "select brand_name from Brand where brand_id='" + check + "' ";
+                cmd.CommandText = load;
+                try
+                {
+                    con.Open();
+                    dr = cmd.ExecuteReader();
+                    name = dr.ToString();
+
+
+                    con.Close();
+                }
+                catch (Exception e)
+                {
+
+                    MessageBox.Show(e.Message);
+                }
+
+
+            }
+
+            if (table == "Fuel")
+            {
+
+                String load = "select brand_name from Brand where brand_id='" + check + "' ";
+                cmd.CommandText = load;
+                try
+                {
+                    con.Open();
+                    dr = cmd.ExecuteReader();
+                    name = dr.ToString();
+
+
+                    con.Close();
+                }
+                catch (Exception e)
+                {
+
+                    MessageBox.Show(e.Message);
+                }
+
+
+            }
+            return name;
+        
+        
+        }
+
     }
 
     

@@ -141,7 +141,7 @@ namespace Motor_Yard
                 DatabaseConnections db = new DatabaseConnections();
                 long QuantityHand = db.CheckQuantity(itemCode);
 
-                DialogResult result1 = MessageBox.Show("ItemCode : " + itemCode + "\n Item Name : ", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult result1 = MessageBox.Show("ItemCode : " + itemCode + "\n Item Name : " + db.getItemDetails_String(itemCode), "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result1 == DialogResult.Yes && QuantityHand==0)
                 {
                     DatabaseConnections db1 = new DatabaseConnections();
