@@ -39,7 +39,6 @@ namespace Motor_Yard
             }
             else
             {
-                //Password pw = new Password();
                 DatabaseConnections db = new DatabaseConnections();
                 int ret_val = db.Login(textBox_UserName.Text.ToString(), textBox_Passwd.Text.ToString());
 

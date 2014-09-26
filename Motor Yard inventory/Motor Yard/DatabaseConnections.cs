@@ -23,17 +23,17 @@ namespace Motor_Yard
         OleDbCommand cmd = new OleDbCommand();
         OleDbDataReader dr;
         string sql;
-        public static long itemCode;
+        public static string itemCode;
         public static string client_Id;
         public static int QuantityHand;
         public static string InventoryId;
         public static string CinId;
 
 
-        public void AddNewStock(long BrandId, string BrandName, long ModelId, string ModelName, long FuelId, string FuelType, long EngineId, long EngineCapacity, long Year, long Yearr, long CatId, string CatName, long PartId, string PartName, long QuantityIn, long UnitPrice)
+        public void AddNewStock(string BrandId, string BrandName, string ModelId, string ModelName, string FuelId, string FuelType, string EngineId, string EngineCapacity, string Year, string Yearr, string CatId, string CatName, string PartId, string PartName, long QuantityIn, long UnitPrice)
         {
-            string client_Id = GetClientId();
-            InventoryId = Convert.ToString(BrandId) + Convert.ToString(ModelId) + Convert.ToString(FuelId) + Convert.ToString(EngineId) + Convert.ToString(Year) + Convert.ToString(CatId) + Convert.ToString(PartId);
+            client_Id = GetClientId();
+            InventoryId = BrandId + ModelId + FuelId + EngineId + Year + CatId + PartId;
             CinId =client_Id.ToString() + InventoryId;
 
             if (InventoryId.Length == 21)
@@ -80,6 +80,7 @@ namespace Motor_Yard
 
         public int CheckQuantity(string ItemCode)
         {
+            client_Id = GetClientId();
             CinId = client_Id + ItemCode;
             String load = "select quantity from Client_InventoryItem where cin_id='" + CinId + "' ";
             QuantityHand = -1;
@@ -118,6 +119,7 @@ namespace Motor_Yard
 
         public void UpdateStock(string ItemCode, string QuantityIn)
         {
+            client_Id = GetClientId();
             CinId =client_Id + ItemCode;
             long NewQuantity;
             NewQuantity = QuantityHand + Convert.ToInt64(QuantityIn);
@@ -210,6 +212,7 @@ namespace Motor_Yard
 
         public void Clearstock(String itemcode)
         {
+            client_Id = GetClientId();
             CinId =client_Id + itemcode;
             int quantity = 0;
             sql = "UPDATE Client_InventoryItem SET quantity='" + quantity + "' WHERE cin_id='" + CinId + "' ";
@@ -234,7 +237,7 @@ namespace Motor_Yard
         
 
 
-        public long GetId(string check, string table)
+        public string GetId(string check, string table)
         {
 
             if (table == "Brand")
@@ -243,7 +246,7 @@ namespace Motor_Yard
                 
                 String load = "select brand_id from Brand where brand_name='" + check + "' ";
                 cmd.CommandText = load;
-                itemCode = 0;
+                itemCode = "";
                 try
                 {
                     con.Open();
@@ -252,7 +255,7 @@ namespace Motor_Yard
                     {
                         while (dr.Read())
                         {
-                            itemCode = Convert.ToInt64(dr[0].ToString());
+                            itemCode = dr[0].ToString();
                         }
                     }
 
@@ -270,7 +273,7 @@ namespace Motor_Yard
             {
                 String load = "select cat_id from Category where cat_name='" + check + "' ";
                 cmd.CommandText = load;
-                itemCode = 0;
+                itemCode = "";
                 try
                 {
                     con.Open();
@@ -279,7 +282,7 @@ namespace Motor_Yard
                     {
                         while (dr.Read())
                         {
-                            itemCode = Convert.ToInt64(dr[0].ToString());
+                            itemCode = dr[0].ToString();
                             
                         }
                     }
@@ -298,7 +301,7 @@ namespace Motor_Yard
             {
                 String load = "select engine_id from Engine where engine_capacity='" + check + "' ";
                 cmd.CommandText = load;
-                itemCode = 0;
+                itemCode = "";
                 try
                 {
                     con.Open();
@@ -307,7 +310,7 @@ namespace Motor_Yard
                     {
                         while (dr.Read())
                         {
-                            itemCode = Convert.ToInt64(dr[0].ToString());
+                            itemCode = dr[0].ToString();
                         }
                     }
 
@@ -325,7 +328,7 @@ namespace Motor_Yard
             {
                 String load = "select fuel_id from Fuel where fuel_type='" + check + "' ";
                 cmd.CommandText = load;
-                itemCode = 0;
+                itemCode = "";
                 try
                 {
                     con.Open();
@@ -334,7 +337,7 @@ namespace Motor_Yard
                     {
                         while (dr.Read())
                         {
-                            itemCode = Convert.ToInt64(dr[0].ToString());
+                            itemCode = dr[0].ToString();
                         }
                     }
 
@@ -352,7 +355,7 @@ namespace Motor_Yard
             {
                 String load = "select model_id from Model where model_name='" + check + "' ";
                 cmd.CommandText = load;
-                itemCode = 0;
+                itemCode = "";
                 try
                 {
                     con.Open();
@@ -361,7 +364,7 @@ namespace Motor_Yard
                     {
                         while (dr.Read())
                         {
-                            itemCode = Convert.ToInt64(dr[0].ToString());
+                            itemCode = dr[0].ToString();
                         }
                     }
 
@@ -379,7 +382,7 @@ namespace Motor_Yard
             {
                 String load = "select year_id from Yearr where year_num='" + check + "' ";
                 cmd.CommandText = load;
-                itemCode = 0;
+                itemCode = "";
                 try
                 {
                     con.Open();
@@ -388,7 +391,7 @@ namespace Motor_Yard
                     {
                         while (dr.Read())
                         {
-                            itemCode = Convert.ToInt64(dr[0].ToString());
+                            itemCode = dr[0].ToString();
                         }
                     }
 
@@ -406,7 +409,7 @@ namespace Motor_Yard
             {
                 String load = "select part_id from SparePart where part_name='" + check + "' ";
                 cmd.CommandText = load;
-                itemCode = 0;
+                itemCode = "";
                 try
                 {
                     con.Open();
@@ -415,7 +418,7 @@ namespace Motor_Yard
                     {
                         while (dr.Read())
                         {
-                            itemCode = Convert.ToInt64(dr[0].ToString());
+                            itemCode = dr[0].ToString();
                         }
                     }
 

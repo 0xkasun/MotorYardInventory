@@ -82,35 +82,35 @@
             // addNewStock_ToolStripMenuItem
             // 
             this.addNewStock_ToolStripMenuItem.Name = "addNewStock_ToolStripMenuItem";
-            this.addNewStock_ToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
-            this.addNewStock_ToolStripMenuItem.Text = "Add New Stock";
+            this.addNewStock_ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.addNewStock_ToolStripMenuItem.Text = "Add New Item";
             this.addNewStock_ToolStripMenuItem.Click += new System.EventHandler(this.addNewStock_ToolStripMenuItem_Click);
             // 
             // updateStock_ToolStripMenuItem
             // 
             this.updateStock_ToolStripMenuItem.Name = "updateStock_ToolStripMenuItem";
-            this.updateStock_ToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
-            this.updateStock_ToolStripMenuItem.Text = "Update Stock";
+            this.updateStock_ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.updateStock_ToolStripMenuItem.Text = "Update Item";
             this.updateStock_ToolStripMenuItem.Click += new System.EventHandler(this.updateStock_ToolStripMenuItem_Click);
             // 
             // deleteStock_ToolStripMenuItem
             // 
             this.deleteStock_ToolStripMenuItem.Name = "deleteStock_ToolStripMenuItem";
-            this.deleteStock_ToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
-            this.deleteStock_ToolStripMenuItem.Text = "Delete Stock";
+            this.deleteStock_ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.deleteStock_ToolStripMenuItem.Text = "Delete Item";
             this.deleteStock_ToolStripMenuItem.Click += new System.EventHandler(this.deleteStock_ToolStripMenuItem_Click);
             // 
             // clearStock_ToolStripMenuItem
             // 
             this.clearStock_ToolStripMenuItem.Name = "clearStock_ToolStripMenuItem";
-            this.clearStock_ToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.clearStock_ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.clearStock_ToolStripMenuItem.Text = "Clear Stock";
             this.clearStock_ToolStripMenuItem.Click += new System.EventHandler(this.clearStock_ToolStripMenuItem_Click);
             // 
             // stockStatusTool_StripMenuItem
             // 
             this.stockStatusTool_StripMenuItem.Name = "stockStatusTool_StripMenuItem";
-            this.stockStatusTool_StripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.stockStatusTool_StripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.stockStatusTool_StripMenuItem.Text = "Stock Status";
             this.stockStatusTool_StripMenuItem.Click += new System.EventHandler(this.stockStatusTool_StripMenuItem_Click);
             // 
@@ -198,14 +198,14 @@
             // usersToolStripMenuItem
             // 
             this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-            this.usersToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.usersToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.usersToolStripMenuItem.Text = "Users";
             this.usersToolStripMenuItem.Click += new System.EventHandler(this.usersToolStripMenuItem_Click);
             // 
             // logOutToolStripMenuItem1
             // 
             this.logOutToolStripMenuItem1.Name = "logOutToolStripMenuItem1";
-            this.logOutToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.logOutToolStripMenuItem1.Size = new System.Drawing.Size(114, 22);
             this.logOutToolStripMenuItem1.Text = "LogOut";
             this.logOutToolStripMenuItem1.Click += new System.EventHandler(this.logOutToolStripMenuItem1_Click);
             // 
