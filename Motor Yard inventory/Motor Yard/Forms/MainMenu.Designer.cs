@@ -62,7 +62,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(7, 3, 0, 3);
-            this.menuStrip1.Size = new System.Drawing.Size(510, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(878, 25);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -82,35 +82,35 @@
             // addNewStock_ToolStripMenuItem
             // 
             this.addNewStock_ToolStripMenuItem.Name = "addNewStock_ToolStripMenuItem";
-            this.addNewStock_ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.addNewStock_ToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.addNewStock_ToolStripMenuItem.Text = "Add New Item";
             this.addNewStock_ToolStripMenuItem.Click += new System.EventHandler(this.addNewStock_ToolStripMenuItem_Click);
             // 
             // updateStock_ToolStripMenuItem
             // 
             this.updateStock_ToolStripMenuItem.Name = "updateStock_ToolStripMenuItem";
-            this.updateStock_ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.updateStock_ToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.updateStock_ToolStripMenuItem.Text = "Update Item";
             this.updateStock_ToolStripMenuItem.Click += new System.EventHandler(this.updateStock_ToolStripMenuItem_Click);
             // 
             // deleteStock_ToolStripMenuItem
             // 
             this.deleteStock_ToolStripMenuItem.Name = "deleteStock_ToolStripMenuItem";
-            this.deleteStock_ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.deleteStock_ToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.deleteStock_ToolStripMenuItem.Text = "Delete Item";
             this.deleteStock_ToolStripMenuItem.Click += new System.EventHandler(this.deleteStock_ToolStripMenuItem_Click);
             // 
             // clearStock_ToolStripMenuItem
             // 
             this.clearStock_ToolStripMenuItem.Name = "clearStock_ToolStripMenuItem";
-            this.clearStock_ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.clearStock_ToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.clearStock_ToolStripMenuItem.Text = "Clear Stock";
             this.clearStock_ToolStripMenuItem.Click += new System.EventHandler(this.clearStock_ToolStripMenuItem_Click);
             // 
             // stockStatusTool_StripMenuItem
             // 
             this.stockStatusTool_StripMenuItem.Name = "stockStatusTool_StripMenuItem";
-            this.stockStatusTool_StripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.stockStatusTool_StripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.stockStatusTool_StripMenuItem.Text = "Stock Status";
             this.stockStatusTool_StripMenuItem.Click += new System.EventHandler(this.stockStatusTool_StripMenuItem_Click);
             // 
@@ -200,7 +200,6 @@
             this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
             this.usersToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.usersToolStripMenuItem.Text = "Users";
-            this.usersToolStripMenuItem.Click += new System.EventHandler(this.usersToolStripMenuItem_Click);
             // 
             // logOutToolStripMenuItem1
             // 
@@ -213,7 +212,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(510, 301);
+            this.ClientSize = new System.Drawing.Size(878, 377);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainMenuStrip = this.menuStrip1;

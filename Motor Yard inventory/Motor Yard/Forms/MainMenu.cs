@@ -97,9 +97,8 @@ namespace Motor_Yard
             this.Hide();
         }
 
-        private void usersToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        
+        
 
-        }
     }
 }
