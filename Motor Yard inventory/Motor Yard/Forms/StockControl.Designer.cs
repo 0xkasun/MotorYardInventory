@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Stock_Control));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageAddNewStock = new System.Windows.Forms.TabPage();
@@ -98,6 +99,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btn_checkstock = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.web_inventoryDataSet = new Motor_Yard.web_inventoryDataSet();
+            this.webinventoryDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPageAddNewStock.SuspendLayout();
             this.groupBoxAddDetails_AddStock.SuspendLayout();
@@ -114,6 +117,8 @@
             this.tabPageStockStatus.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.web_inventoryDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.webinventoryDataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -810,6 +815,16 @@
             this.dataGridView1.Size = new System.Drawing.Size(815, 322);
             this.dataGridView1.TabIndex = 0;
             // 
+            // web_inventoryDataSet
+            // 
+            this.web_inventoryDataSet.DataSetName = "web_inventoryDataSet";
+            this.web_inventoryDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // webinventoryDataSetBindingSource
+            // 
+            this.webinventoryDataSetBindingSource.DataSource = this.web_inventoryDataSet;
+            this.webinventoryDataSetBindingSource.Position = 0;
+            // 
             // Stock_Control
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -841,6 +856,8 @@
             this.tabPageStockStatus.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.web_inventoryDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.webinventoryDataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -916,5 +933,7 @@
         private System.Windows.Forms.Button btn_checkstock;
         private System.Windows.Forms.TextBox textBoxReason_ClearStock;
         private System.Windows.Forms.Label label2;
+        private web_inventoryDataSet web_inventoryDataSet;
+        private System.Windows.Forms.BindingSource webinventoryDataSetBindingSource;
     }
 }
