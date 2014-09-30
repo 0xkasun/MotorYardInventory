@@ -462,10 +462,4 @@
         lvBeB8h8wBdKm4yAPXKADhYHYahRyqfiALbJdUtDi+5uJ/A2gBhAEGSuukATgD//2Q==
 </value>
   </data>
-  <metadata name="web_inventoryDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="webinventoryDataSetBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>190, 17</value>
-  </metadata>
 </root>
