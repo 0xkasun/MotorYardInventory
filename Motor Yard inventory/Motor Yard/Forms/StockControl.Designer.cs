@@ -560,7 +560,7 @@
             this.tabPageUpdateStock.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageUpdateStock.Size = new System.Drawing.Size(750, 458);
             this.tabPageUpdateStock.TabIndex = 1;
-            this.tabPageUpdateStock.Text = "Update Iteem";
+            this.tabPageUpdateStock.Text = "Update Item";
             // 
             // groupBoxUpdateItem
             // 
@@ -713,6 +713,7 @@
             this.buttonGetItemcode_GenarateItemcode_Update.TabIndex = 20;
             this.buttonGetItemcode_GenarateItemcode_Update.Text = "Get Itemcode";
             this.buttonGetItemcode_GenarateItemcode_Update.UseVisualStyleBackColor = true;
+            this.buttonGetItemcode_GenarateItemcode_Update.Click += new System.EventHandler(this.buttonGetItemcode_GenarateItemcode_Update_Click);
             // 
             // comboBoxPartName_GenarateItemcode_Update
             // 

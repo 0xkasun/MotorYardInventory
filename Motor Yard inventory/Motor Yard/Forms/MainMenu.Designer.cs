@@ -88,7 +88,11 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(7, 3, 0, 3);
+<<<<<<< HEAD
             this.menuStrip1.Size = new System.Drawing.Size(978, 25);
+=======
+            this.menuStrip1.Size = new System.Drawing.Size(784, 25);
+>>>>>>> 859de18a9d4da9ab3068bb52d145ab0fd2685a63
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -458,9 +462,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(978, 413);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+=======
+            this.ClientSize = new System.Drawing.Size(784, 377);
+>>>>>>> 859de18a9d4da9ab3068bb52d145ab0fd2685a63
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainMenuStrip = this.menuStrip1;
