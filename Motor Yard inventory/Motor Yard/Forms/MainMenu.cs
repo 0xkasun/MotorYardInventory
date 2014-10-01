@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Motor_Yard.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -96,6 +97,15 @@ namespace Motor_Yard
             lg.Show();
             this.Hide();
         }
+
+
+
+        private void button6_AddItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+     
 
         
         

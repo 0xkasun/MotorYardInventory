@@ -53,7 +53,6 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -63,8 +62,18 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.button6_AddItem = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.comboBox7_part = new System.Windows.Forms.ComboBox();
+            this.comboBox1_Brand = new System.Windows.Forms.ComboBox();
+            this.comboBox6_category = new System.Windows.Forms.ComboBox();
+            this.comboBox5_year = new System.Windows.Forms.ComboBox();
+            this.comboBox2_model = new System.Windows.Forms.ComboBox();
+            this.comboBox4_engine = new System.Windows.Forms.ComboBox();
+            this.comboBox3_fuel = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -79,7 +88,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(7, 3, 0, 3);
-            this.menuStrip1.Size = new System.Drawing.Size(750, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(978, 25);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -263,7 +272,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.listView1);
             this.groupBox1.Controls.Add(this.button5);
             this.groupBox1.Controls.Add(this.button4);
@@ -280,15 +288,6 @@
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Transactions";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 24);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 15);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "Select Item";
             // 
             // button5
             // 
@@ -352,12 +351,13 @@
             this.button1.TabIndex = 8;
             this.button1.Text = "Add Item";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 9.5F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(451, 23);
+            this.label2.Location = new System.Drawing.Point(9, 25);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 15);
             this.label2.TabIndex = 4;
@@ -365,16 +365,101 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(492, 18);
+            this.dateTimePicker1.Location = new System.Drawing.Point(49, 21);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
             this.dateTimePicker1.TabIndex = 7;
+            // 
+            // button6_AddItem
+            // 
+            this.button6_AddItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6_AddItem.Location = new System.Drawing.Point(52, 302);
+            this.button6_AddItem.Name = "button6_AddItem";
+            this.button6_AddItem.Size = new System.Drawing.Size(121, 42);
+            this.button6_AddItem.TabIndex = 0;
+            this.button6_AddItem.Text = "Add Item";
+            this.button6_AddItem.UseVisualStyleBackColor = true;
+            this.button6_AddItem.Click += new System.EventHandler(this.button6_AddItem_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.comboBox7_part);
+            this.groupBox2.Controls.Add(this.comboBox1_Brand);
+            this.groupBox2.Controls.Add(this.comboBox6_category);
+            this.groupBox2.Controls.Add(this.button6_AddItem);
+            this.groupBox2.Controls.Add(this.comboBox5_year);
+            this.groupBox2.Controls.Add(this.comboBox2_model);
+            this.groupBox2.Controls.Add(this.comboBox4_engine);
+            this.groupBox2.Controls.Add(this.comboBox3_fuel);
+            this.groupBox2.Location = new System.Drawing.Point(747, 28);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(219, 373);
+            this.groupBox2.TabIndex = 13;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Select Item";
+            // 
+            // comboBox7_part
+            // 
+            this.comboBox7_part.FormattingEnabled = true;
+            this.comboBox7_part.Location = new System.Drawing.Point(52, 228);
+            this.comboBox7_part.Name = "comboBox7_part";
+            this.comboBox7_part.Size = new System.Drawing.Size(121, 23);
+            this.comboBox7_part.TabIndex = 7;
+            // 
+            // comboBox1_Brand
+            // 
+            this.comboBox1_Brand.FormattingEnabled = true;
+            this.comboBox1_Brand.Location = new System.Drawing.Point(52, 54);
+            this.comboBox1_Brand.Name = "comboBox1_Brand";
+            this.comboBox1_Brand.Size = new System.Drawing.Size(121, 23);
+            this.comboBox1_Brand.TabIndex = 1;
+            // 
+            // comboBox6_category
+            // 
+            this.comboBox6_category.FormattingEnabled = true;
+            this.comboBox6_category.Location = new System.Drawing.Point(52, 199);
+            this.comboBox6_category.Name = "comboBox6_category";
+            this.comboBox6_category.Size = new System.Drawing.Size(121, 23);
+            this.comboBox6_category.TabIndex = 6;
+            // 
+            // comboBox5_year
+            // 
+            this.comboBox5_year.FormattingEnabled = true;
+            this.comboBox5_year.Location = new System.Drawing.Point(52, 170);
+            this.comboBox5_year.Name = "comboBox5_year";
+            this.comboBox5_year.Size = new System.Drawing.Size(121, 23);
+            this.comboBox5_year.TabIndex = 5;
+            // 
+            // comboBox2_model
+            // 
+            this.comboBox2_model.FormattingEnabled = true;
+            this.comboBox2_model.Location = new System.Drawing.Point(52, 83);
+            this.comboBox2_model.Name = "comboBox2_model";
+            this.comboBox2_model.Size = new System.Drawing.Size(121, 23);
+            this.comboBox2_model.TabIndex = 2;
+            // 
+            // comboBox4_engine
+            // 
+            this.comboBox4_engine.FormattingEnabled = true;
+            this.comboBox4_engine.Location = new System.Drawing.Point(52, 141);
+            this.comboBox4_engine.Name = "comboBox4_engine";
+            this.comboBox4_engine.Size = new System.Drawing.Size(121, 23);
+            this.comboBox4_engine.TabIndex = 4;
+            // 
+            // comboBox3_fuel
+            // 
+            this.comboBox3_fuel.FormattingEnabled = true;
+            this.comboBox3_fuel.Location = new System.Drawing.Point(52, 112);
+            this.comboBox3_fuel.Name = "comboBox3_fuel";
+            this.comboBox3_fuel.Size = new System.Drawing.Size(121, 23);
+            this.comboBox3_fuel.TabIndex = 3;
             // 
             // Main_Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(750, 413);
+            this.ClientSize = new System.Drawing.Size(978, 413);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -387,6 +472,7 @@
             this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -419,15 +505,23 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Button button6_AddItem;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.ComboBox comboBox7_part;
+        private System.Windows.Forms.ComboBox comboBox1_Brand;
+        private System.Windows.Forms.ComboBox comboBox6_category;
+        private System.Windows.Forms.ComboBox comboBox5_year;
+        private System.Windows.Forms.ComboBox comboBox2_model;
+        private System.Windows.Forms.ComboBox comboBox4_engine;
+        private System.Windows.Forms.ComboBox comboBox3_fuel;
+        private System.Windows.Forms.Button button1;
     }
 }
