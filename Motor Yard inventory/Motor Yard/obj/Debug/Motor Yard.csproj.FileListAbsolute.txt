@@ -116,4 +116,3 @@ F:\Study\GIT\Git_sourcetree3\Motor Yard inventory\Motor Yard\bin\Debug\Motor Yar
 F:\Study\GIT\Git_sourcetree3\Motor Yard inventory\Motor Yard\bin\Debug\Motor Yard.pdb
 F:\Study\GIT\Git_sourcetree3\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.exe
 F:\Study\GIT\Git_sourcetree3\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.pdb
-F:\Study\GIT\Git_sourcetree3\Motor Yard inventory\Motor Yard\obj\Debug\Motor_Yard.Forms.ItemForm.resources

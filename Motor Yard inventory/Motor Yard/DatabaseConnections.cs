@@ -407,7 +407,7 @@ namespace Motor_Yard
             }
 
 
-            if (table == "Year")
+            if (table == "Yearr")
             {
                 String load = "select year_id from Yearr where year='" + check + "' ";
 
@@ -531,9 +531,10 @@ namespace Motor_Yard
             String modelID = (ar[1]);
             String yearID = (ar[4]);
             String fuelID = (ar[2]);
+            String partID = (ar[6]);
            
 
-            String details = getDetails(brandID, "Brand") +"-"+ getDetails(modelID, "Model") + " of " + getDetails(yearID, "Year") + " ," + getDetails(fuelID, "Fuel");
+            String details = getDetails(brandID, "Brand") +"-"+ getDetails(modelID, "Model") + " of " + getDetails(yearID, "Yearr") + " ," + getDetails(fuelID, "Fuel") + " : "+getDetails(partID,"SparePart");
 
             return details;
         
@@ -668,6 +669,40 @@ namespace Motor_Yard
 
             }
 
+            if (table == "SparePart")
+            {
+
+                String load = "select part_name from SparePart where part_id='" + check + "' ";
+
+                try
+                {
+                    con.Open();
+                    cmd = con.CreateCommand();
+                    cmd.CommandText = load;
+                    dr = cmd.ExecuteReader();
+                    if (dr.HasRows)
+                    {
+                        while (dr.Read())
+                        {
+                            name = (dr[0].ToString());
+                        }
+                    }
+
+
+                    con.Close();
+                }
+                catch (Exception e)
+                {
+
+                    MessageBox.Show(e.Message);
+                }
+
+
+            }
+
+
+
+
             
             return name;
 
@@ -718,6 +753,41 @@ namespace Motor_Yard
                 MessageBox.Show(ex.Message);
             }
                 
+        }
+
+        public String get_unit_price(String itemCode) {
+
+            // add a unit price field to inventory items table
+                String name = "";
+                String load = "select unit_price from Client_InventoryItem where cin_id='" +itemCode + "' ";
+
+                try
+                {
+                    con.Open();
+                    cmd = con.CreateCommand();
+                    cmd.CommandText = load;
+                    dr = cmd.ExecuteReader();
+                    if (dr.HasRows)
+                    {
+                        while (dr.Read())
+                        {
+                            name = (dr[0].ToString());
+                        }
+                    }
+
+
+                    con.Close();
+                }
+                catch (Exception e)
+                {
+
+                    MessageBox.Show(e.Message);
+                }
+
+
+                return name;
+        
+        
         }
 
 
