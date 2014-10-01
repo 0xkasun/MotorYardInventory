@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
 using System.Configuration;
+using MySql.Data.MySqlClient;
 
 namespace Motor_Yard
 {
@@ -71,41 +72,68 @@ namespace Motor_Yard
             textBoxModelId_AddStock.Enabled = false;
             textBoxPartId_AddStock.Enabled = false;
             textBoxEngineId_AddStock.Enabled = false;
+            textBoxYearId_AddStock.Enabled = false;
 
         }
 
-        long brand_id;
-        long cinId;
-        long model_id;
-        long fuel_id;
-        long engine_id;
-        long year;
-        long cat_id;
-        long part_id;
+        string brand_id;
+        string model_id;
+        string fuel_id;
+        string engine_id;
+        string year;
+        string year_id;
+        string cat_id;
+        string part_id;
         long quantity_in;
         long unit_price;
         string brand_name;
         string model_name;
         string fuel_type;
-        long engine_capacity;
+        string engine_capacity;
         string cat_name;
         string part_name;
 
 
         private void pictureBoxClearButton_Click(object sender, EventArgs e)
         {
-            String itemCode = textBox_ItemCode_ClearStock.Text;
-            String repeatitemCode = textBox_RepeatItemCode_ClearStock.Text;
+            string itemCode = textBox_ItemCode_ClearStock.Text;
+            string repeatitemCode = textBox_RepeatItemCode_ClearStock.Text;
+            string description = textBoxDescription_ClearStock.Text;
+            string date = dateTimePicker_ClearItem.Value.ToString();
 
             if (itemCode == repeatitemCode && (itemCode!="" || repeatitemCode!=""))
             {
-                DialogResult confirm = MessageBox.Show("ItemCode : " + itemCode , "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (confirm == DialogResult.Yes)
+
+                
+
+                DatabaseConnections db = new DatabaseConnections();
+                long QuantityHand = db.CheckQuantity(itemCode);
+
+                DialogResult confirm = MessageBox.Show("ItemCode : " + itemCode + "\nQuantity on Hand : " + QuantityHand, "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (confirm == DialogResult.Yes && QuantityHand > 0)
                 {
-                    DatabaseConnections db = new DatabaseConnections();
-                    db.Clearstock(itemCode);
-                    textBox_RepeatItemCode_ClearStock.Text = "";
-                    textBox_ItemCode_ClearStock.Text = "";
+                    DatabaseConnections db1 = new DatabaseConnections();
+                    db1.Clearstock(itemCode);
+                    db1.Delete_Clear_Details(itemCode, description, date, "Clear");
+                    textBox_RepeatItemCode_ClearStock.Text = null;
+                    textBox_ItemCode_ClearStock.Text = null ;
+                    textBoxDescription_ClearStock.Text = null;
+                }
+
+                else if(confirm == DialogResult.Yes && QuantityHand == 0)
+
+                {
+                    textBox_ItemCode_ClearStock.Text = null;
+                    textBox_RepeatItemCode_ClearStock.Text =null;
+                    textBoxDescription_ClearStock.Text = null;
+                    MessageBox.Show("Item is Not In the Database\n         or \nItem Quantity is  0.\n\n\nCheck Item Code Again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                else
+                {
+                    textBox_ItemCode_ClearStock.Text = null;
+                    textBox_RepeatItemCode_ClearStock.Text =null;
+                    textBoxDescription_ClearStock.Text = null;
                 }
             }
 
@@ -119,26 +147,62 @@ namespace Motor_Yard
         {
             String itemCode = textBox_ItemCode_DeleteStock.Text;
             String repeatitemCode = textBox_RepeatItemCode_DeleteStock.Text;
+            string description = textBoxDescription_DeleteItem.Text;
+            string date = dateTimePicker_DeleteItem.Value.ToString();
 
             if (itemCode == repeatitemCode && (itemCode != "" || repeatitemCode != ""))
             {
-                DialogResult result1 = MessageBox.Show("ItemCode : " + itemCode, "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (result1 == DialogResult.Yes)
-                {
-                    DatabaseConnections db = new DatabaseConnections();
 
+
+
+
+
+                DatabaseConnections db = new DatabaseConnections();
+                long QuantityHand = db.CheckQuantity(itemCode);
+
+
+                DialogResult result1 = MessageBox.Show("ItemCode : " + itemCode + "\n Item Name : " + db.getItemDetails_String(itemCode), "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result1 == DialogResult.Yes && QuantityHand == 0)
+                {
+                    DatabaseConnections db1 = new DatabaseConnections();
                     textBox_ItemCode_DeleteStock.Text = null;
                     textBox_RepeatItemCode_DeleteStock.Text = null;
-
-                    db.DeleteItem(itemCode);
-                    
-
-
+                    textBoxDescription_DeleteItem.Text = null;
+                    db1.DeleteItem(itemCode);
+                    db1.Delete_Clear_Details(itemCode, description, date, "Delete");
                 }
+                else if (result1 == DialogResult.Yes && QuantityHand > 0)
+                {
+                    DialogResult result = MessageBox.Show("Item Quantity is  " + QuantityHand + " Please clear the stock before delete the Item.", "Warnning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                    if (result == DialogResult.OK)
+                    {
+                        Stock_Control stock = new Stock_Control(4);
+                        stock.Show();
+                    }
+
+                    else
+                    {
+                        this.Hide();
+                        textBox_ItemCode_DeleteStock.Text = null;
+                        textBox_RepeatItemCode_DeleteStock.Text = null;
+                        textBoxDescription_DeleteItem.Text = null;
+                    }
+                }
+
+                else if (result1 == DialogResult.Yes && QuantityHand == -1)
+                {
+                    MessageBox.Show("Invalid ItemCode", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    textBox_ItemCode_DeleteStock.Text = null;
+                    textBox_RepeatItemCode_DeleteStock.Text = null;
+                    textBoxDescription_DeleteItem.Text = null;
+                }
+
+
                 else
                 {
                     textBox_ItemCode_DeleteStock.Text = null;
                     textBox_RepeatItemCode_DeleteStock.Text = null;
+                    textBoxDescription_DeleteItem.Text = null;
 
                 }
             }
@@ -156,18 +220,19 @@ namespace Motor_Yard
             {
                 string itemCode = textBox_ItemCode_UpdateStock.Text;
                 string QuantityIn = textBox_QuantityIn_UpdateStock.Text;
-
+                string date_time = dateTimePicker_UpdateStock.Value.Date.ToShortDateString();
+                
                 DatabaseConnections db = new DatabaseConnections();
                 long QuantityHand = db.CheckQuantity(itemCode);
                 string Qh = Convert.ToString(QuantityHand);
                 textBox_QuantityOnHand_UpdateStock.Text = Qh;
-                if (QuantityHand > 0)
+                if (QuantityHand !=-1)
                 {
                     DialogResult result1 = MessageBox.Show("Item Code : " + itemCode + "\nQuantity In : " + QuantityIn, "Verify Item Code and Quantity In", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                     if (result1 == DialogResult.OK)
                     {
                         DatabaseConnections db2 = new DatabaseConnections();
-                        db2.UpdateStock(itemCode, QuantityIn);
+                        db2.UpdateStock(itemCode, QuantityIn,date_time);
                         textBox_ItemCode_UpdateStock.Text = null;
                         textBox_QuantityIn_UpdateStock.Text = null;
                         textBox_QuantityOnHand_UpdateStock.Text = null;
@@ -218,27 +283,30 @@ namespace Motor_Yard
 
         private void pictureBoxAddButton_Click(object sender, EventArgs e)
         {
-            if (textBoxBrandId_AddStock.Text != "" && textBoxModelId_AddStock.Text != "" && textBoxFuelId_AddStock.Text != "" && textBoxEngineId_AddStock.Text != "" && textBoxCatId_AddStock.Text != "" && textBoxPartId_AddStock.Text != "" && textBoxYear_AddStock.Text != "" && textBoxQuantityIn_AddStock.Text != "" && textBoxUnitPrice_AddStock.Text != ""
-                && comboBoxBrandName_AddStock.Text != "" && comboBoxModelName_AddStock.Text != "" && comboBoxFuelType_AddStock.Text != "" && comboBoxEngineCapacity_AddStock.Text != "" && comboBoxCatName_AddStock.Text != "" && comboBoxPartName_AddStock.Text != "")
+            if (textBoxBrandId_AddStock.Text != "" && textBoxModelId_AddStock.Text != "" && textBoxFuelId_AddStock.Text != "" && textBoxEngineId_AddStock.Text != "" && textBoxCatId_AddStock.Text != "" && textBoxPartId_AddStock.Text != "" && textBoxYearId_AddStock.Text != "" && textBoxQuantityIn_AddStock.Text != "" && textBoxUnitPrice_AddStock.Text != ""
+                && comboBoxBrandName_AddStock.Text != "" && comboBoxModelName_AddStock.Text != "" && comboBoxFuelType_AddStock.Text != "" && comboBoxEngineCapacity_AddStock.Text != "" && comboBoxCatName_AddStock.Text != "" && comboBoxPartName_AddStock.Text != "" && comboBoxYear_AddStock.Text!="")
             {
-                brand_id = Convert.ToInt64(textBoxBrandId_AddStock.Text);
-                model_id = Convert.ToInt64(textBoxModelId_AddStock.Text);
-                fuel_id = Convert.ToInt64(textBoxFuelId_AddStock.Text);
-                engine_id = Convert.ToInt64(textBoxEngineId_AddStock.Text);
-                year = Convert.ToInt64(textBoxYear_AddStock.Text);
-                cat_id = Convert.ToInt64(textBoxCatId_AddStock.Text);
-                part_id = Convert.ToInt64(textBoxPartId_AddStock.Text);
+                brand_id = textBoxBrandId_AddStock.Text;
+                model_id = textBoxModelId_AddStock.Text;
+                fuel_id = textBoxFuelId_AddStock.Text;
+                engine_id = textBoxEngineId_AddStock.Text;
+                year_id = textBoxYearId_AddStock.Text;
+                cat_id = textBoxCatId_AddStock.Text;
+                part_id = textBoxPartId_AddStock.Text;
                 quantity_in = Convert.ToInt64(textBoxQuantityIn_AddStock.Text);
                 unit_price = Convert.ToInt64(textBoxUnitPrice_AddStock.Text);
+                year = comboBoxYear_AddStock.Text;
                 brand_name = comboBoxBrandName_AddStock.Text;
                 model_name = comboBoxModelName_AddStock.Text;
                 fuel_type = comboBoxFuelType_AddStock.Text;
-                engine_capacity = Convert.ToInt64(comboBoxEngineCapacity_AddStock.Text);
+                engine_capacity = comboBoxEngineCapacity_AddStock.Text;
                 cat_name = comboBoxCatName_AddStock.Text;
                 part_name = comboBoxPartName_AddStock.Text;
+                string date = dateTimePicker_AddStock.Value.ToString();
+
 
                 DatabaseConnections db = new DatabaseConnections();
-                db.AddNewStock(brand_id, brand_name, model_id, model_name, fuel_id, fuel_type, engine_id, engine_capacity, year, year, cat_id, cat_name, part_id, part_name, quantity_in, unit_price);
+                db.AddNewStock(brand_id, brand_name, model_id, model_name, fuel_id, fuel_type, engine_id, engine_capacity, year_id, year, cat_id, cat_name, part_id, part_name, quantity_in, unit_price,date);
 
             }
 
@@ -251,7 +319,7 @@ namespace Motor_Yard
             textBoxModelId_AddStock.Text = null;
             textBoxFuelId_AddStock.Text = null;
             textBoxEngineId_AddStock.Text = null;
-            textBoxYear_AddStock.Text = null;
+            textBoxYearId_AddStock.Text = null;
             textBoxCatId_AddStock.Text = null;
             textBoxPartId_AddStock.Text = null;
             textBoxQuantityIn_AddStock.Text = null;
@@ -260,6 +328,7 @@ namespace Motor_Yard
             comboBoxModelName_AddStock.Text = null;
             comboBoxFuelType_AddStock.Text = null;
             comboBoxEngineCapacity_AddStock.Text = null;
+            comboBoxYear_AddStock.Text = null; 
             comboBoxCatName_AddStock.Text = null;
             comboBoxPartName_AddStock.Text = null;
         }
@@ -278,18 +347,20 @@ namespace Motor_Yard
         {
             //todo if a code search is needed impliment it here
 
-            OleDbConnection con = new OleDbConnection();
+            /*OleDbConnection con = new OleDbConnection();
             OleDbCommand com = new OleDbCommand();
 
             string connectionStr = ConfigurationManager.ConnectionStrings["Test"].ConnectionString;
             con.ConnectionString = @connectionStr;
-            com.Connection = con;
+            com.Connection = con;*/
+            String sqlconnection = "Server=localhost;DATABASE=motoryard_inventory;UID=root;";
+            MySqlConnection con = new MySqlConnection(sqlconnection);
 
             try
             {
                 con.Open();
                 String sql = "SELECT inventory_id,unit_price,quantity FROM Client_InventoryItem";
-                OleDbDataAdapter dataadapter = new OleDbDataAdapter(sql, con);
+                MySqlDataAdapter dataadapter = new MySqlDataAdapter(sql, con);
                 DataTable dt = new DataTable();
                 dataadapter.Fill(dt);
                 dataGridView1.DataSource = dt;
@@ -314,8 +385,7 @@ namespace Motor_Yard
             if (check != "")
             {
                 DatabaseConnections db = new DatabaseConnections();
-                long Id1 = db.GetId(check, "Brand");
-                string ItemId1 = Convert.ToString(Id1);
+                string ItemId1 = db.GetId(check, "Brand");
                 textBoxBrandId_AddStock.Text = ItemId1;
             }
 
@@ -333,8 +403,7 @@ namespace Motor_Yard
             if (check != "")
             {
                 DatabaseConnections db = new DatabaseConnections();
-                long Id2 = db.GetId(check, "Model");
-                string ItemId2 = Convert.ToString(Id2);
+                string ItemId2 = db.GetId(check, "Model");
                 textBoxModelId_AddStock.Text = ItemId2;
             }
 
@@ -350,8 +419,7 @@ namespace Motor_Yard
             if (check != "")
             {
                 DatabaseConnections db = new DatabaseConnections();
-                long Id3 = db.GetId(check, "Fuel");
-                string ItemId3 = Convert.ToString(Id3);
+                string ItemId3 = db.GetId(check, "Fuel");
                 textBoxFuelId_AddStock.Text = ItemId3;
             }
 
@@ -367,8 +435,7 @@ namespace Motor_Yard
             if (check != "")
             {
                 DatabaseConnections db = new DatabaseConnections();
-                long Id4 = db.GetId(check, "Engine");
-                string ItemId4 = Convert.ToString(Id4);
+                string ItemId4 = db.GetId(check, "Engine");
                 textBoxEngineId_AddStock.Text = ItemId4;
             }
 
@@ -378,15 +445,31 @@ namespace Motor_Yard
             }
         }
 
+        private void comboBoxYear_AddStock_TextChanged(object sender, EventArgs e)
+        {
+            string check = comboBoxYear_AddStock.Text;
+            if (check != "")
+            {
+                DatabaseConnections db = new DatabaseConnections();
+                string ItemId5 = db.GetId(check, "Year");
+                textBoxYearId_AddStock.Text = ItemId5;
+            }
+
+            else
+            {
+                textBoxYearId_AddStock.Text = "";
+            }
+        }
+
+
         private void comboBoxCatName_AddStock_TextChanged(object sender, EventArgs e)
         {
             string check = comboBoxCatName_AddStock.Text;
             if (check != "")
             {
                 DatabaseConnections db = new DatabaseConnections();
-                long Id5 = db.GetId(check, "Category");
-                string ItemId5 = Convert.ToString(Id5);
-                textBoxCatId_AddStock.Text = ItemId5;
+                string ItemId6 = db.GetId(check, "Category");
+                textBoxCatId_AddStock.Text = ItemId6;
             }
 
             else
@@ -401,9 +484,8 @@ namespace Motor_Yard
             if (check != "")
             {
                 DatabaseConnections db = new DatabaseConnections();
-                long Id6 = db.GetId(check, "SparePart");
-                string ItemId6 = Convert.ToString(Id6);
-                textBoxPartId_AddStock.Text = ItemId6;
+                string ItemId7 = db.GetId(check, "SparePart");
+                textBoxPartId_AddStock.Text = ItemId7;
             }
 
             else
@@ -411,9 +493,5 @@ namespace Motor_Yard
                 textBoxPartId_AddStock.Text = "";
             }
         }
-
-        
-    
-
     }
 }

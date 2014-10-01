@@ -15,7 +15,7 @@ namespace Motor_Yard
         OleDbDataReader dr;
         public Password()
         {
-            //String myconnection = "Server=localhost; Database=motoryard;";
+            //String myconnection = "Server=localhost; Database=motoryard;"
             string connectionStr = ConfigurationManager.ConnectionStrings["Test"].ConnectionString;
             cn.ConnectionString = @connectionStr;
             com.Connection = cn;
