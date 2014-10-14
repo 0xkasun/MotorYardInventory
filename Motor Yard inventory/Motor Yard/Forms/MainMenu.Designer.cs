@@ -59,7 +59,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.total_box = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.button6_AddItem = new System.Windows.Forms.Button();
@@ -238,6 +237,7 @@
             // 
             // listView1
             // 
+            this.listView1.CheckBoxes = true;
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
@@ -249,6 +249,7 @@
             this.listView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.listView1.LabelWrap = false;
             this.listView1.Location = new System.Drawing.Point(6, 54);
+            this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(700, 197);
             this.listView1.TabIndex = 13;
@@ -284,7 +285,6 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.total_box);
-            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.dateTimePicker1);
             this.groupBox1.Location = new System.Drawing.Point(12, 28);
@@ -314,12 +314,13 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(174, 312);
+            this.button3.Location = new System.Drawing.Point(93, 312);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 10;
             this.button3.Text = "Clear All";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label1
             // 
@@ -333,12 +334,13 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(93, 312);
+            this.button2.Location = new System.Drawing.Point(12, 312);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 9;
             this.button2.Text = "Delete Row";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // total_box
             // 
@@ -347,15 +349,6 @@
             this.total_box.Name = "total_box";
             this.total_box.Size = new System.Drawing.Size(107, 22);
             this.total_box.TabIndex = 2;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(12, 312);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Add Item";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -435,6 +428,8 @@
             // comboBox7_part
             // 
             this.comboBox7_part.FormattingEnabled = true;
+            this.comboBox7_part.Items.AddRange(new object[] {
+            "head light"});
             this.comboBox7_part.Location = new System.Drawing.Point(52, 228);
             this.comboBox7_part.Name = "comboBox7_part";
             this.comboBox7_part.Size = new System.Drawing.Size(121, 23);
@@ -443,6 +438,8 @@
             // comboBox_BrandName
             // 
             this.comboBox_BrandName.FormattingEnabled = true;
+            this.comboBox_BrandName.Items.AddRange(new object[] {
+            "honda"});
             this.comboBox_BrandName.Location = new System.Drawing.Point(52, 54);
             this.comboBox_BrandName.Name = "comboBox_BrandName";
             this.comboBox_BrandName.Size = new System.Drawing.Size(121, 23);
@@ -451,6 +448,8 @@
             // comboBox6_category
             // 
             this.comboBox6_category.FormattingEnabled = true;
+            this.comboBox6_category.Items.AddRange(new object[] {
+            "electrical & lighting"});
             this.comboBox6_category.Location = new System.Drawing.Point(52, 199);
             this.comboBox6_category.Name = "comboBox6_category";
             this.comboBox6_category.Size = new System.Drawing.Size(121, 23);
@@ -459,6 +458,8 @@
             // comboBox5_year
             // 
             this.comboBox5_year.FormattingEnabled = true;
+            this.comboBox5_year.Items.AddRange(new object[] {
+            "2012"});
             this.comboBox5_year.Location = new System.Drawing.Point(52, 170);
             this.comboBox5_year.Name = "comboBox5_year";
             this.comboBox5_year.Size = new System.Drawing.Size(121, 23);
@@ -467,6 +468,8 @@
             // comboBox2_model
             // 
             this.comboBox2_model.FormattingEnabled = true;
+            this.comboBox2_model.Items.AddRange(new object[] {
+            "fit"});
             this.comboBox2_model.Location = new System.Drawing.Point(52, 83);
             this.comboBox2_model.Name = "comboBox2_model";
             this.comboBox2_model.Size = new System.Drawing.Size(121, 23);
@@ -475,6 +478,8 @@
             // comboBox4_engine
             // 
             this.comboBox4_engine.FormattingEnabled = true;
+            this.comboBox4_engine.Items.AddRange(new object[] {
+            "1.6"});
             this.comboBox4_engine.Location = new System.Drawing.Point(52, 141);
             this.comboBox4_engine.Name = "comboBox4_engine";
             this.comboBox4_engine.Size = new System.Drawing.Size(121, 23);
@@ -483,6 +488,8 @@
             // comboBox3_fuel
             // 
             this.comboBox3_fuel.FormattingEnabled = true;
+            this.comboBox3_fuel.Items.AddRange(new object[] {
+            "petrol 95"});
             this.comboBox3_fuel.Location = new System.Drawing.Point(52, 112);
             this.comboBox3_fuel.Name = "comboBox3_fuel";
             this.comboBox3_fuel.Size = new System.Drawing.Size(121, 23);
@@ -492,6 +499,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.ClientSize = new System.Drawing.Size(995, 422);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -557,7 +565,6 @@
         private System.Windows.Forms.ComboBox comboBox2_model;
         private System.Windows.Forms.ComboBox comboBox4_engine;
         private System.Windows.Forms.ComboBox comboBox3_fuel;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox quantity_box;
     }
