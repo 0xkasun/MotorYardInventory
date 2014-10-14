@@ -54,10 +54,10 @@
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.Done_button = new System.Windows.Forms.Button();
+            this.Clear_button = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.Delete_button = new System.Windows.Forms.Button();
             this.total_box = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -243,7 +243,7 @@
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader5});
-            this.listView1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listView1.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listView1.ForeColor = System.Drawing.SystemColors.WindowText;
             this.listView1.GridLines = true;
             this.listView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
@@ -259,17 +259,17 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "Item Code";
-            this.columnHeader1.Width = 166;
+            this.columnHeader1.Width = 196;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Item Name";
-            this.columnHeader2.Width = 390;
+            this.columnHeader2.Width = 282;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Unit Price";
-            this.columnHeader3.Width = 75;
+            this.columnHeader3.Width = 113;
             // 
             // columnHeader5
             // 
@@ -280,10 +280,10 @@
             // 
             this.groupBox1.Controls.Add(this.listView1);
             this.groupBox1.Controls.Add(this.button5);
-            this.groupBox1.Controls.Add(this.button4);
-            this.groupBox1.Controls.Add(this.button3);
+            this.groupBox1.Controls.Add(this.Done_button);
+            this.groupBox1.Controls.Add(this.Clear_button);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.Delete_button);
             this.groupBox1.Controls.Add(this.total_box);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.dateTimePicker1);
@@ -296,6 +296,7 @@
             // 
             // button5
             // 
+            this.button5.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.Location = new System.Drawing.Point(617, 312);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 23);
@@ -303,44 +304,48 @@
             this.button5.Text = "Cancel";
             this.button5.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // Done_button
             // 
-            this.button4.Location = new System.Drawing.Point(525, 312);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 11;
-            this.button4.Text = "Done";
-            this.button4.UseVisualStyleBackColor = true;
+            this.Done_button.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Done_button.Location = new System.Drawing.Point(524, 312);
+            this.Done_button.Name = "Done_button";
+            this.Done_button.Size = new System.Drawing.Size(75, 23);
+            this.Done_button.TabIndex = 11;
+            this.Done_button.Text = "Done";
+            this.Done_button.UseVisualStyleBackColor = true;
+            this.Done_button.Click += new System.EventHandler(this.button4_Click);
             // 
-            // button3
+            // Clear_button
             // 
-            this.button3.Location = new System.Drawing.Point(93, 312);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 10;
-            this.button3.Text = "Clear All";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.Clear_button.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Clear_button.Location = new System.Drawing.Point(93, 312);
+            this.Clear_button.Name = "Clear_button";
+            this.Clear_button.Size = new System.Drawing.Size(75, 23);
+            this.Clear_button.TabIndex = 10;
+            this.Clear_button.Text = "Clear All";
+            this.Clear_button.UseVisualStyleBackColor = true;
+            this.Clear_button.Click += new System.EventHandler(this.button3_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(521, 264);
+            this.label1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(521, 269);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 23);
+            this.label1.Size = new System.Drawing.Size(58, 18);
             this.label1.TabIndex = 3;
             this.label1.Text = "Total ";
             // 
-            // button2
+            // Delete_button
             // 
-            this.button2.Location = new System.Drawing.Point(12, 312);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Delete Row";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.Delete_button.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Delete_button.Location = new System.Drawing.Point(12, 312);
+            this.Delete_button.Name = "Delete_button";
+            this.Delete_button.Size = new System.Drawing.Size(75, 23);
+            this.Delete_button.TabIndex = 9;
+            this.Delete_button.Text = "Delete";
+            this.Delete_button.UseVisualStyleBackColor = true;
+            this.Delete_button.Click += new System.EventHandler(this.button2_Click);
             // 
             // total_box
             // 
@@ -369,7 +374,7 @@
             // 
             // button6_AddItem
             // 
-            this.button6_AddItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6_AddItem.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6_AddItem.Location = new System.Drawing.Point(52, 302);
             this.button6_AddItem.Name = "button6_AddItem";
             this.button6_AddItem.Size = new System.Drawing.Size(121, 42);
@@ -549,10 +554,10 @@
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button Done_button;
+        private System.Windows.Forms.Button Clear_button;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button Delete_button;
         private System.Windows.Forms.TextBox total_box;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
