@@ -390,10 +390,14 @@ namespace Motor_Yard
             }
 
 
+<<<<<<< HEAD
             if (table == "Model")
 
 
             if (table == "Yearr")
+=======
+            if (table == "Year")
+>>>>>>> be2710e641d22117af22a827f76d2f355bbb22fe
             {
                 String load = "select model_id from Model where model_name='" + check + "' ";
                 
