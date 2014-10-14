@@ -155,21 +155,21 @@
             // sales_ToolStripMenuItem
             // 
             this.sales_ToolStripMenuItem.Name = "sales_ToolStripMenuItem";
-            this.sales_ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.sales_ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.sales_ToolStripMenuItem.Text = "Sales";
             this.sales_ToolStripMenuItem.Click += new System.EventHandler(this.sales_ToolStripMenuItem_Click);
             // 
             // totalIncome_ToolStripMenuItem
             // 
             this.totalIncome_ToolStripMenuItem.Name = "totalIncome_ToolStripMenuItem";
-            this.totalIncome_ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.totalIncome_ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.totalIncome_ToolStripMenuItem.Text = "Total Income";
             this.totalIncome_ToolStripMenuItem.Click += new System.EventHandler(this.totalIncome_ToolStripMenuItem_Click);
             // 
             // taxesPayable_ToolStripMenuItem
             // 
             this.taxesPayable_ToolStripMenuItem.Name = "taxesPayable_ToolStripMenuItem";
-            this.taxesPayable_ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.taxesPayable_ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.taxesPayable_ToolStripMenuItem.Text = "Taxes Payable";
             this.taxesPayable_ToolStripMenuItem.Click += new System.EventHandler(this.taxesPayable_ToolStripMenuItem_Click);
             // 
@@ -225,13 +225,13 @@
             // usersToolStripMenuItem
             // 
             this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-            this.usersToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.usersToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.usersToolStripMenuItem.Text = "Users";
             // 
             // logOutToolStripMenuItem1
             // 
             this.logOutToolStripMenuItem1.Name = "logOutToolStripMenuItem1";
-            this.logOutToolStripMenuItem1.Size = new System.Drawing.Size(114, 22);
+            this.logOutToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.logOutToolStripMenuItem1.Text = "LogOut";
             this.logOutToolStripMenuItem1.Click += new System.EventHandler(this.logOutToolStripMenuItem1_Click);
             // 

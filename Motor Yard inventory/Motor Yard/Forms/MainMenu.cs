@@ -206,14 +206,5 @@ namespace Motor_Yard
             }
         }
 
-
-
- 
-
-     
-
-        
-        
-
     }
 }
