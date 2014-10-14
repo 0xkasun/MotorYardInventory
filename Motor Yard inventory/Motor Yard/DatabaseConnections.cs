@@ -407,7 +407,7 @@ namespace Motor_Yard
             }
 
 
-            if (table == "Yearr")
+            if (table == "Year")
             {
                 String load = "select year_id from Yearr where year='" + check + "' ";
 

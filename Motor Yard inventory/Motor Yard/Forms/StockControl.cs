@@ -549,5 +549,128 @@ namespace Motor_Yard
             }
 
         }
+
+        private void buttonGetItemcode_GenarateItemcode_Delete_Click(object sender, EventArgs e)
+        {
+            string brand_name = comboBoxBrandName_GenarateItemcode_Delete.Text;
+            string model_name = comboBoxModelName_GenarateItemcode_Delete.Text;
+            string fuel_type = comboBoxFuelType_GenarateItemcode_Delete.Text;
+            string engine_capacity = comboBoxEngineCapacity_GenarateItemcode_Delete.Text;
+            string year = comboBoxYear_GenarateItemcode_Delete.Text;
+            string cat_name = comboBoxCatName_GenarateItemcode_Delete.Text;
+            string part_name = comboBoxPartName_GenarateItemcode_Delete.Text;
+
+            string Inventory_ItemCode;
+
+            
+            
+            if (brand_name != "" && model_id != "" && fuel_type != "" && engine_capacity != "" && year != "" && cat_name != "" && part_name != "")
+            {
+                DatabaseConnections db = new DatabaseConnections();
+
+                string Brand_id = db.GetId(brand_name, "Brand");
+                string Model_id = db.GetId(model_name, "Model");
+                string Fuel_id = db.GetId(fuel_type, "Fuel");
+                string Engine_Id = db.GetId(engine_capacity, "Engine");
+                string Year_id = db.GetId(year, "Year");
+                string Cat_id = db.GetId(cat_name, "Category");
+                string Part_id = db.GetId(part_name, "SparePart");
+                Inventory_ItemCode = Brand_id + Model_id + Fuel_id + Engine_Id + Year_id + Cat_id + Part_id;
+                long QuantityHand = db.CheckQuantity(Inventory_ItemCode);
+                if (QuantityHand >= 0)
+                {
+                    if(textBox_ItemCode_DeleteStock.Text.Length==21 && checkBox_Repeat_Delete.Checked)
+                    {
+                        textBox_RepeatItemCode_DeleteStock.Text = Inventory_ItemCode;
+                        
+                    }
+
+                    else
+                    {
+                        textBox_ItemCode_DeleteStock.Text = Inventory_ItemCode;
+                    }
+                    
+                    comboBoxBrandName_GenarateItemcode_Delete.Text = null;
+                    comboBoxModelName_GenarateItemcode_Delete.Text = null;
+                    comboBoxFuelType_GenarateItemcode_Delete.Text = null;
+                    comboBoxEngineCapacity_GenarateItemcode_Delete.Text = null;
+                    comboBoxYear_GenarateItemcode_Delete.Text = null;
+                    comboBoxCatName_GenarateItemcode_Delete.Text = null;
+                    comboBoxPartName_GenarateItemcode_Delete.Text = null;
+                }
+                else
+                {
+                    MessageBox.Show("Check all the fiels. Invalid Itemcode.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Can't keep empty fields", "Warinning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+        }
+
+        private void buttonGetItemcode_GenarateItemcode_Clear_Click(object sender, EventArgs e)
+        {
+            string brand_name = comboBoxBrandName_GenarateItemcode_Clear.Text;
+            string model_name = comboBoxModelName_GenarateItemcode_Clear.Text;
+            string fuel_type = comboBoxFuelType_GenarateItemcode_Clear.Text;
+            string engine_capacity = comboBoxEngineCapacity_GenarateItemcode_Clear.Text;
+            string year = comboBoxYear_GenarateItemcode_Clear.Text;
+            string cat_name = comboBoxCatName_GenarateItemcode_Clear.Text;
+            string part_name = comboBoxPartName_GenarateItemcode_Clear.Text;
+
+            string Inventory_ItemCode;
+
+
+
+            if (brand_name != "" && model_id != "" && fuel_type != "" && engine_capacity != "" && year != "" && cat_name != "" && part_name != "")
+            {
+                DatabaseConnections db = new DatabaseConnections();
+
+                string Brand_id = db.GetId(brand_name, "Brand");
+                string Model_id = db.GetId(model_name, "Model");
+                string Fuel_id = db.GetId(fuel_type, "Fuel");
+                string Engine_Id = db.GetId(engine_capacity, "Engine");
+                string Year_id = db.GetId(year, "Year");
+                string Cat_id = db.GetId(cat_name, "Category");
+                string Part_id = db.GetId(part_name, "SparePart");
+                Inventory_ItemCode = Brand_id + Model_id + Fuel_id + Engine_Id + Year_id + Cat_id + Part_id;
+                long QuantityHand = db.CheckQuantity(Inventory_ItemCode);
+                if (QuantityHand >= 0)
+                {
+                    if (textBox_ItemCode_ClearStock.Text.Length == 21 && checkBox_Repeat_Clear.Checked)
+                    {
+                        textBox_RepeatItemCode_ClearStock.Text = Inventory_ItemCode;
+
+                    }
+
+                    else
+                    {
+                        textBox_ItemCode_ClearStock.Text = Inventory_ItemCode;
+                    }
+
+                    comboBoxBrandName_GenarateItemcode_Clear.Text = null;
+                    comboBoxModelName_GenarateItemcode_Clear.Text = null;
+                    comboBoxFuelType_GenarateItemcode_Clear.Text = null;
+                    comboBoxEngineCapacity_GenarateItemcode_Clear.Text = null;
+                    comboBoxYear_GenarateItemcode_Clear.Text = null;
+                    comboBoxCatName_GenarateItemcode_Clear.Text = null;
+                    comboBoxPartName_GenarateItemcode_Clear.Text = null;
+                }
+                else
+                {
+                    MessageBox.Show("Check all the fiels. Invalid Itemcode.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Can't keep empty fields", "Warinning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+        }
+
     }
 }

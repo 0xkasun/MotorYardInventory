@@ -178,10 +178,7 @@ namespace Motor_Yard
             }
         }
 
-        private void comboBox_BrandName_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-        }
 
 
      

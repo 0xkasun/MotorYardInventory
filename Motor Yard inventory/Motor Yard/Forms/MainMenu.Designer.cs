@@ -447,7 +447,6 @@
             this.comboBox_BrandName.Name = "comboBox_BrandName";
             this.comboBox_BrandName.Size = new System.Drawing.Size(121, 23);
             this.comboBox_BrandName.TabIndex = 1;
-            this.comboBox_BrandName.SelectedIndexChanged += new System.EventHandler(this.comboBox_BrandName_SelectedIndexChanged);
             // 
             // comboBox6_category
             // 

@@ -116,3 +116,18 @@ F:\Study\GIT\Git_sourcetree3\Motor Yard inventory\Motor Yard\bin\Debug\Motor Yar
 F:\Study\GIT\Git_sourcetree3\Motor Yard inventory\Motor Yard\bin\Debug\Motor Yard.pdb
 F:\Study\GIT\Git_sourcetree3\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.exe
 F:\Study\GIT\Git_sourcetree3\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.pdb
+E:\MotorYard\Motor Yard inventory\Motor Yard\bin\Debug\Motor Yard.exe.config
+E:\MotorYard\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.csprojResolveAssemblyReference.cache
+E:\MotorYard\Motor Yard inventory\Motor Yard\obj\Debug\Motor_Yard.LogIn.resources
+E:\MotorYard\Motor Yard inventory\Motor Yard\obj\Debug\Motor_Yard.Main_Menu.resources
+E:\MotorYard\Motor Yard inventory\Motor Yard\obj\Debug\Motor_Yard.Stock_Control.resources
+E:\MotorYard\Motor Yard inventory\Motor Yard\obj\Debug\Motor_Yard.Reports.resources
+E:\MotorYard\Motor Yard inventory\Motor Yard\obj\Debug\Motor_Yard.Catalog.resources
+E:\MotorYard\Motor Yard inventory\Motor Yard\obj\Debug\Motor_Yard.Customers.resources
+E:\MotorYard\Motor Yard inventory\Motor Yard\obj\Debug\Motor_Yard.Properties.Resources.resources
+E:\MotorYard\Motor Yard inventory\Motor Yard\obj\Debug\Motor_Yard.UserLogIn.resources
+E:\MotorYard\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.csproj.GenerateResource.Cache
+E:\MotorYard\Motor Yard inventory\Motor Yard\bin\Debug\Motor Yard.exe
+E:\MotorYard\Motor Yard inventory\Motor Yard\bin\Debug\Motor Yard.pdb
+E:\MotorYard\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.exe
+E:\MotorYard\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.pdb
