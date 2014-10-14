@@ -129,7 +129,7 @@ namespace Motor_Yard
                 ar[0] = Inventory_ItemCode;
                 ar[1] = db.getItemDetails_String(Inventory_ItemCode);
                 ar[2] = db.get_unit_price("100"+Inventory_ItemCode);
-                MessageBox.Show(Inventory_ItemCode);
+                //MessageBox.Show(Inventory_ItemCode);
                 long QuantityHand = db.CheckQuantity(Inventory_ItemCode);
 
                 if (QuantityHand >= 0)
@@ -183,6 +183,21 @@ namespace Motor_Yard
 
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            foreach (ListViewItem Item in listView1.SelectedItems)
+            {
+                
+                //int balance=Convert.ToInt16(total_box.Text);
+                //balance = balance - (Convert.ToInt16(Item.)* Convert.ToInt16(Item.Index.Equals(3)));
+                
+                listView1.Items.Remove(Item);
+               total_box.Text ="0";
+            }
+
+        }
+
+ 
 
      
 
