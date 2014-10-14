@@ -136,11 +136,11 @@ namespace Motor_Yard
                 {
                    
                     
-                    int quantity = Convert.ToInt16(quantity_box.Text);
+                    int quantity = Convert.ToInt32(quantity_box.Text);
                     ar[3] = quantity.ToString();
 
-                    int total = Convert.ToInt16(total_box.Text);
-                    int unit_pr = Convert.ToInt16(ar[2]);
+                    int total = Convert.ToInt32(total_box.Text);
+                    int unit_pr = Convert.ToInt32(ar[2]);
                     // to get the sum
 
                     total = total + unit_pr * quantity;
@@ -185,17 +185,31 @@ namespace Motor_Yard
 
         private void button2_Click(object sender, EventArgs e)
         {
-            foreach (ListViewItem Item in listView1.SelectedItems)
-            {
-                
-                //int balance=Convert.ToInt16(total_box.Text);
-                //balance = balance - (Convert.ToInt16(Item.)* Convert.ToInt16(Item.Index.Equals(3)));
-                
-                listView1.Items.Remove(Item);
-               total_box.Text ="0";
-            }
-
+            ListViewItem itm = listView1.CheckedItems[0];
+            int balance = Convert.ToInt32(total_box.Text);
+            //MessageBox.Show(myArray.Length.ToString());
+            balance = balance - (Convert.ToInt32(itm.SubItems[2].Text) * Convert.ToInt32(itm.SubItems[3].Text));
+            
+            total_box.Text = balance.ToString();
+            itm.Remove();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (listView1.Items.Count != 0)
+            {
+                DialogResult result1 = MessageBox.Show("This will clear everything\nin the current transaction view.\nDo you wish to proceed?", "Confirm Action", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+
+            }
+            else {
+
+               //
+                
+            
+            }
+        }
+
+
 
  
 
