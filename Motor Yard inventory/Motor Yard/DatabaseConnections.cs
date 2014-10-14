@@ -652,7 +652,7 @@ namespace Motor_Yard
 
         public string GetClientId()
         {
-            String load = "select id from passwords";
+            String load = "select id from password";
             
 
             try
