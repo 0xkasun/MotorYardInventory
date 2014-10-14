@@ -209,7 +209,7 @@
             this.groupBoxAddDetails_AddStock.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxAddDetails_AddStock.Location = new System.Drawing.Point(386, 19);
             this.groupBoxAddDetails_AddStock.Name = "groupBoxAddDetails_AddStock";
-            this.groupBoxAddDetails_AddStock.Size = new System.Drawing.Size(425, 422);
+            this.groupBoxAddDetails_AddStock.Size = new System.Drawing.Size(347, 422);
             this.groupBoxAddDetails_AddStock.TabIndex = 1;
             this.groupBoxAddDetails_AddStock.TabStop = false;
             this.groupBoxAddDetails_AddStock.Text = "Add Details";
@@ -257,6 +257,8 @@
             // 
             // dateTimePicker_AddStock
             // 
+            this.dateTimePicker_AddStock.CustomFormat = "";
+            this.dateTimePicker_AddStock.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker_AddStock.Location = new System.Drawing.Point(110, 178);
             this.dateTimePicker_AddStock.Name = "dateTimePicker_AddStock";
             this.dateTimePicker_AddStock.Size = new System.Drawing.Size(186, 21);
@@ -682,6 +684,7 @@
             // 
             this.dateTimePicker_UpdateStock.CalendarFont = new System.Drawing.Font("Times New Roman", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker_UpdateStock.CustomFormat = "";
+            this.dateTimePicker_UpdateStock.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker_UpdateStock.Location = new System.Drawing.Point(190, 133);
             this.dateTimePicker_UpdateStock.Name = "dateTimePicker_UpdateStock";
             this.dateTimePicker_UpdateStock.Size = new System.Drawing.Size(233, 21);
@@ -890,6 +893,7 @@
             // dateTimePicker_DeleteItem
             // 
             this.dateTimePicker_DeleteItem.CustomFormat = "";
+            this.dateTimePicker_DeleteItem.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker_DeleteItem.Location = new System.Drawing.Point(185, 259);
             this.dateTimePicker_DeleteItem.Name = "dateTimePicker_DeleteItem";
             this.dateTimePicker_DeleteItem.Size = new System.Drawing.Size(227, 21);
@@ -1154,6 +1158,7 @@
             // dateTimePicker_ClearItem
             // 
             this.dateTimePicker_ClearItem.CustomFormat = "";
+            this.dateTimePicker_ClearItem.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker_ClearItem.Location = new System.Drawing.Point(183, 271);
             this.dateTimePicker_ClearItem.Name = "dateTimePicker_ClearItem";
             this.dateTimePicker_ClearItem.Size = new System.Drawing.Size(227, 21);
