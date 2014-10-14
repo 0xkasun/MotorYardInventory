@@ -517,7 +517,7 @@
             this.tabPageUpdateStock.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageUpdateStock.Size = new System.Drawing.Size(827, 458);
             this.tabPageUpdateStock.TabIndex = 1;
-            this.tabPageUpdateStock.Text = "Update Iteem";
+            this.tabPageUpdateStock.Text = "Update Item";
             // 
             // pictureBoxUpdateButton
             // 

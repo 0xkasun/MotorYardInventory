@@ -143,10 +143,7 @@ namespace Motor_Yard
             if (itemCode == repeatitemCode && (itemCode != "" || repeatitemCode != ""))
             {
 
-                DialogResult result1 = MessageBox.Show("ItemCode : " + itemCode, "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (result1 == DialogResult.Yes)
-                {
-                    //DatabaseConnections db = new DatabaseConnections();
+               
 
                     DatabaseConnections db = new DatabaseConnections();
                     long QuantityHand = db.CheckQuantity(itemCode);
@@ -198,7 +195,7 @@ namespace Motor_Yard
                     MessageBox.Show("Check Item Code", "", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
                 }
             }
-        }
+        
         private void pictureBoxUpdateButton_Click(object sender, EventArgs e)
         {
 
