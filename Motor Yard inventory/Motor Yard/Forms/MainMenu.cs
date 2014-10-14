@@ -100,14 +100,6 @@ namespace Motor_Yard
         }
 
 
-        private void usersToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-}
 
         private void button6_AddItem_Click(object sender, EventArgs e)
         {
@@ -137,18 +129,18 @@ namespace Motor_Yard
                 ar[0] = Inventory_ItemCode;
                 ar[1] = db.getItemDetails_String(Inventory_ItemCode);
                 ar[2] = db.get_unit_price("100"+Inventory_ItemCode);
-                MessageBox.Show(Inventory_ItemCode);
+                //MessageBox.Show(Inventory_ItemCode);
                 long QuantityHand = db.CheckQuantity(Inventory_ItemCode);
 
                 if (QuantityHand >= 0)
                 {
                    
                     
-                    int quantity = Convert.ToInt16(quantity_box.Text);
+                    int quantity = Convert.ToInt32(quantity_box.Text);
                     ar[3] = quantity.ToString();
 
-                    int total = Convert.ToInt16(total_box.Text);
-                    int unit_pr = Convert.ToInt16(ar[2]);
+                    int total = Convert.ToInt32(total_box.Text);
+                    int unit_pr = Convert.ToInt32(ar[2]);
                     // to get the sum
 
                     total = total + unit_pr * quantity;
@@ -188,35 +180,40 @@ namespace Motor_Yard
 
 
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ListViewItem itm = listView1.CheckedItems[0];
+            int balance = Convert.ToInt32(total_box.Text);
+            //MessageBox.Show(myArray.Length.ToString());
+            balance = balance - (Convert.ToInt32(itm.SubItems[2].Text) * Convert.ToInt32(itm.SubItems[3].Text));
+            
+            total_box.Text = balance.ToString();
+            itm.Remove();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (listView1.Items.Count != 0)
+            {
+                DialogResult result1 = MessageBox.Show("This will clear everything\nin the current transaction view.\nDo you wish to proceed?", "Confirm Action", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+
+            }
+            else {
+
+                MessageBox.Show("list is empty");
+                
+            
+            }
+        }
+
+
+
+ 
 
      
 
         
         
 
-
-        }
-
-        //private void button2_Click(object sender, EventArgs e)
-        //{
-
-        //}
-
-        //private void button1_Click(object sender, EventArgs e)
-        //{
-
-           
-
-        }
-
-//}
-
-
-
-
-
-       
-
-      
-    
-
+    }
+}

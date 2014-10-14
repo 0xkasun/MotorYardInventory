@@ -60,7 +60,7 @@
             this.textBox_UserName.Name = "textBox_UserName";
             this.textBox_UserName.Size = new System.Drawing.Size(163, 21);
             this.textBox_UserName.TabIndex = 2;
-            this.textBox_UserName.Text = "a";
+            this.textBox_UserName.Text = "Kamal";
             // 
             // textBox_Passwd
             // 
@@ -69,7 +69,7 @@
             this.textBox_Passwd.PasswordChar = '*';
             this.textBox_Passwd.Size = new System.Drawing.Size(163, 21);
             this.textBox_Passwd.TabIndex = 3;
-            this.textBox_Passwd.Text = "ab";
+            this.textBox_Passwd.Text = "123";
             this.textBox_Passwd.TextChanged += new System.EventHandler(this.textBox_Passwd_TextChanged);
             // 
             // button_LogIn
