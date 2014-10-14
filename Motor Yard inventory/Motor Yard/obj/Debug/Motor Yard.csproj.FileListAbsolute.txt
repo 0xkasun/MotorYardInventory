@@ -101,9 +101,7 @@ I:\Projects\GroupProjects\MotorYardInventory\Motor Yard inventory\Motor Yard\obj
 E:\GIt_Hubb\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.csprojResolveAssemblyReference.cache
 E:\GIt_Hubb\Motor Yard inventory\Motor Yard\obj\Debug\Motor_Yard.UserLogIn.resources
 F:\Study\GIT\Git_sourcetree2\Motor Yard inventory\Motor Yard\obj\Debug\Motor_Yard.UserLogIn.resources
-
 I:\Projects\GroupProjects\MotorYardInventory\Motor Yard inventory\Motor Yard\obj\Debug\Motor_Yard.UserLogIn.resources
-
 F:\Study\GIT\Git_sourcetree3\Motor Yard inventory\Motor Yard\bin\Debug\Motor Yard.exe.config
 F:\Study\GIT\Git_sourcetree3\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.csprojResolveAssemblyReference.cache
 F:\Study\GIT\Git_sourcetree3\Motor Yard inventory\Motor Yard\obj\Debug\Motor_Yard.LogIn.resources
@@ -119,4 +117,3 @@ F:\Study\GIT\Git_sourcetree3\Motor Yard inventory\Motor Yard\bin\Debug\Motor Yar
 F:\Study\GIT\Git_sourcetree3\Motor Yard inventory\Motor Yard\bin\Debug\Motor Yard.pdb
 F:\Study\GIT\Git_sourcetree3\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.exe
 F:\Study\GIT\Git_sourcetree3\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.pdb
-

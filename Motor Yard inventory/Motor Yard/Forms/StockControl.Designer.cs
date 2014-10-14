@@ -518,8 +518,7 @@
             this.tabPageUpdateStock.Size = new System.Drawing.Size(827, 458);
             this.tabPageUpdateStock.TabIndex = 1;
             this.tabPageUpdateStock.Text = "Update Item";
-<<<<<<< HEAD
-=======
+
             // 
             // groupBoxUpdateItem
             // 
@@ -549,7 +548,7 @@
             this.labelDate_UpdateItem.Size = new System.Drawing.Size(32, 15);
             this.labelDate_UpdateItem.TabIndex = 22;
             this.labelDate_UpdateItem.Text = "Date";
->>>>>>> origin/Pubudu2
+
             // 
             // pictureBoxUpdateButton
             // 
@@ -644,13 +643,13 @@
             // 
             // pictureBox_UpdateStock
             // 
-<<<<<<< HEAD
+
             this.pictureBox_UpdateStock.Location = new System.Drawing.Point(427, 35);
             this.pictureBox_UpdateStock.Name = "pictureBox_UpdateStock";
             this.pictureBox_UpdateStock.Size = new System.Drawing.Size(117, 128);
             this.pictureBox_UpdateStock.TabIndex = 8;
             this.pictureBox_UpdateStock.TabStop = false;
-=======
+
             this.groupBoxGenarateItemcode_Update.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -736,7 +735,7 @@
             this.comboBoxBrandName_GenarateItemcode_Update.Name = "comboBoxBrandName_GenarateItemcode_Update";
             this.comboBoxBrandName_GenarateItemcode_Update.Size = new System.Drawing.Size(121, 23);
             this.comboBoxBrandName_GenarateItemcode_Update.TabIndex = 13;
->>>>>>> origin/Pubudu2
+
             // 
             // tabPageDeleteStock
             // 
