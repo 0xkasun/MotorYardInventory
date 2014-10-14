@@ -759,7 +759,8 @@ namespace Motor_Yard
 
             // add a unit price field to inventory items table
                 String name = "";
-                String load = "select unit_price from Client_InventoryItem where cin_id='" +itemCode + "' ";
+                String cinId = GetClientId().ToString() + itemCode;
+                String load = "select unit_price from Client_InventoryItem where cin_id='" +cinId + "' ";
 
                 try
                 {
@@ -790,6 +791,27 @@ namespace Motor_Yard
         
         }
 
+
+
+        public void updateItemQuantity(String itemCode,String qty){
+
+            int x = CheckQuantity(itemCode);
+            int y = Convert.ToInt32(qty);
+            y = x - y;
+            String cin_id = GetClientId().ToString() + itemCode;
+            try
+            {
+                con.Open();
+                cmd = con.CreateCommand();
+                cmd.CommandText = "Update Client_InventoryItem set quantity='" + y + "'where cin_id='" + cin_id + "'";
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (Exception e) {
+                MessageBox.Show(e.Message);
+            }
+
+        }
 
     }
 
