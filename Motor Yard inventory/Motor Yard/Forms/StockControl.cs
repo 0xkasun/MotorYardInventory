@@ -100,8 +100,10 @@ namespace Motor_Yard
             if (itemCode == repeatitemCode && (itemCode!="" || repeatitemCode!=""))
             {
 
+
                 DialogResult confirm = MessageBox.Show("ItemCode : " + itemCode , "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (confirm == DialogResult.Yes) { }
+
 
                 DatabaseConnections db = new DatabaseConnections();
                 long QuantityHand = db.CheckQuantity(itemCode);
@@ -117,6 +119,7 @@ namespace Motor_Yard
                 }
 
                 else if(confirm == DialogResult.Yes && QuantityHand == 0)
+
                 {
                     textBox_ItemCode_ClearStock.Text = null;
                     textBox_RepeatItemCode_ClearStock.Text =null;
@@ -159,6 +162,30 @@ namespace Motor_Yard
                         db1.DeleteItem(itemCode);
                     }
                     else if (result1 == DialogResult.Yes && QuantityHand > 0)
+
+
+
+
+
+                DatabaseConnections db = new DatabaseConnections();
+                long QuantityHand = db.CheckQuantity(itemCode);
+
+
+                DialogResult result1 = MessageBox.Show("ItemCode : " + itemCode + "\n Item Name : " + db.getItemDetails_String(itemCode), "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result1 == DialogResult.Yes && QuantityHand == 0)
+                {
+                    DatabaseConnections db1 = new DatabaseConnections();
+                    textBox_ItemCode_DeleteStock.Text = null;
+                    textBox_RepeatItemCode_DeleteStock.Text = null;
+                    textBoxDescription_DeleteItem.Text = null;
+                    db1.DeleteItem(itemCode);
+                    db1.Delete_Clear_Details(itemCode, description, date, "Delete");
+                }
+                else if (result1 == DialogResult.Yes && QuantityHand > 0)
+                {
+                    DialogResult result = MessageBox.Show("Item Quantity is  " + QuantityHand + " Please clear the stock before delete the Item.", "Warnning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                    if (result == DialogResult.OK)
+
                     {
                         DialogResult result = MessageBox.Show("Item Quantity is  " + QuantityHand + " Please clear the stock before delete the Item.", "Warnning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                         if (result == DialogResult.OK)
@@ -191,6 +218,7 @@ namespace Motor_Yard
                     }
                 }
 
+
                 else
                 {
                     MessageBox.Show("Check Item Code", "", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
@@ -205,11 +233,14 @@ namespace Motor_Yard
                 string itemCode = textBox_ItemCode_UpdateStock.Text;
                 string QuantityIn = textBox_QuantityIn_UpdateStock.Text;
 
+                string date_time = dateTimePicker_UpdateStock.Value.Date.ToShortDateString();
+                long Quan_in = Convert.ToInt64(QuantityIn);
+
                 DatabaseConnections db = new DatabaseConnections();
                 long QuantityHand = db.CheckQuantity(itemCode);
                 string Qh = Convert.ToString(QuantityHand);
                 textBox_QuantityOnHand_UpdateStock.Text = Qh;
-                if (QuantityHand !=-1)
+                if (QuantityHand !=-1 && Quan_in > 0)
                 {
                     DialogResult result1 = MessageBox.Show("Item Code : " + itemCode + "\nQuantity In : " + QuantityIn, "Verify Item Code and Quantity In", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                     if (result1 == DialogResult.OK)
@@ -227,6 +258,11 @@ namespace Motor_Yard
                         textBox_QuantityOnHand_UpdateStock.Text = null;
                     }
                 }
+                else if (Quan_in < 0 && QuantityHand != -1)
+                {
+                    MessageBox.Show("Invalid Qunanty In... Qunatity In Can't be less than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
                 else
                 {
                     DialogResult result2 = MessageBox.Show("Check Item code : " + itemCode, "Invalid Item Code", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
@@ -326,6 +362,17 @@ namespace Motor_Yard
         {
            
 
+
+            String sqlconnection = "Server=localhost;DATABASE=motoryard_inventory;UID=root;";
+            MySqlConnection con = new MySqlConnection(sqlconnection);
+
+
+            /*OleDbConnection con = new OleDbConnection();
+            OleDbCommand com = new OleDbCommand();
+
+            string connectionStr = ConfigurationManager.ConnectionStrings["Test"].ConnectionString;
+            con.ConnectionString = @connectionStr;
+            com.Connection = con;*/
             String sqlconnection = "Server=localhost;DATABASE=motoryard_inventory;UID=root;";
             MySqlConnection con = new MySqlConnection(sqlconnection);
 
@@ -452,10 +499,57 @@ namespace Motor_Yard
             }
         }
 
-        
 
-        
-    
+        private void buttonGetItemcode_GenarateItemcode_Update_Click(object sender, EventArgs e)
+        {
+            string brand_name = comboBoxBrandName_GenarateItemcode_Update.Text;
+            string model_name = comboBoxModelName_GenarateItemcode_Update.Text;
+            string fuel_type = comboBoxFuelType_GenarateItemcode_Update.Text;
+            string engine_capacity = comboBoxEngineCapacity_GenarateItemcode_Update.Text;
+            string year = comboBoxYear_GenarateItemcode_Update.Text;
+            string cat_name = comboBoxCatName_GenarateItemcode_Update.Text;
+            string part_name = comboBoxPartName_GenarateItemcode_Update.Text;
+
+            string Inventory_ItemCode;
+
+            if (brand_name != "" && model_id != "" && fuel_type != "" && engine_capacity != "" && year != "" && cat_name != "" && part_name != "")
+            {
+                DatabaseConnections db = new DatabaseConnections();
+
+                string Brand_id = db.GetId(brand_name, "Brand");
+                string Model_id = db.GetId(model_name, "Model");
+                string Fuel_id = db.GetId(fuel_type, "Fuel");
+                string Engine_Id = db.GetId(engine_capacity, "Engine");
+                string Year_id = db.GetId(year, "Year");
+                string Cat_id = db.GetId(cat_name, "Category");
+                string Part_id = db.GetId(part_name, "SparePart");
+                Inventory_ItemCode = Brand_id + Model_id + Fuel_id + Engine_Id + Year_id + Cat_id + Part_id;
+                long QuantityHand = db.CheckQuantity(Inventory_ItemCode);
+                if (QuantityHand >= 0)
+                {
+                    textBox_ItemCode_UpdateStock.Text = Inventory_ItemCode;
+
+                    comboBoxBrandName_GenarateItemcode_Update.Text = null;
+                    comboBoxModelName_GenarateItemcode_Update.Text = null;
+                    comboBoxFuelType_GenarateItemcode_Update.Text = null;
+                    comboBoxEngineCapacity_GenarateItemcode_Update.Text = null;
+                    comboBoxYear_GenarateItemcode_Update.Text = null;
+                    comboBoxCatName_GenarateItemcode_Update.Text = null;
+                    comboBoxPartName_GenarateItemcode_Update.Text = null;
+                }
+                else
+                {
+                    MessageBox.Show("Check all the fiels. Invalid Itemcode.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                
+            }
+            else
+            {
+                MessageBox.Show("Can't keep empty fields", "Warinning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+
+        }
 
     }
 }

@@ -518,6 +518,38 @@
             this.tabPageUpdateStock.Size = new System.Drawing.Size(827, 458);
             this.tabPageUpdateStock.TabIndex = 1;
             this.tabPageUpdateStock.Text = "Update Item";
+<<<<<<< HEAD
+=======
+            // 
+            // groupBoxUpdateItem
+            // 
+            this.groupBoxUpdateItem.Controls.Add(this.labelDate_UpdateItem);
+            this.groupBoxUpdateItem.Controls.Add(this.pictureBoxUpdateButton);
+            this.groupBoxUpdateItem.Controls.Add(this.label_Items_UpdateStock);
+            this.groupBoxUpdateItem.Controls.Add(this.textBox_QuantityIn_UpdateStock);
+            this.groupBoxUpdateItem.Controls.Add(this.textBox_ItemCode_UpdateStock);
+            this.groupBoxUpdateItem.Controls.Add(this.textBox_QuantityOnHand_UpdateStock);
+            this.groupBoxUpdateItem.Controls.Add(this.dateTimePicker_UpdateStock);
+            this.groupBoxUpdateItem.Controls.Add(this.label_ItemHand);
+            this.groupBoxUpdateItem.Controls.Add(this.label_Date);
+            this.groupBoxUpdateItem.Controls.Add(this.label_QuantityIn);
+            this.groupBoxUpdateItem.Controls.Add(this.label_ItemCode);
+            this.groupBoxUpdateItem.Location = new System.Drawing.Point(6, 21);
+            this.groupBoxUpdateItem.Name = "groupBoxUpdateItem";
+            this.groupBoxUpdateItem.Size = new System.Drawing.Size(494, 431);
+            this.groupBoxUpdateItem.TabIndex = 13;
+            this.groupBoxUpdateItem.TabStop = false;
+            this.groupBoxUpdateItem.Text = "Update Item Details";
+            // 
+            // labelDate_UpdateItem
+            // 
+            this.labelDate_UpdateItem.AutoSize = true;
+            this.labelDate_UpdateItem.Location = new System.Drawing.Point(51, 139);
+            this.labelDate_UpdateItem.Name = "labelDate_UpdateItem";
+            this.labelDate_UpdateItem.Size = new System.Drawing.Size(32, 15);
+            this.labelDate_UpdateItem.TabIndex = 22;
+            this.labelDate_UpdateItem.Text = "Date";
+>>>>>>> origin/Pubudu2
             // 
             // pictureBoxUpdateButton
             // 
@@ -612,11 +644,99 @@
             // 
             // pictureBox_UpdateStock
             // 
+<<<<<<< HEAD
             this.pictureBox_UpdateStock.Location = new System.Drawing.Point(427, 35);
             this.pictureBox_UpdateStock.Name = "pictureBox_UpdateStock";
             this.pictureBox_UpdateStock.Size = new System.Drawing.Size(117, 128);
             this.pictureBox_UpdateStock.TabIndex = 8;
             this.pictureBox_UpdateStock.TabStop = false;
+=======
+            this.groupBoxGenarateItemcode_Update.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxGenarateItemcode_Update.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxGenarateItemcode_Update.Controls.Add(this.buttonGetItemcode_GenarateItemcode_Update);
+            this.groupBoxGenarateItemcode_Update.Controls.Add(this.comboBoxPartName_GenarateItemcode_Update);
+            this.groupBoxGenarateItemcode_Update.Controls.Add(this.comboBoxCatName_GenarateItemcode_Update);
+            this.groupBoxGenarateItemcode_Update.Controls.Add(this.comboBoxYear_GenarateItemcode_Update);
+            this.groupBoxGenarateItemcode_Update.Controls.Add(this.comboBoxEngineCapacity_GenarateItemcode_Update);
+            this.groupBoxGenarateItemcode_Update.Controls.Add(this.comboBoxFuelType_GenarateItemcode_Update);
+            this.groupBoxGenarateItemcode_Update.Controls.Add(this.comboBoxModelName_GenarateItemcode_Update);
+            this.groupBoxGenarateItemcode_Update.Controls.Add(this.comboBoxBrandName_GenarateItemcode_Update);
+            this.groupBoxGenarateItemcode_Update.ForeColor = System.Drawing.Color.Black;
+            this.groupBoxGenarateItemcode_Update.Location = new System.Drawing.Point(506, 21);
+            this.groupBoxGenarateItemcode_Update.Name = "groupBoxGenarateItemcode_Update";
+            this.groupBoxGenarateItemcode_Update.Size = new System.Drawing.Size(238, 431);
+            this.groupBoxGenarateItemcode_Update.TabIndex = 12;
+            this.groupBoxGenarateItemcode_Update.TabStop = false;
+            this.groupBoxGenarateItemcode_Update.Text = "Genarate Itemcode";
+            // 
+            // buttonGetItemcode_GenarateItemcode_Update
+            // 
+            this.buttonGetItemcode_GenarateItemcode_Update.Location = new System.Drawing.Point(46, 240);
+            this.buttonGetItemcode_GenarateItemcode_Update.Name = "buttonGetItemcode_GenarateItemcode_Update";
+            this.buttonGetItemcode_GenarateItemcode_Update.Size = new System.Drawing.Size(121, 29);
+            this.buttonGetItemcode_GenarateItemcode_Update.TabIndex = 20;
+            this.buttonGetItemcode_GenarateItemcode_Update.Text = "Get Itemcode";
+            this.buttonGetItemcode_GenarateItemcode_Update.UseVisualStyleBackColor = true;
+            this.buttonGetItemcode_GenarateItemcode_Update.Click += new System.EventHandler(this.buttonGetItemcode_GenarateItemcode_Update_Click);
+            // 
+            // comboBoxPartName_GenarateItemcode_Update
+            // 
+            this.comboBoxPartName_GenarateItemcode_Update.FormattingEnabled = true;
+            this.comboBoxPartName_GenarateItemcode_Update.Location = new System.Drawing.Point(46, 211);
+            this.comboBoxPartName_GenarateItemcode_Update.Name = "comboBoxPartName_GenarateItemcode_Update";
+            this.comboBoxPartName_GenarateItemcode_Update.Size = new System.Drawing.Size(121, 23);
+            this.comboBoxPartName_GenarateItemcode_Update.TabIndex = 19;
+            // 
+            // comboBoxCatName_GenarateItemcode_Update
+            // 
+            this.comboBoxCatName_GenarateItemcode_Update.FormattingEnabled = true;
+            this.comboBoxCatName_GenarateItemcode_Update.Location = new System.Drawing.Point(46, 182);
+            this.comboBoxCatName_GenarateItemcode_Update.Name = "comboBoxCatName_GenarateItemcode_Update";
+            this.comboBoxCatName_GenarateItemcode_Update.Size = new System.Drawing.Size(121, 23);
+            this.comboBoxCatName_GenarateItemcode_Update.TabIndex = 18;
+            // 
+            // comboBoxYear_GenarateItemcode_Update
+            // 
+            this.comboBoxYear_GenarateItemcode_Update.FormattingEnabled = true;
+            this.comboBoxYear_GenarateItemcode_Update.Location = new System.Drawing.Point(46, 153);
+            this.comboBoxYear_GenarateItemcode_Update.Name = "comboBoxYear_GenarateItemcode_Update";
+            this.comboBoxYear_GenarateItemcode_Update.Size = new System.Drawing.Size(121, 23);
+            this.comboBoxYear_GenarateItemcode_Update.TabIndex = 17;
+            // 
+            // comboBoxEngineCapacity_GenarateItemcode_Update
+            // 
+            this.comboBoxEngineCapacity_GenarateItemcode_Update.FormattingEnabled = true;
+            this.comboBoxEngineCapacity_GenarateItemcode_Update.Location = new System.Drawing.Point(46, 123);
+            this.comboBoxEngineCapacity_GenarateItemcode_Update.Name = "comboBoxEngineCapacity_GenarateItemcode_Update";
+            this.comboBoxEngineCapacity_GenarateItemcode_Update.Size = new System.Drawing.Size(121, 23);
+            this.comboBoxEngineCapacity_GenarateItemcode_Update.TabIndex = 16;
+            // 
+            // comboBoxFuelType_GenarateItemcode_Update
+            // 
+            this.comboBoxFuelType_GenarateItemcode_Update.FormattingEnabled = true;
+            this.comboBoxFuelType_GenarateItemcode_Update.Location = new System.Drawing.Point(46, 93);
+            this.comboBoxFuelType_GenarateItemcode_Update.Name = "comboBoxFuelType_GenarateItemcode_Update";
+            this.comboBoxFuelType_GenarateItemcode_Update.Size = new System.Drawing.Size(121, 23);
+            this.comboBoxFuelType_GenarateItemcode_Update.TabIndex = 15;
+            // 
+            // comboBoxModelName_GenarateItemcode_Update
+            // 
+            this.comboBoxModelName_GenarateItemcode_Update.FormattingEnabled = true;
+            this.comboBoxModelName_GenarateItemcode_Update.Location = new System.Drawing.Point(46, 64);
+            this.comboBoxModelName_GenarateItemcode_Update.Name = "comboBoxModelName_GenarateItemcode_Update";
+            this.comboBoxModelName_GenarateItemcode_Update.Size = new System.Drawing.Size(121, 23);
+            this.comboBoxModelName_GenarateItemcode_Update.TabIndex = 14;
+            // 
+            // comboBoxBrandName_GenarateItemcode_Update
+            // 
+            this.comboBoxBrandName_GenarateItemcode_Update.FormattingEnabled = true;
+            this.comboBoxBrandName_GenarateItemcode_Update.Location = new System.Drawing.Point(46, 35);
+            this.comboBoxBrandName_GenarateItemcode_Update.Name = "comboBoxBrandName_GenarateItemcode_Update";
+            this.comboBoxBrandName_GenarateItemcode_Update.Size = new System.Drawing.Size(121, 23);
+            this.comboBoxBrandName_GenarateItemcode_Update.TabIndex = 13;
+>>>>>>> origin/Pubudu2
             // 
             // tabPageDeleteStock
             // 
