@@ -134,3 +134,18 @@ E:\MotorYard\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.pdb
 K:\Motor Yard inventory\Motor Yard\bin\Debug\Motor Yard.exe.config
 K:\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.exe
 K:\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.pdb
+I:\Projects\motor\Motor Yard inventory\Motor Yard\bin\Debug\Motor Yard.exe.config
+I:\Projects\motor\Motor Yard inventory\Motor Yard\bin\Debug\Motor Yard.exe
+I:\Projects\motor\Motor Yard inventory\Motor Yard\bin\Debug\Motor Yard.pdb
+I:\Projects\motor\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.csprojResolveAssemblyReference.cache
+I:\Projects\motor\Motor Yard inventory\Motor Yard\obj\Debug\Motor_Yard.LogIn.resources
+I:\Projects\motor\Motor Yard inventory\Motor Yard\obj\Debug\Motor_Yard.Main_Menu.resources
+I:\Projects\motor\Motor Yard inventory\Motor Yard\obj\Debug\Motor_Yard.Stock_Control.resources
+I:\Projects\motor\Motor Yard inventory\Motor Yard\obj\Debug\Motor_Yard.Reports.resources
+I:\Projects\motor\Motor Yard inventory\Motor Yard\obj\Debug\Motor_Yard.Catalog.resources
+I:\Projects\motor\Motor Yard inventory\Motor Yard\obj\Debug\Motor_Yard.Customers.resources
+I:\Projects\motor\Motor Yard inventory\Motor Yard\obj\Debug\Motor_Yard.Properties.Resources.resources
+I:\Projects\motor\Motor Yard inventory\Motor Yard\obj\Debug\Motor_Yard.UserLogIn.resources
+I:\Projects\motor\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.csproj.GenerateResource.Cache
+I:\Projects\motor\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.exe
+I:\Projects\motor\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.pdb
