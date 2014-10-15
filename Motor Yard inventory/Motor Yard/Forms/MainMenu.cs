@@ -122,7 +122,7 @@ namespace Motor_Yard
                 string Model_id = db.GetId(model_name, "Model");
                 string Fuel_id = db.GetId(fuel_type, "Fuel");
                 string Engine_Id = db.GetId(engine_capacity, "Engine");
-                string Year_id = db.GetId(year, "Yearr");
+                string Year_id = db.GetId(year, "Year");
                 string Cat_id = db.GetId(cat_name, "Category");
                 string Part_id = db.GetId(part_name, "SparePart");
                 Inventory_ItemCode = Brand_id + Model_id + Fuel_id + Engine_Id + Year_id + Cat_id + Part_id;
@@ -190,13 +190,24 @@ namespace Motor_Yard
         {
             if (listView1.Items.Count != 0)
             {
-                ListViewItem itm = listView1.CheckedItems[0];
-                int balance = Convert.ToInt32(total_box.Text);
-                //MessageBox.Show(myArray.Length.ToString());
-                balance = balance - (Convert.ToInt32(itm.SubItems[2].Text) * Convert.ToInt32(itm.SubItems[3].Text));
+                if (listView1.CheckedItems.Count != 0)
+                {
+                    ListViewItem itm = listView1.CheckedItems[0];
+                    int balance = Convert.ToInt32(total_box.Text);
+                    //MessageBox.Show(myArray.Length.ToString());
+                    balance = balance - (Convert.ToInt32(itm.SubItems[2].Text) * Convert.ToInt32(itm.SubItems[3].Text));
 
-                total_box.Text = balance.ToString();
-                itm.Remove();
+                    total_box.Text = balance.ToString();
+                    itm.Remove();
+                }
+                else {
+                    MessageBox.Show("First, Select an item to delete.");
+                
+                }
+            }else{
+
+                MessageBox.Show("List is empty");
+            
             }
         }
 
@@ -204,12 +215,17 @@ namespace Motor_Yard
         {
             if (listView1.Items.Count != 0)
             {
+                
                 DialogResult result1 = MessageBox.Show("This will clear everything\nin the current transaction view.\nDo you wish to proceed?", "Confirm Action", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-
+                foreach (ListViewItem itm in listView1.Items)
+                {
+                    itm.Remove();
+                }
+                total_box.Text = "0";
             }
             else {
 
-                MessageBox.Show("list is empty");
+                MessageBox.Show("List is empty");
                 
             
             }
@@ -225,7 +241,7 @@ namespace Motor_Yard
                 itm.Remove();
 
             }
-            
+            total_box.Text = "0";
             
            
         }
