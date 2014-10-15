@@ -215,8 +215,6 @@ namespace Motor_Yard
             }
         }
 
-<<<<<<< HEAD
-=======
         private void button4_Click(object sender, EventArgs e)
         {
             DatabaseConnections db = new DatabaseConnections();
@@ -225,6 +223,7 @@ namespace Motor_Yard
                 //MessageBox.Show(itm.SubItems[0].Text + itm.SubItems[3].Text);
                 db.updateItemQuantity(itm.SubItems[0].Text, itm.SubItems[3].Text);
                 itm.Remove();
+                total_box.Text = null;
 
             }
             
@@ -240,7 +239,5 @@ namespace Motor_Yard
 
         
         
-
->>>>>>> 34e5801ab50de75b5551907d570faa3a2d0ff8e9
     }
 }
