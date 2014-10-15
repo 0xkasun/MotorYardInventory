@@ -242,6 +242,7 @@ namespace Motor_Yard
                 //MessageBox.Show(itm.SubItems[0].Text + itm.SubItems[3].Text);
                 db.updateItemQuantity(itm.SubItems[0].Text, itm.SubItems[3].Text);
                 itm.Remove();
+                total_box.Text = null;
 
             }
             total_box.Text = "0";
@@ -257,6 +258,5 @@ namespace Motor_Yard
 
         
         
-
     }
 }

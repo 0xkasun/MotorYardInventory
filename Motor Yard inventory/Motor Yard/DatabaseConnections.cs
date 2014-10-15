@@ -52,8 +52,8 @@ namespace Motor_Yard
             client_Id = GetClientId();
             InventoryId = BrandId + ModelId + FuelId + EngineId + YearId + CatId + PartId;
             CinId =client_Id.ToString() + InventoryId;
-
-            if (InventoryId.Length == 21)
+            int Quantity = CheckQuantity(InventoryId);
+            if (InventoryId.Length == 21 && Quantity == -1)
             {
                 try
                 {
@@ -86,6 +86,11 @@ namespace Motor_Yard
                     MessageBox.Show(ex.Message);
                 }
                 MessageBox.Show("Data Added!");
+            }
+
+            else if (InventoryId.Length == 21 && Quantity != -1)
+            {
+                MessageBox.Show("Item already in Database.Check and update Quantity","Check",MessageBoxButtons.OK,MessageBoxIcon.Warning);
             }
 
             else

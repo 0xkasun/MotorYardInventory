@@ -296,14 +296,14 @@
             // 
             this.comboBoxCatName_AddStock.FormattingEnabled = true;
             this.comboBoxCatName_AddStock.Items.AddRange(new object[] {
-            "Service parts",
             "Brakes",
-            "Suspension & steering",
+            "Engine Parts",
+            "Suspension & Steering",
             "Transmission",
-            "Cooling & heating",
-            "Electrical & lighting",
-            "Body & lighting",
-            "Lubricants & fluids"});
+            "Cooling &H eating",
+            "Electrical & Lighting",
+            "Body & Exhaust",
+            "Lubricants & Fluids"});
             this.comboBoxCatName_AddStock.Location = new System.Drawing.Point(110, 30);
             this.comboBoxCatName_AddStock.Name = "comboBoxCatName_AddStock";
             this.comboBoxCatName_AddStock.Size = new System.Drawing.Size(186, 23);
@@ -806,6 +806,7 @@
             // 
             this.comboBoxCatName_GenarateItemcode_Update.FormattingEnabled = true;
             this.comboBoxCatName_GenarateItemcode_Update.Items.AddRange(new object[] {
+
             "Engine parts",
             "Brakes",
             "Suspension & steering",
@@ -1078,6 +1079,7 @@
             // 
             this.comboBoxCatName_GenarateItemcode_Delete.FormattingEnabled = true;
             this.comboBoxCatName_GenarateItemcode_Delete.Items.AddRange(new object[] {
+
             "Engine parts",
             "Brakes",
             "Suspension & steering",
@@ -1341,6 +1343,7 @@
             // 
             this.comboBoxCatName_GenarateItemcode_Clear.FormattingEnabled = true;
             this.comboBoxCatName_GenarateItemcode_Clear.Items.AddRange(new object[] {
+
             "Engine parts",
             "Brakes",
             "Suspension & steering",
