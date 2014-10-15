@@ -434,7 +434,22 @@
             // 
             this.comboBox7_part.FormattingEnabled = true;
             this.comboBox7_part.Items.AddRange(new object[] {
-            "head light"});
+            "Brake Discs",
+            "Brake Pads",
+            "Radiators",
+            "Intercoolers",
+            "Head Bolts",
+            "Engine Bearings",
+            "Engine Oil",
+            "Transmission Oil",
+            "Car Battery",
+            "Head lights",
+            "Shock Absorbers",
+            "Suspension Arms & Joints",
+            "Clutch kits",
+            "Flywheels",
+            "Body Panels",
+            "Body Mouldings"});
             this.comboBox7_part.Location = new System.Drawing.Point(52, 228);
             this.comboBox7_part.Name = "comboBox7_part";
             this.comboBox7_part.Size = new System.Drawing.Size(121, 23);
@@ -444,7 +459,11 @@
             // 
             this.comboBox_BrandName.FormattingEnabled = true;
             this.comboBox_BrandName.Items.AddRange(new object[] {
-            "honda"});
+            "Honda",
+            "Toyota",
+            "Nissan",
+            "BMW",
+            "Audi"});
             this.comboBox_BrandName.Location = new System.Drawing.Point(52, 54);
             this.comboBox_BrandName.Name = "comboBox_BrandName";
             this.comboBox_BrandName.Size = new System.Drawing.Size(121, 23);
@@ -454,7 +473,14 @@
             // 
             this.comboBox6_category.FormattingEnabled = true;
             this.comboBox6_category.Items.AddRange(new object[] {
-            "electrical & lighting"});
+            "Brakes",
+            "Engine parts",
+            "Suspension & steering",
+            "Transmission",
+            "Cooling & heating",
+            "Electrical & lighting",
+            "Body & Exhaust",
+            "Lubricants & fluids"});
             this.comboBox6_category.Location = new System.Drawing.Point(52, 199);
             this.comboBox6_category.Name = "comboBox6_category";
             this.comboBox6_category.Size = new System.Drawing.Size(121, 23);
@@ -464,7 +490,11 @@
             // 
             this.comboBox5_year.FormattingEnabled = true;
             this.comboBox5_year.Items.AddRange(new object[] {
-            "2012"});
+            "2009",
+            "2010",
+            "2011",
+            "2012",
+            "2013"});
             this.comboBox5_year.Location = new System.Drawing.Point(52, 170);
             this.comboBox5_year.Name = "comboBox5_year";
             this.comboBox5_year.Size = new System.Drawing.Size(121, 23);
@@ -474,7 +504,15 @@
             // 
             this.comboBox2_model.FormattingEnabled = true;
             this.comboBox2_model.Items.AddRange(new object[] {
-            "fit"});
+            "A4",
+            "RS7",
+            "Accord",
+            "Fit",
+            "Civic",
+            "Vezel",
+            "Insight",
+            "Prius",
+            "Allion"});
             this.comboBox2_model.Location = new System.Drawing.Point(52, 83);
             this.comboBox2_model.Name = "comboBox2_model";
             this.comboBox2_model.Size = new System.Drawing.Size(121, 23);
@@ -484,7 +522,8 @@
             // 
             this.comboBox4_engine.FormattingEnabled = true;
             this.comboBox4_engine.Items.AddRange(new object[] {
-            "1.6"});
+            "1.6",
+            "2.0"});
             this.comboBox4_engine.Location = new System.Drawing.Point(52, 141);
             this.comboBox4_engine.Name = "comboBox4_engine";
             this.comboBox4_engine.Size = new System.Drawing.Size(121, 23);
@@ -494,7 +533,9 @@
             // 
             this.comboBox3_fuel.FormattingEnabled = true;
             this.comboBox3_fuel.Items.AddRange(new object[] {
-            "petrol 95"});
+            "Diesel",
+            "Petrol 92",
+            "Petrol 95"});
             this.comboBox3_fuel.Location = new System.Drawing.Point(52, 112);
             this.comboBox3_fuel.Name = "comboBox3_fuel";
             this.comboBox3_fuel.Size = new System.Drawing.Size(121, 23);

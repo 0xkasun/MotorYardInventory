@@ -270,7 +270,22 @@
             "Head Light"});
             this.comboBoxPartName_AddStock.FormattingEnabled = true;
             this.comboBoxPartName_AddStock.Items.AddRange(new object[] {
-            "Head Light"});
+            "Brake Discs",
+            "Brake Pads",
+            "Radiators",
+            "Intercoolers",
+            "Head Bolts",
+            "Engine Bearings",
+            "Engine Oil",
+            "Transmission Oil",
+            "Car Battery",
+            "Head lights",
+            "Shock Absorbers",
+            "Suspension Arms & Joints",
+            "Clutch kits",
+            "Flywheels",
+            "Body Panels",
+            "Body Mouldings"});
             this.comboBoxPartName_AddStock.Location = new System.Drawing.Point(110, 102);
             this.comboBoxPartName_AddStock.Name = "comboBoxPartName_AddStock";
             this.comboBoxPartName_AddStock.Size = new System.Drawing.Size(186, 23);
@@ -766,7 +781,22 @@
             // 
             this.comboBoxPartName_GenarateItemcode_Update.FormattingEnabled = true;
             this.comboBoxPartName_GenarateItemcode_Update.Items.AddRange(new object[] {
-            "Head Light"});
+            "Brake Discs",
+            "Brake Pads",
+            "Radiators",
+            "Intercoolers",
+            "Head Bolts",
+            "Engine Bearings",
+            "Engine Oil",
+            "Transmission Oil",
+            "Car Battery",
+            "Head lights",
+            "Shock Absorbers",
+            "Suspension Arms & Joints",
+            "Clutch kits",
+            "Flywheels",
+            "Body Panels",
+            "Body Mouldings"});
             this.comboBoxPartName_GenarateItemcode_Update.Location = new System.Drawing.Point(46, 211);
             this.comboBoxPartName_GenarateItemcode_Update.Name = "comboBoxPartName_GenarateItemcode_Update";
             this.comboBoxPartName_GenarateItemcode_Update.Size = new System.Drawing.Size(121, 23);
@@ -776,7 +806,7 @@
             // 
             this.comboBoxCatName_GenarateItemcode_Update.FormattingEnabled = true;
             this.comboBoxCatName_GenarateItemcode_Update.Items.AddRange(new object[] {
-            "Service parts",
+            "Engine parts",
             "Brakes",
             "Suspension & steering",
             "Transmission",
@@ -1023,7 +1053,22 @@
             // 
             this.comboBoxPartName_GenarateItemcode_Delete.FormattingEnabled = true;
             this.comboBoxPartName_GenarateItemcode_Delete.Items.AddRange(new object[] {
-            "Head Light"});
+            "Brake Discs",
+            "Brake Pads",
+            "Radiators",
+            "Intercoolers",
+            "Head Bolts",
+            "Engine Bearings",
+            "Engine Oil",
+            "Transmission Oil",
+            "Car Battery",
+            "Head lights",
+            "Shock Absorbers",
+            "Suspension Arms & Joints",
+            "Clutch kits",
+            "Flywheels",
+            "Body Panels",
+            "Body Mouldings"});
             this.comboBoxPartName_GenarateItemcode_Delete.Location = new System.Drawing.Point(46, 212);
             this.comboBoxPartName_GenarateItemcode_Delete.Name = "comboBoxPartName_GenarateItemcode_Delete";
             this.comboBoxPartName_GenarateItemcode_Delete.Size = new System.Drawing.Size(121, 23);
@@ -1033,7 +1078,7 @@
             // 
             this.comboBoxCatName_GenarateItemcode_Delete.FormattingEnabled = true;
             this.comboBoxCatName_GenarateItemcode_Delete.Items.AddRange(new object[] {
-            "Service parts",
+            "Engine parts",
             "Brakes",
             "Suspension & steering",
             "Transmission",
@@ -1271,7 +1316,22 @@
             // 
             this.comboBoxPartName_GenarateItemcode_Clear.FormattingEnabled = true;
             this.comboBoxPartName_GenarateItemcode_Clear.Items.AddRange(new object[] {
-            "Head Light"});
+            "Brake Discs",
+            "Brake Pads",
+            "Radiators",
+            "Intercoolers",
+            "Head Bolts",
+            "Engine Bearings",
+            "Engine Oil",
+            "Transmission Oil",
+            "Car Battery",
+            "Head lights",
+            "Shock Absorbers",
+            "Suspension Arms & Joints",
+            "Clutch kits",
+            "Flywheels",
+            "Body Panels",
+            "Body Mouldings"});
             this.comboBoxPartName_GenarateItemcode_Clear.Location = new System.Drawing.Point(46, 210);
             this.comboBoxPartName_GenarateItemcode_Clear.Name = "comboBoxPartName_GenarateItemcode_Clear";
             this.comboBoxPartName_GenarateItemcode_Clear.Size = new System.Drawing.Size(121, 23);
@@ -1281,7 +1341,7 @@
             // 
             this.comboBoxCatName_GenarateItemcode_Clear.FormattingEnabled = true;
             this.comboBoxCatName_GenarateItemcode_Clear.Items.AddRange(new object[] {
-            "Service parts",
+            "Engine parts",
             "Brakes",
             "Suspension & steering",
             "Transmission",

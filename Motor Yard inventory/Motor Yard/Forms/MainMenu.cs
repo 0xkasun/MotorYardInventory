@@ -217,11 +217,14 @@ namespace Motor_Yard
             {
                 
                 DialogResult result1 = MessageBox.Show("This will clear everything\nin the current transaction view.\nDo you wish to proceed?", "Confirm Action", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-                foreach (ListViewItem itm in listView1.Items)
+                if (result1 == DialogResult.OK)
                 {
-                    itm.Remove();
+                    foreach (ListViewItem itm in listView1.Items)
+                    {
+                        itm.Remove();
+                    }
+                    total_box.Text = "0";
                 }
-                total_box.Text = "0";
             }
             else {
 
