@@ -122,7 +122,7 @@ namespace Motor_Yard
                 string Model_id = db.GetId(model_name, "Model");
                 string Fuel_id = db.GetId(fuel_type, "Fuel");
                 string Engine_Id = db.GetId(engine_capacity, "Engine");
-                string Year_id = db.GetId(year, "Yearr");
+                string Year_id = db.GetId(year, "Year");
                 string Cat_id = db.GetId(cat_name, "Category");
                 string Part_id = db.GetId(part_name, "SparePart");
                 Inventory_ItemCode = Brand_id + Model_id + Fuel_id + Engine_Id + Year_id + Cat_id + Part_id;
