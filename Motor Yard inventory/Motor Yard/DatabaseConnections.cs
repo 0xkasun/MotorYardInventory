@@ -7,7 +7,6 @@ using System.Data.OleDb;
 using System.Windows.Forms;
 using System.Configuration;
 using MySql.Data.MySqlClient;
-
 namespace Motor_Yard
 {
     class DatabaseConnections
@@ -44,13 +43,14 @@ namespace Motor_Yard
         public static string CinId;
         public static string user_id;
         public static string user_name;
-
-
+        public String itemName;
+        
 
         public void AddNewStock(string BrandId, string BrandName, string ModelId, string ModelName, string FuelId, string FuelType, string EngineId, string EngineCapacity, string YearId, string Year, string CatId, string CatName, string PartId, string PartName, long QuantityIn, long UnitPrice, string Date)
         {
             client_Id = GetClientId();
             InventoryId = BrandId + ModelId + FuelId + EngineId + YearId + CatId + PartId;
+            itemName = getItemDetails_String(InventoryId);
             CinId =client_Id.ToString() + InventoryId;
             int Quantity = CheckQuantity(InventoryId);
             if (InventoryId.Length == 21 && Quantity == -1)
@@ -59,7 +59,7 @@ namespace Motor_Yard
                 {
                     con.Open();
                     cmd = con.CreateCommand();
-                    cmd.CommandText = "INSERT INTO Inventory_Item (inventory_id,brand_id,model_id,fuel_id,engine_id,year_id,cat_id,part_id,date) VALUES('" + InventoryId + "','" + BrandId + "','" + ModelId + "','" + FuelId + "','" + EngineId + "','" + YearId + "','" + CatId + "','" + PartId + "','" + Date +"' )";
+                    cmd.CommandText = "INSERT INTO Inventory_Item (inventory_id,item_name,brand_id,model_id,fuel_id,engine_id,year_id,cat_id,part_id,date) VALUES('" + InventoryId + "','" + itemName + "','" + BrandId + "','" + ModelId + "','" + FuelId + "','" + EngineId + "','" + YearId + "','" + CatId + "','" + PartId + "','" + Date + "' )";
                     cmd.ExecuteNonQuery();
                     con.Close();
 
@@ -76,7 +76,7 @@ namespace Motor_Yard
                 {
                     con.Open();
                     cmd = con.CreateCommand();
-                    cmd.CommandText = "INSERT INTO Client_InventoryItem(cin_id,client_id,inventory_id,unit_price,quantity) VALUES ('" + CinId + "','" + client_Id + "','" + InventoryId + "','" + UnitPrice + "','" + QuantityIn + "')";
+                    cmd.CommandText = "INSERT INTO Client_InventoryItem(cin_id,client_id,inventory_id,item_name,unit_price,quantity) VALUES ('" + CinId + "','" + client_Id + "','" + InventoryId + "','" + itemName + "','" + UnitPrice + "','" + QuantityIn + "')";
                     cmd.ExecuteNonQuery();
                     con.Close();
                 }
@@ -818,7 +818,437 @@ namespace Motor_Yard
 
         }
 
+        public int CheckUserName(string user_name, string password, string email)
+        {
+            String load = "select user_name from user_password where user_name='" + user_name + "' ";
+            //cmd.CommandText = load;
+            int outint = 0;
+
+            con.Open();
+            cmd = con.CreateCommand();
+            cmd.CommandText = load;
+            dr = cmd.ExecuteReader();
+
+            if (dr.HasRows)
+            {
+                outint++;
+                MessageBox.Show("You Can't use this User Name", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            else
+            {
+                con.Close();
+                con.Open();
+                cmd.CommandText = "INSERT INTO user_password(user_name,password,email) VALUES ('" + user_name + "','" + password + "','" + email + "')";
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Account Created", "Done", MessageBoxButtons.OK);
+
+            }
+
+            con.Close();
+            return outint;
+        }
+
+        //combo list generation for add_sock  Model_names /part_names //
+
+        public String[] generateComboItems_Model_AddStock(String BrandId)
+        {
+            con.Open();
+            String[] ar = new String[100];
+            int i = 0;
+
+            // add else if for all the brands //
+            if (BrandId=="100") {
+                string load = "select model_name from Model where model_id like '%H%'";
+                
+                cmd = con.CreateCommand();
+                cmd.CommandText = load;
+                dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    String x = (dr[0].ToString());
+                    ar[i] = x;
+                    i++;
+                }
+                
+                con.Close();
+
+            }else if (BrandId == "101") {
+                string load = "select model_name from Model where model_id like '%T%'";
+                
+                cmd = con.CreateCommand();
+                cmd.CommandText = load;
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    String x = (dr[0].ToString());
+                    ar[i] = x;
+                    i++;
+                }
+                
+                con.Close();
+
+            }
+            else if (BrandId == "102")
+            {
+                string load = "select model_name from Model where model_id like '%N%'";
+
+                cmd = con.CreateCommand();
+                cmd.CommandText = load;
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    String x = (dr[0].ToString());
+                    ar[i] = x;
+                    i++;
+                }
+
+                con.Close();
+
+            }
+            else if (BrandId == "103")
+            {
+                string load = "select model_name from Model where model_id like '%B%'";
+
+                cmd = con.CreateCommand();
+                cmd.CommandText = load;
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    String x = (dr[0].ToString());
+                    ar[i] = x;
+                    i++;
+                }
+
+                con.Close();
+
+            }
+            else if (BrandId == "104")
+            {
+                string load = "select model_name from Model where model_id like '%A%'";
+
+                cmd = con.CreateCommand();
+                cmd.CommandText = load;
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    String x = (dr[0].ToString());
+                    ar[i] = x;
+                    i++;
+                }
+
+                con.Close();
+
+            }
+
+            return ar;
+
+        }
+
+        public String[] generateComboItems_part_AddStock(String catId) {
+
+            con.Open();
+            String[] ar = new String[100];
+            int i = 0;
+            if (catId == "c01")
+            {
+                string load = "select part_name from SparePart where part_id like '%T%'";
+
+                cmd = con.CreateCommand();
+                cmd.CommandText = load;
+                dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    String x = (dr[0].ToString());
+                    ar[i] = x;
+                    i++;
+                }
+
+                con.Close();
+
+            }
+            else if (catId == "c02")
+            {
+                string load = "select part_name from SparePart where part_id like '%B%'";
+
+                cmd = con.CreateCommand();
+                cmd.CommandText = load;
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    String x = (dr[0].ToString());
+                    ar[i] = x;
+                    i++;
+                }
+
+                con.Close();
+
+            }
+            else if (catId == "c03")
+            {
+                string load = "select part_name from SparePart where part_id like '%E%'";
+
+                cmd = con.CreateCommand();
+                cmd.CommandText = load;
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    String x = (dr[0].ToString());
+                    ar[i] = x;
+                    i++;
+                }
+
+                con.Close();
+
+            }
+            else if (catId == "c04")
+            {
+                string load = "select part_name from SparePart where part_id like '%S%'";
+
+                cmd = con.CreateCommand();
+                cmd.CommandText = load;
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    String x = (dr[0].ToString());
+                    ar[i] = x;
+                    i++;
+                }
+
+                con.Close();
+
+            }
+            else if (catId == "c05")
+            {
+                string load = "select part_name from SparePart where part_id like '%C%'";
+
+                cmd = con.CreateCommand();
+                cmd.CommandText = load;
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    String x = (dr[0].ToString());
+                    ar[i] = x;
+                    i++;
+                }
+
+                con.Close();
+
+            }
+            else if (catId == "c06")
+            {
+                string load = "select part_name from SparePart where part_id like '%L%'";
+
+                cmd = con.CreateCommand();
+                cmd.CommandText = load;
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    String x = (dr[0].ToString());
+                    ar[i] = x;
+                    i++;
+                }
+
+                con.Close();
+
+            }
+            else if (catId == "c07")
+            {
+                string load = "select part_name from SparePart where part_id like '%X%'";
+
+                cmd = con.CreateCommand();
+                cmd.CommandText = load;
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    String x = (dr[0].ToString());
+                    ar[i] = x;
+                    i++;
+                }
+
+                con.Close();
+
+            }
+            else if (catId == "c08")
+            {
+                string load = "select part_name from SparePart where part_id like '%F%'";
+
+                cmd = con.CreateCommand();
+                cmd.CommandText = load;
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    String x = (dr[0].ToString());
+                    ar[i] = x;
+                    i++;
+                }
+
+                con.Close();
+
+            }
+
+            return ar;
+        
+        }
+
+        // combo list generation for update/delete/clear/transaction forms//
+
+        public String[] generateComboBrand(){
+                String[] b = new String[100];
+                int i = 0;
+                string load = "select distinct brand_name from Inventory_Item natural join Brand";
+                con.Open();    
+                cmd = con.CreateCommand();
+                cmd.CommandText = load;
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    String x = (dr[0].ToString());
+                    b[i] = x;
+                    i++;
+                }
+
+                con.Close();
+                return b;
+            }
+        public String[] generateComboItems_Model(String brandId)
+        {
+            String[] b = new String[100];
+            int i = 0;
+            string load = "select distinct model_name from Inventory_Item natural join Model where brand_id='"+ brandId + "'";
+            con.Open();
+            cmd = con.CreateCommand();
+            cmd.CommandText = load;
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                String x = (dr[0].ToString());
+                b[i] = x;
+                i++;
+            }
+
+            con.Close();
+            return b;
+            
+        }
+
+        public String[] generateComboItems_Fuel(String modelId)
+        {
+            String[] b = new String[100];
+            int i = 0;
+            string load = "select distinct fuel_type from Inventory_Item natural join Fuel where model_id='" + modelId + "'";
+            con.Open();
+            cmd = con.CreateCommand();
+            cmd.CommandText = load;
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                String x = (dr[0].ToString());
+                b[i] = x;
+                i++;
+            }
+
+            con.Close();
+            return b;
+
+        }
+
+        public String[] generateComboItems_Engine(String fuelId,String modelId)
+        {
+            String[] b = new String[100];
+            int i = 0;
+            string load = "select distinct engine_capacity from Inventory_Item natural join Engine where fuel_id='" + fuelId + "'AND model_id= '" + modelId + "'";
+            con.Open();
+            cmd = con.CreateCommand();
+            cmd.CommandText = load;
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                String x = (dr[0].ToString());
+                b[i] = x;
+                i++;
+            }
+
+            con.Close();
+            return b;
+
+        }
+
+
+        public String[] generateComboItems_Year(String engId,String modelId)
+        {
+            String[] b = new String[100];
+            int i = 0;
+            string load = "select distinct year from Inventory_Item natural join Yearr where engine_id='" + engId + "'AND model_id='" + modelId +"'";
+            con.Open();
+            cmd = con.CreateCommand();
+            cmd.CommandText = load;
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                String x = (dr[0].ToString());
+                b[i] = x;
+                i++;
+            }
+
+            con.Close();
+            return b;
+
+        }
+
+        public String[] generateComboItems_Cat(String yearId, String modelId)
+        {
+            String[] b = new String[100];
+            int i = 0;
+            string load = "select distinct cat_name from Inventory_Item natural join Category where model_id='" + modelId + "'AND year_id='" + yearId + "'";
+            con.Open();
+            cmd = con.CreateCommand();
+            cmd.CommandText = load;
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                String x = (dr[0].ToString());
+                b[i] = x;
+                
+                i++;
+            }
+
+            con.Close();
+            return b;
+
+        }
+
+        public String[] generateComboItems_Part(String catId, String modelId)
+        {
+            String[] b = new String[100];
+            int i = 0;
+            string load = "select distinct part_name from Inventory_Item natural join SparePart where cat_id='" + catId + "'AND model_id='" + modelId + "'";
+            con.Open();
+            cmd = con.CreateCommand();
+            cmd.CommandText = load;
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                String x = (dr[0].ToString());
+                b[i] = x;
+                i++;
+            }
+
+            con.Close();
+            return b;
+
+        }
+      
+        
+
+        
+        }
+
+       
+
     }
 
     
-}
+

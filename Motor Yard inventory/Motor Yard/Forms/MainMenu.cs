@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,6 +15,7 @@ namespace Motor_Yard
         public Main_Menu()
         {
             InitializeComponent();
+            generateComboItems_Brand();
             total_box.Text = "0";
         }
 
@@ -237,6 +237,8 @@ namespace Motor_Yard
         private void button4_Click(object sender, EventArgs e)
         {
             DatabaseConnections db = new DatabaseConnections();
+            if (listView1.Items.Count != 0)
+            {
             foreach (ListViewItem itm in listView1.Items) {
 
                 //MessageBox.Show(itm.SubItems[0].Text + itm.SubItems[3].Text);
@@ -245,10 +247,247 @@ namespace Motor_Yard
                 total_box.Text = null;
 
             }
+            }
+            else
+            {
+
+                MessageBox.Show("List is empty");
+            }
             total_box.Text = "0";
             
            
         }
+
+        private void newUserLoginToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            New_LogIn newlg = new New_LogIn();
+            newlg.Show();
+            this.Hide();
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+
+
+
+
+ //    Item generation part for transactions
+
+        public void generateComboItems_Brand()
+        {
+
+            DatabaseConnections db = new DatabaseConnections();
+            String[] brands = db.generateComboBrand();
+            int i = 0;
+            while (brands[i] != null)
+            {
+                comboBox_BrandName.Items.Add(brands[i]);
+                i++;
+            }
+
+
+
+        }
+
+        private void comboBox_BrandName_TextChanged(object sender, EventArgs e)
+        {
+
+
+            string check = comboBox_BrandName.Text;
+            if (check != "")
+            {
+                if (comboBox2_model.Items.Count != 0)
+                {
+                    comboBox2_model.Items.Clear();
+                    comboBox2_model.Text = "";
+                }
+                DatabaseConnections db = new DatabaseConnections();
+                string ItemId = db.GetId(check, "Brand");
+                String[] reader = db.generateComboItems_Model(ItemId);
+                int i = 0;
+                while (reader[i] != null)
+                {
+                    comboBox2_model.Items.Add(reader[i]);
+                    i++;
+
+                }
+
+
+            }
+
+
+
+        }
+        private void comboBox2_model_TextChanged(object sender, EventArgs e)
+        {
+
+
+            string check = comboBox2_model.Text;
+            if (check != "")
+            {
+                if (comboBox3_fuel.Items.Count != 0)
+                {
+                    comboBox3_fuel.Items.Clear();
+                    comboBox3_fuel.Text = "";
+                }
+                DatabaseConnections db = new DatabaseConnections();
+                string ItemId = db.GetId(check, "Model");
+                String[] reader = db.generateComboItems_Fuel(ItemId);
+                int i = 0;
+                while (reader[i] != null)
+                {
+                    comboBox3_fuel.Items.Add(reader[i]);
+                    i++;
+
+                }
+
+
+            }
+
+
+
+
+        }
+        private void comboBox3_fuel_TextChanged(object sender, EventArgs e)
+        {
+
+
+            string check = comboBox3_fuel.Text;
+            string check2 = comboBox2_model.Text;
+            if (check != "")
+            {
+                if (comboBox4_engine.Items.Count != 0)
+                {
+                    comboBox4_engine.Items.Clear();
+                    comboBox4_engine.Text = "";
+                }
+                DatabaseConnections db = new DatabaseConnections();
+                string ItemId = db.GetId(check, "Fuel");
+                string ItemId2 = db.GetId(check2, "Model");
+                String[] reader = db.generateComboItems_Engine(ItemId, ItemId2);
+                int i = 0;
+                while (reader[i] != null)
+                {
+                    comboBox4_engine.Items.Add(reader[i]);
+                    i++;
+
+                }
+
+
+            }
+
+
+
+
+        }
+        private void comboBox4_engine_TextChanged(object sender, EventArgs e)
+        {
+
+
+            string check = comboBox4_engine.Text;
+            string check2 = comboBox2_model.Text;
+            if (check != "")
+            {
+                if (comboBox5_year.Items.Count != 0)
+                {
+                    comboBox5_year.Items.Clear();
+                    comboBox5_year.Text = "";
+                }
+                DatabaseConnections db = new DatabaseConnections();
+
+                string ItemId = db.GetId(check, "Engine");
+                string ItemId2 = db.GetId(check2, "Model");
+                String[] reader = db.generateComboItems_Year(ItemId, ItemId2);
+                int i = 0;
+                while (reader[i] != null)
+                {
+                    comboBox5_year.Items.Add(reader[i]);
+                    i++;
+
+                }
+
+
+            }
+
+
+
+
+        }
+        private void comboBox5_year_TextChanged(object sender, EventArgs e)
+        {
+
+
+            string check = comboBox5_year.Text;
+            string check2 = comboBox2_model.Text;
+
+            if (check != "")
+            {
+                if (comboBox6_category.Items.Count != 0)
+                {
+                    comboBox6_category.Items.Clear();
+                    comboBox6_category.Text = "";
+                }
+                DatabaseConnections db = new DatabaseConnections();
+                string ItemId = db.GetId(check, "Year");
+                string ItemId2 = db.GetId(check2, "Model");
+
+                String[] reader = db.generateComboItems_Cat(ItemId, ItemId2);
+                int i = 0;
+
+                while (reader[i] != null)
+                {
+                    comboBox6_category.Items.Add(reader[i]);
+                    i++;
+
+                }
+
+
+            }
+
+
+
+
+        }
+        private void comboBox6_category_TextChanged(object sender, EventArgs e)
+        {
+
+            string check2 = comboBox6_category.Text;
+            string check = comboBox2_model.Text;
+            if (check != "")
+            {
+                if (comboBox7_part.Items.Count != 0)
+                {
+                    comboBox7_part.Items.Clear();
+                    comboBox7_part.Text = "";
+                }
+                DatabaseConnections db = new DatabaseConnections();
+                string ItemId = db.GetId(check, "Model");
+                string ItemId2 = db.GetId(check2, "Category");
+                String[] reader = db.generateComboItems_Part(ItemId2, ItemId);
+                int i = 0;
+                while (reader[i] != null)
+                {
+                    comboBox7_part.Items.Add(reader[i]);
+                    i++;
+
+                }
+
+
+            }
+
+
+
+
+        }
+
+
+
+    
 
 
 

@@ -45,8 +45,8 @@
             this.discountOffered_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.requests_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logOutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.newUserLoginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -155,21 +155,21 @@
             // sales_ToolStripMenuItem
             // 
             this.sales_ToolStripMenuItem.Name = "sales_ToolStripMenuItem";
-            this.sales_ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.sales_ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.sales_ToolStripMenuItem.Text = "Sales";
             this.sales_ToolStripMenuItem.Click += new System.EventHandler(this.sales_ToolStripMenuItem_Click);
             // 
             // totalIncome_ToolStripMenuItem
             // 
             this.totalIncome_ToolStripMenuItem.Name = "totalIncome_ToolStripMenuItem";
-            this.totalIncome_ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.totalIncome_ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.totalIncome_ToolStripMenuItem.Text = "Total Income";
             this.totalIncome_ToolStripMenuItem.Click += new System.EventHandler(this.totalIncome_ToolStripMenuItem_Click);
             // 
             // taxesPayable_ToolStripMenuItem
             // 
             this.taxesPayable_ToolStripMenuItem.Name = "taxesPayable_ToolStripMenuItem";
-            this.taxesPayable_ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.taxesPayable_ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.taxesPayable_ToolStripMenuItem.Text = "Taxes Payable";
             this.taxesPayable_ToolStripMenuItem.Click += new System.EventHandler(this.taxesPayable_ToolStripMenuItem_Click);
             // 
@@ -216,24 +216,25 @@
             // optionToolStripMenuItem
             // 
             this.optionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.usersToolStripMenuItem,
-            this.logOutToolStripMenuItem1});
+            this.logOutToolStripMenuItem1,
+            this.newUserLoginToolStripMenuItem});
             this.optionToolStripMenuItem.Name = "optionToolStripMenuItem";
-            this.optionToolStripMenuItem.Size = new System.Drawing.Size(56, 19);
-            this.optionToolStripMenuItem.Text = "Option";
-            // 
-            // usersToolStripMenuItem
-            // 
-            this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-            this.usersToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.usersToolStripMenuItem.Text = "Users";
+            this.optionToolStripMenuItem.Size = new System.Drawing.Size(61, 19);
+            this.optionToolStripMenuItem.Text = "Options";
             // 
             // logOutToolStripMenuItem1
             // 
             this.logOutToolStripMenuItem1.Name = "logOutToolStripMenuItem1";
-            this.logOutToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.logOutToolStripMenuItem1.Size = new System.Drawing.Size(157, 22);
             this.logOutToolStripMenuItem1.Text = "LogOut";
             this.logOutToolStripMenuItem1.Click += new System.EventHandler(this.logOutToolStripMenuItem1_Click);
+            // 
+            // newUserLoginToolStripMenuItem
+            // 
+            this.newUserLoginToolStripMenuItem.Name = "newUserLoginToolStripMenuItem";
+            this.newUserLoginToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.newUserLoginToolStripMenuItem.Text = "New User Login";
+            this.newUserLoginToolStripMenuItem.Click += new System.EventHandler(this.newUserLoginToolStripMenuItem_Click);
             // 
             // listView1
             // 
@@ -251,7 +252,7 @@
             this.listView1.Location = new System.Drawing.Point(6, 54);
             this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(700, 197);
+            this.listView1.Size = new System.Drawing.Size(727, 197);
             this.listView1.TabIndex = 13;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -278,6 +279,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.listView1);
             this.groupBox1.Controls.Add(this.button5);
             this.groupBox1.Controls.Add(this.Done_button);
@@ -289,17 +292,18 @@
             this.groupBox1.Controls.Add(this.dateTimePicker1);
             this.groupBox1.Location = new System.Drawing.Point(12, 28);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(712, 374);
+            this.groupBox1.Size = new System.Drawing.Size(758, 397);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Transactions";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(617, 312);
+            this.button5.Location = new System.Drawing.Point(647, 312);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.Size = new System.Drawing.Size(86, 23);
             this.button5.TabIndex = 12;
             this.button5.Text = "Cancel";
             this.button5.UseVisualStyleBackColor = true;
@@ -307,9 +311,9 @@
             // Done_button
             // 
             this.Done_button.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Done_button.Location = new System.Drawing.Point(524, 312);
+            this.Done_button.Location = new System.Drawing.Point(528, 312);
             this.Done_button.Name = "Done_button";
-            this.Done_button.Size = new System.Drawing.Size(75, 23);
+            this.Done_button.Size = new System.Drawing.Size(80, 23);
             this.Done_button.TabIndex = 11;
             this.Done_button.Text = "Done";
             this.Done_button.UseVisualStyleBackColor = true;
@@ -320,7 +324,7 @@
             this.Clear_button.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Clear_button.Location = new System.Drawing.Point(93, 312);
             this.Clear_button.Name = "Clear_button";
-            this.Clear_button.Size = new System.Drawing.Size(75, 23);
+            this.Clear_button.Size = new System.Drawing.Size(84, 23);
             this.Clear_button.TabIndex = 10;
             this.Clear_button.Text = "Clear All";
             this.Clear_button.UseVisualStyleBackColor = true;
@@ -328,9 +332,11 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(521, 269);
+            this.label1.Location = new System.Drawing.Point(525, 269);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 18);
             this.label1.TabIndex = 3;
@@ -350,9 +356,9 @@
             // total_box
             // 
             this.total_box.Enabled = false;
-            this.total_box.Location = new System.Drawing.Point(585, 267);
+            this.total_box.Location = new System.Drawing.Point(606, 267);
             this.total_box.Name = "total_box";
-            this.total_box.Size = new System.Drawing.Size(107, 22);
+            this.total_box.Size = new System.Drawing.Size(127, 22);
             this.total_box.TabIndex = 2;
             // 
             // label2
@@ -395,9 +401,9 @@
             this.groupBox2.Controls.Add(this.comboBox2_model);
             this.groupBox2.Controls.Add(this.comboBox4_engine);
             this.groupBox2.Controls.Add(this.comboBox3_fuel);
-            this.groupBox2.Location = new System.Drawing.Point(747, 28);
+            this.groupBox2.Location = new System.Drawing.Point(776, 28);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(219, 373);
+            this.groupBox2.Size = new System.Drawing.Size(207, 397);
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Select Item";
@@ -433,113 +439,71 @@
             // comboBox7_part
             // 
             this.comboBox7_part.FormattingEnabled = true;
-            this.comboBox7_part.Items.AddRange(new object[] {
-            "Brake Discs",
-            "Brake Pads",
-            "Radiators",
-            "Intercoolers",
-            "Head Bolts",
-            "Engine Bearings",
-            "Engine Oil",
-            "Transmission Oil",
-            "Car Battery",
-            "Head lights",
-            "Shock Absorbers",
-            "Suspension Arms & Joints",
-            "Clutch kits",
-            "Flywheels",
-            "Body Panels",
-            "Body Mouldings"});
             this.comboBox7_part.Location = new System.Drawing.Point(52, 228);
             this.comboBox7_part.Name = "comboBox7_part";
             this.comboBox7_part.Size = new System.Drawing.Size(121, 23);
             this.comboBox7_part.TabIndex = 7;
+            this.comboBox7_part.Text = "SparePart";
             // 
             // comboBox_BrandName
             // 
             this.comboBox_BrandName.FormattingEnabled = true;
-            this.comboBox_BrandName.Items.AddRange(new object[] {
-            "Honda",
-            "Toyota",
-            "Nissan",
-            "BMW",
-            "Audi"});
             this.comboBox_BrandName.Location = new System.Drawing.Point(52, 54);
             this.comboBox_BrandName.Name = "comboBox_BrandName";
             this.comboBox_BrandName.Size = new System.Drawing.Size(121, 23);
             this.comboBox_BrandName.TabIndex = 1;
+            this.comboBox_BrandName.Text = "Brand";
+            this.comboBox_BrandName.TextChanged += new System.EventHandler(this.comboBox_BrandName_TextChanged);
             // 
             // comboBox6_category
             // 
             this.comboBox6_category.FormattingEnabled = true;
-            this.comboBox6_category.Items.AddRange(new object[] {
-            "Brakes",
-            "Engine parts",
-            "Suspension & steering",
-            "Transmission",
-            "Cooling & heating",
-            "Electrical & lighting",
-            "Body & Exhaust",
-            "Lubricants & fluids"});
             this.comboBox6_category.Location = new System.Drawing.Point(52, 199);
             this.comboBox6_category.Name = "comboBox6_category";
             this.comboBox6_category.Size = new System.Drawing.Size(121, 23);
             this.comboBox6_category.TabIndex = 6;
+            this.comboBox6_category.Text = "Category";
+            this.comboBox6_category.TextChanged += new System.EventHandler(this.comboBox6_category_TextChanged);
             // 
             // comboBox5_year
             // 
             this.comboBox5_year.FormattingEnabled = true;
-            this.comboBox5_year.Items.AddRange(new object[] {
-            "2009",
-            "2010",
-            "2011",
-            "2012",
-            "2013"});
             this.comboBox5_year.Location = new System.Drawing.Point(52, 170);
             this.comboBox5_year.Name = "comboBox5_year";
             this.comboBox5_year.Size = new System.Drawing.Size(121, 23);
             this.comboBox5_year.TabIndex = 5;
+            this.comboBox5_year.Text = "Make-Year";
+            this.comboBox5_year.TextChanged += new System.EventHandler(this.comboBox5_year_TextChanged);
             // 
             // comboBox2_model
             // 
             this.comboBox2_model.FormattingEnabled = true;
-            this.comboBox2_model.Items.AddRange(new object[] {
-            "A4",
-            "RS7",
-            "Accord",
-            "Fit",
-            "Civic",
-            "Vezel",
-            "Insight",
-            "Prius",
-            "Allion"});
             this.comboBox2_model.Location = new System.Drawing.Point(52, 83);
             this.comboBox2_model.Name = "comboBox2_model";
             this.comboBox2_model.Size = new System.Drawing.Size(121, 23);
             this.comboBox2_model.TabIndex = 2;
+            this.comboBox2_model.Text = "Model";
+            this.comboBox2_model.TextChanged += new System.EventHandler(this.comboBox2_model_TextChanged);
             // 
             // comboBox4_engine
             // 
             this.comboBox4_engine.FormattingEnabled = true;
-            this.comboBox4_engine.Items.AddRange(new object[] {
-            "1.6",
-            "2.0"});
             this.comboBox4_engine.Location = new System.Drawing.Point(52, 141);
             this.comboBox4_engine.Name = "comboBox4_engine";
             this.comboBox4_engine.Size = new System.Drawing.Size(121, 23);
             this.comboBox4_engine.TabIndex = 4;
+            this.comboBox4_engine.Text = "Engine CC";
+            this.comboBox4_engine.TextChanged += new System.EventHandler(this.comboBox4_engine_TextChanged);
             // 
             // comboBox3_fuel
             // 
             this.comboBox3_fuel.FormattingEnabled = true;
-            this.comboBox3_fuel.Items.AddRange(new object[] {
-            "Diesel",
-            "Petrol 92",
-            "Petrol 95"});
             this.comboBox3_fuel.Location = new System.Drawing.Point(52, 112);
             this.comboBox3_fuel.Name = "comboBox3_fuel";
             this.comboBox3_fuel.Size = new System.Drawing.Size(121, 23);
             this.comboBox3_fuel.TabIndex = 3;
+            this.comboBox3_fuel.Text = "Fuel Type";
+            this.comboBox3_fuel.TextChanged += new System.EventHandler(this.comboBox3_fuel_TextChanged);
             // 
             // Main_Menu
             // 
@@ -547,10 +511,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.ClientSize = new System.Drawing.Size(995, 422);
+            this.ControlBox = false;
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HelpButton = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Main_Menu";
@@ -586,7 +552,6 @@
         private System.Windows.Forms.ToolStripMenuItem discountOffered_ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem requests_ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem optionToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem usersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem1;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ColumnHeader columnHeader1;
@@ -613,5 +578,6 @@
         private System.Windows.Forms.ComboBox comboBox3_fuel;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox quantity_box;
+        private System.Windows.Forms.ToolStripMenuItem newUserLoginToolStripMenuItem;
     }
 }

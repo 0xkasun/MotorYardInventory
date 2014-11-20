@@ -269,23 +269,6 @@
             this.comboBoxPartName_AddStock.AutoCompleteCustomSource.AddRange(new string[] {
             "Head Light"});
             this.comboBoxPartName_AddStock.FormattingEnabled = true;
-            this.comboBoxPartName_AddStock.Items.AddRange(new object[] {
-            "Brake Discs",
-            "Brake Pads",
-            "Radiators",
-            "Intercoolers",
-            "Head Bolts",
-            "Engine Bearings",
-            "Engine Oil",
-            "Transmission Oil",
-            "Car Battery",
-            "Head lights",
-            "Shock Absorbers",
-            "Suspension Arms & Joints",
-            "Clutch kits",
-            "Flywheels",
-            "Body Panels",
-            "Body Mouldings"});
             this.comboBoxPartName_AddStock.Location = new System.Drawing.Point(110, 102);
             this.comboBoxPartName_AddStock.Name = "comboBoxPartName_AddStock";
             this.comboBoxPartName_AddStock.Size = new System.Drawing.Size(186, 23);
@@ -456,16 +439,6 @@
             // 
             this.comboBoxModelName_AddStock.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxModelName_AddStock.FormattingEnabled = true;
-            this.comboBoxModelName_AddStock.Items.AddRange(new object[] {
-            "A4",
-            "RS7",
-            "Accord",
-            "Fit",
-            "Civic",
-            "Vezel",
-            "Insight",
-            "Prius",
-            "Allion"});
             this.comboBoxModelName_AddStock.Location = new System.Drawing.Point(146, 105);
             this.comboBoxModelName_AddStock.Name = "comboBoxModelName_AddStock";
             this.comboBoxModelName_AddStock.Size = new System.Drawing.Size(186, 23);
@@ -477,8 +450,8 @@
             this.comboBoxBrandName_AddStock.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxBrandName_AddStock.FormattingEnabled = true;
             this.comboBoxBrandName_AddStock.Items.AddRange(new object[] {
-            "Honda",
             "Toyota",
+            "Honda",
             "Nissan",
             "BMW",
             "Audi"});
@@ -780,114 +753,71 @@
             // comboBoxPartName_GenarateItemcode_Update
             // 
             this.comboBoxPartName_GenarateItemcode_Update.FormattingEnabled = true;
-            this.comboBoxPartName_GenarateItemcode_Update.Items.AddRange(new object[] {
-            "Brake Discs",
-            "Brake Pads",
-            "Radiators",
-            "Intercoolers",
-            "Head Bolts",
-            "Engine Bearings",
-            "Engine Oil",
-            "Transmission Oil",
-            "Car Battery",
-            "Head lights",
-            "Shock Absorbers",
-            "Suspension Arms & Joints",
-            "Clutch kits",
-            "Flywheels",
-            "Body Panels",
-            "Body Mouldings"});
             this.comboBoxPartName_GenarateItemcode_Update.Location = new System.Drawing.Point(46, 211);
             this.comboBoxPartName_GenarateItemcode_Update.Name = "comboBoxPartName_GenarateItemcode_Update";
             this.comboBoxPartName_GenarateItemcode_Update.Size = new System.Drawing.Size(121, 23);
             this.comboBoxPartName_GenarateItemcode_Update.TabIndex = 19;
+            this.comboBoxPartName_GenarateItemcode_Update.Text = "Select SparePart";
             // 
             // comboBoxCatName_GenarateItemcode_Update
             // 
             this.comboBoxCatName_GenarateItemcode_Update.FormattingEnabled = true;
-            this.comboBoxCatName_GenarateItemcode_Update.Items.AddRange(new object[] {
-
-            "Engine parts",
-            "Brakes",
-            "Suspension & steering",
-            "Transmission",
-            "Cooling & heating",
-            "Electrical & lighting",
-            "Body & lighting",
-            "Lubricants & fluids"});
             this.comboBoxCatName_GenarateItemcode_Update.Location = new System.Drawing.Point(46, 182);
             this.comboBoxCatName_GenarateItemcode_Update.Name = "comboBoxCatName_GenarateItemcode_Update";
             this.comboBoxCatName_GenarateItemcode_Update.Size = new System.Drawing.Size(121, 23);
             this.comboBoxCatName_GenarateItemcode_Update.TabIndex = 18;
+            this.comboBoxCatName_GenarateItemcode_Update.Text = "Select Category";
+            this.comboBoxCatName_GenarateItemcode_Update.TextChanged += new System.EventHandler(this.comboBoxCatName_GenarateItemcode_Update_TextChanged);
             // 
             // comboBoxYear_GenarateItemcode_Update
             // 
             this.comboBoxYear_GenarateItemcode_Update.FormattingEnabled = true;
-            this.comboBoxYear_GenarateItemcode_Update.Items.AddRange(new object[] {
-            "2009",
-            "2010",
-            "2011",
-            "2012",
-            "2013"});
             this.comboBoxYear_GenarateItemcode_Update.Location = new System.Drawing.Point(46, 153);
             this.comboBoxYear_GenarateItemcode_Update.Name = "comboBoxYear_GenarateItemcode_Update";
             this.comboBoxYear_GenarateItemcode_Update.Size = new System.Drawing.Size(121, 23);
             this.comboBoxYear_GenarateItemcode_Update.TabIndex = 17;
+            this.comboBoxYear_GenarateItemcode_Update.Text = "Select Make-Year";
+            this.comboBoxYear_GenarateItemcode_Update.TextChanged += new System.EventHandler(this.comboBoxYear_GenarateItemcode_Update_TextChanged);
             // 
             // comboBoxEngineCapacity_GenarateItemcode_Update
             // 
             this.comboBoxEngineCapacity_GenarateItemcode_Update.FormattingEnabled = true;
-            this.comboBoxEngineCapacity_GenarateItemcode_Update.Items.AddRange(new object[] {
-            "1.6",
-            "2.0"});
             this.comboBoxEngineCapacity_GenarateItemcode_Update.Location = new System.Drawing.Point(46, 123);
             this.comboBoxEngineCapacity_GenarateItemcode_Update.Name = "comboBoxEngineCapacity_GenarateItemcode_Update";
             this.comboBoxEngineCapacity_GenarateItemcode_Update.Size = new System.Drawing.Size(121, 23);
             this.comboBoxEngineCapacity_GenarateItemcode_Update.TabIndex = 16;
+            this.comboBoxEngineCapacity_GenarateItemcode_Update.Text = "Select Engine cc";
+            this.comboBoxEngineCapacity_GenarateItemcode_Update.TextChanged += new System.EventHandler(this.comboBoxEngineCapacity_GenarateItemcode_Update_TextChanged);
             // 
             // comboBoxFuelType_GenarateItemcode_Update
             // 
             this.comboBoxFuelType_GenarateItemcode_Update.FormattingEnabled = true;
-            this.comboBoxFuelType_GenarateItemcode_Update.Items.AddRange(new object[] {
-            "Diesel",
-            "Petrol 92",
-            "Petrol 95"});
             this.comboBoxFuelType_GenarateItemcode_Update.Location = new System.Drawing.Point(46, 93);
             this.comboBoxFuelType_GenarateItemcode_Update.Name = "comboBoxFuelType_GenarateItemcode_Update";
             this.comboBoxFuelType_GenarateItemcode_Update.Size = new System.Drawing.Size(121, 23);
             this.comboBoxFuelType_GenarateItemcode_Update.TabIndex = 15;
+            this.comboBoxFuelType_GenarateItemcode_Update.Text = "Select Fuel";
+            this.comboBoxFuelType_GenarateItemcode_Update.TextChanged += new System.EventHandler(this.comboBoxFuelType_GenarateItemcode_Update_TextChanged);
             // 
             // comboBoxModelName_GenarateItemcode_Update
             // 
             this.comboBoxModelName_GenarateItemcode_Update.FormattingEnabled = true;
-            this.comboBoxModelName_GenarateItemcode_Update.Items.AddRange(new object[] {
-            "A4",
-            "RS7",
-            "Accord",
-            "Fit",
-            "Civic",
-            "Vezel",
-            "Insight",
-            "Prius",
-            "Allion"});
             this.comboBoxModelName_GenarateItemcode_Update.Location = new System.Drawing.Point(46, 64);
             this.comboBoxModelName_GenarateItemcode_Update.Name = "comboBoxModelName_GenarateItemcode_Update";
             this.comboBoxModelName_GenarateItemcode_Update.Size = new System.Drawing.Size(121, 23);
             this.comboBoxModelName_GenarateItemcode_Update.TabIndex = 14;
+            this.comboBoxModelName_GenarateItemcode_Update.Text = "Select Model";
+            this.comboBoxModelName_GenarateItemcode_Update.TextChanged += new System.EventHandler(this.comboBoxModelName_GenarateItemcode_Update_TextChanged);
             // 
             // comboBoxBrandName_GenarateItemcode_Update
             // 
             this.comboBoxBrandName_GenarateItemcode_Update.FormattingEnabled = true;
-            this.comboBoxBrandName_GenarateItemcode_Update.Items.AddRange(new object[] {
-            "Honda",
-            "Toyota",
-            "Nissan",
-            "BMW",
-            "Audi"});
             this.comboBoxBrandName_GenarateItemcode_Update.Location = new System.Drawing.Point(46, 35);
             this.comboBoxBrandName_GenarateItemcode_Update.Name = "comboBoxBrandName_GenarateItemcode_Update";
             this.comboBoxBrandName_GenarateItemcode_Update.Size = new System.Drawing.Size(121, 23);
             this.comboBoxBrandName_GenarateItemcode_Update.TabIndex = 13;
+            this.comboBoxBrandName_GenarateItemcode_Update.Text = "Select Brand";
+            this.comboBoxBrandName_GenarateItemcode_Update.TextChanged += new System.EventHandler(this.comboBoxBrandName_GenarateItemcode_Update_TextChanged);
             // 
             // tabPageDeleteStock
             // 
@@ -1053,114 +983,71 @@
             // comboBoxPartName_GenarateItemcode_Delete
             // 
             this.comboBoxPartName_GenarateItemcode_Delete.FormattingEnabled = true;
-            this.comboBoxPartName_GenarateItemcode_Delete.Items.AddRange(new object[] {
-            "Brake Discs",
-            "Brake Pads",
-            "Radiators",
-            "Intercoolers",
-            "Head Bolts",
-            "Engine Bearings",
-            "Engine Oil",
-            "Transmission Oil",
-            "Car Battery",
-            "Head lights",
-            "Shock Absorbers",
-            "Suspension Arms & Joints",
-            "Clutch kits",
-            "Flywheels",
-            "Body Panels",
-            "Body Mouldings"});
             this.comboBoxPartName_GenarateItemcode_Delete.Location = new System.Drawing.Point(46, 212);
             this.comboBoxPartName_GenarateItemcode_Delete.Name = "comboBoxPartName_GenarateItemcode_Delete";
             this.comboBoxPartName_GenarateItemcode_Delete.Size = new System.Drawing.Size(121, 23);
             this.comboBoxPartName_GenarateItemcode_Delete.TabIndex = 19;
+            this.comboBoxPartName_GenarateItemcode_Delete.Text = "Select SparePart";
             // 
             // comboBoxCatName_GenarateItemcode_Delete
             // 
             this.comboBoxCatName_GenarateItemcode_Delete.FormattingEnabled = true;
-            this.comboBoxCatName_GenarateItemcode_Delete.Items.AddRange(new object[] {
-
-            "Engine parts",
-            "Brakes",
-            "Suspension & steering",
-            "Transmission",
-            "Cooling & heating",
-            "Electrical & lighting",
-            "Body & lighting",
-            "Lubricants & fluids"});
             this.comboBoxCatName_GenarateItemcode_Delete.Location = new System.Drawing.Point(46, 183);
             this.comboBoxCatName_GenarateItemcode_Delete.Name = "comboBoxCatName_GenarateItemcode_Delete";
             this.comboBoxCatName_GenarateItemcode_Delete.Size = new System.Drawing.Size(121, 23);
             this.comboBoxCatName_GenarateItemcode_Delete.TabIndex = 18;
+            this.comboBoxCatName_GenarateItemcode_Delete.Text = "Select Category";
+            this.comboBoxCatName_GenarateItemcode_Delete.TextChanged += new System.EventHandler(this.comboBoxCatName_GenarateItemcode_Delete_TextChanged);
             // 
             // comboBoxYear_GenarateItemcode_Delete
             // 
             this.comboBoxYear_GenarateItemcode_Delete.FormattingEnabled = true;
-            this.comboBoxYear_GenarateItemcode_Delete.Items.AddRange(new object[] {
-            "2009",
-            "2010",
-            "2011",
-            "2012",
-            "2013"});
             this.comboBoxYear_GenarateItemcode_Delete.Location = new System.Drawing.Point(46, 154);
             this.comboBoxYear_GenarateItemcode_Delete.Name = "comboBoxYear_GenarateItemcode_Delete";
             this.comboBoxYear_GenarateItemcode_Delete.Size = new System.Drawing.Size(121, 23);
             this.comboBoxYear_GenarateItemcode_Delete.TabIndex = 17;
+            this.comboBoxYear_GenarateItemcode_Delete.Text = "Select Make-Year";
+            this.comboBoxYear_GenarateItemcode_Delete.TextChanged += new System.EventHandler(this.comboBoxYear_GenarateItemcode_Delete_TextChanged);
             // 
             // comboBoxEngineCapacity_GenarateItemcode_Delete
             // 
             this.comboBoxEngineCapacity_GenarateItemcode_Delete.FormattingEnabled = true;
-            this.comboBoxEngineCapacity_GenarateItemcode_Delete.Items.AddRange(new object[] {
-            "1.6",
-            "2.0"});
             this.comboBoxEngineCapacity_GenarateItemcode_Delete.Location = new System.Drawing.Point(46, 124);
             this.comboBoxEngineCapacity_GenarateItemcode_Delete.Name = "comboBoxEngineCapacity_GenarateItemcode_Delete";
             this.comboBoxEngineCapacity_GenarateItemcode_Delete.Size = new System.Drawing.Size(121, 23);
             this.comboBoxEngineCapacity_GenarateItemcode_Delete.TabIndex = 16;
+            this.comboBoxEngineCapacity_GenarateItemcode_Delete.Text = "Select Engine cc";
+            this.comboBoxEngineCapacity_GenarateItemcode_Delete.TextChanged += new System.EventHandler(this.comboBoxEngineCapacity_GenarateItemcode_Delete_TextChanged);
             // 
             // comboBoxFuelType_GenarateItemcode_Delete
             // 
             this.comboBoxFuelType_GenarateItemcode_Delete.FormattingEnabled = true;
-            this.comboBoxFuelType_GenarateItemcode_Delete.Items.AddRange(new object[] {
-            "Diesel",
-            "Petrol 92",
-            "Petrol 95"});
             this.comboBoxFuelType_GenarateItemcode_Delete.Location = new System.Drawing.Point(46, 94);
             this.comboBoxFuelType_GenarateItemcode_Delete.Name = "comboBoxFuelType_GenarateItemcode_Delete";
             this.comboBoxFuelType_GenarateItemcode_Delete.Size = new System.Drawing.Size(121, 23);
             this.comboBoxFuelType_GenarateItemcode_Delete.TabIndex = 15;
+            this.comboBoxFuelType_GenarateItemcode_Delete.Text = "Select Fuel";
+            this.comboBoxFuelType_GenarateItemcode_Delete.TextChanged += new System.EventHandler(this.comboBoxFuelType_GenarateItemcode_Delete_TextChanged);
             // 
             // comboBoxModelName_GenarateItemcode_Delete
             // 
             this.comboBoxModelName_GenarateItemcode_Delete.FormattingEnabled = true;
-            this.comboBoxModelName_GenarateItemcode_Delete.Items.AddRange(new object[] {
-            "A4",
-            "RS7",
-            "Accord",
-            "Fit",
-            "Civic",
-            "Vezel",
-            "Insight",
-            "Prius",
-            "Allion"});
             this.comboBoxModelName_GenarateItemcode_Delete.Location = new System.Drawing.Point(46, 65);
             this.comboBoxModelName_GenarateItemcode_Delete.Name = "comboBoxModelName_GenarateItemcode_Delete";
             this.comboBoxModelName_GenarateItemcode_Delete.Size = new System.Drawing.Size(121, 23);
             this.comboBoxModelName_GenarateItemcode_Delete.TabIndex = 14;
+            this.comboBoxModelName_GenarateItemcode_Delete.Text = "Select Model";
+            this.comboBoxModelName_GenarateItemcode_Delete.TextChanged += new System.EventHandler(this.comboBoxModelName_GenarateItemcode_Delete_TextChanged);
             // 
             // comboBoxBrandName_GenarateItemcode_Delete
             // 
             this.comboBoxBrandName_GenarateItemcode_Delete.FormattingEnabled = true;
-            this.comboBoxBrandName_GenarateItemcode_Delete.Items.AddRange(new object[] {
-            "Honda",
-            "Toyota",
-            "Nissan",
-            "BMW",
-            "Audi"});
             this.comboBoxBrandName_GenarateItemcode_Delete.Location = new System.Drawing.Point(46, 36);
             this.comboBoxBrandName_GenarateItemcode_Delete.Name = "comboBoxBrandName_GenarateItemcode_Delete";
             this.comboBoxBrandName_GenarateItemcode_Delete.Size = new System.Drawing.Size(121, 23);
             this.comboBoxBrandName_GenarateItemcode_Delete.TabIndex = 13;
+            this.comboBoxBrandName_GenarateItemcode_Delete.Text = "Select Brand";
+            this.comboBoxBrandName_GenarateItemcode_Delete.TextChanged += new System.EventHandler(this.comboBoxBrandName_GenarateItemcode_Delete_TextChanged);
             // 
             // tabPageClearStock
             // 
@@ -1317,114 +1204,71 @@
             // comboBoxPartName_GenarateItemcode_Clear
             // 
             this.comboBoxPartName_GenarateItemcode_Clear.FormattingEnabled = true;
-            this.comboBoxPartName_GenarateItemcode_Clear.Items.AddRange(new object[] {
-            "Brake Discs",
-            "Brake Pads",
-            "Radiators",
-            "Intercoolers",
-            "Head Bolts",
-            "Engine Bearings",
-            "Engine Oil",
-            "Transmission Oil",
-            "Car Battery",
-            "Head lights",
-            "Shock Absorbers",
-            "Suspension Arms & Joints",
-            "Clutch kits",
-            "Flywheels",
-            "Body Panels",
-            "Body Mouldings"});
             this.comboBoxPartName_GenarateItemcode_Clear.Location = new System.Drawing.Point(46, 210);
             this.comboBoxPartName_GenarateItemcode_Clear.Name = "comboBoxPartName_GenarateItemcode_Clear";
             this.comboBoxPartName_GenarateItemcode_Clear.Size = new System.Drawing.Size(121, 23);
             this.comboBoxPartName_GenarateItemcode_Clear.TabIndex = 19;
+            this.comboBoxPartName_GenarateItemcode_Clear.Text = "Select SparePart";
             // 
             // comboBoxCatName_GenarateItemcode_Clear
             // 
             this.comboBoxCatName_GenarateItemcode_Clear.FormattingEnabled = true;
-            this.comboBoxCatName_GenarateItemcode_Clear.Items.AddRange(new object[] {
-
-            "Engine parts",
-            "Brakes",
-            "Suspension & steering",
-            "Transmission",
-            "Cooling & heating",
-            "Electrical & lighting",
-            "Body & lighting",
-            "Lubricants & fluids"});
             this.comboBoxCatName_GenarateItemcode_Clear.Location = new System.Drawing.Point(46, 181);
             this.comboBoxCatName_GenarateItemcode_Clear.Name = "comboBoxCatName_GenarateItemcode_Clear";
             this.comboBoxCatName_GenarateItemcode_Clear.Size = new System.Drawing.Size(121, 23);
             this.comboBoxCatName_GenarateItemcode_Clear.TabIndex = 18;
+            this.comboBoxCatName_GenarateItemcode_Clear.Text = "Select Category";
+            this.comboBoxCatName_GenarateItemcode_Clear.TextChanged += new System.EventHandler(this.comboBoxCatName_GenarateItemcode_Clear_TextChanged);
             // 
             // comboBoxYear_GenarateItemcode_Clear
             // 
             this.comboBoxYear_GenarateItemcode_Clear.FormattingEnabled = true;
-            this.comboBoxYear_GenarateItemcode_Clear.Items.AddRange(new object[] {
-            "2009",
-            "2010",
-            "2011",
-            "2012",
-            "2013"});
             this.comboBoxYear_GenarateItemcode_Clear.Location = new System.Drawing.Point(46, 152);
             this.comboBoxYear_GenarateItemcode_Clear.Name = "comboBoxYear_GenarateItemcode_Clear";
             this.comboBoxYear_GenarateItemcode_Clear.Size = new System.Drawing.Size(121, 23);
             this.comboBoxYear_GenarateItemcode_Clear.TabIndex = 17;
+            this.comboBoxYear_GenarateItemcode_Clear.Text = "Select Make-Year";
+            this.comboBoxYear_GenarateItemcode_Clear.TextChanged += new System.EventHandler(this.comboBoxYear_GenarateItemcode_Clear_TextChanged);
             // 
             // comboBoxEngineCapacity_GenarateItemcode_Clear
             // 
             this.comboBoxEngineCapacity_GenarateItemcode_Clear.FormattingEnabled = true;
-            this.comboBoxEngineCapacity_GenarateItemcode_Clear.Items.AddRange(new object[] {
-            "1.6",
-            "2.0"});
             this.comboBoxEngineCapacity_GenarateItemcode_Clear.Location = new System.Drawing.Point(46, 122);
             this.comboBoxEngineCapacity_GenarateItemcode_Clear.Name = "comboBoxEngineCapacity_GenarateItemcode_Clear";
             this.comboBoxEngineCapacity_GenarateItemcode_Clear.Size = new System.Drawing.Size(121, 23);
             this.comboBoxEngineCapacity_GenarateItemcode_Clear.TabIndex = 16;
+            this.comboBoxEngineCapacity_GenarateItemcode_Clear.Text = "Select Engine cc";
+            this.comboBoxEngineCapacity_GenarateItemcode_Clear.TextChanged += new System.EventHandler(this.comboBoxEngineCapacity_GenarateItemcode_Clear_TextChanged);
             // 
             // comboBoxFuelType_GenarateItemcode_Clear
             // 
             this.comboBoxFuelType_GenarateItemcode_Clear.FormattingEnabled = true;
-            this.comboBoxFuelType_GenarateItemcode_Clear.Items.AddRange(new object[] {
-            "Diesel",
-            "Petrol 92",
-            "Petrol 95"});
             this.comboBoxFuelType_GenarateItemcode_Clear.Location = new System.Drawing.Point(46, 92);
             this.comboBoxFuelType_GenarateItemcode_Clear.Name = "comboBoxFuelType_GenarateItemcode_Clear";
             this.comboBoxFuelType_GenarateItemcode_Clear.Size = new System.Drawing.Size(121, 23);
             this.comboBoxFuelType_GenarateItemcode_Clear.TabIndex = 15;
+            this.comboBoxFuelType_GenarateItemcode_Clear.Text = "Select Fuel";
+            this.comboBoxFuelType_GenarateItemcode_Clear.TextChanged += new System.EventHandler(this.comboBoxFuelType_GenarateItemcode_Clear_TextChanged);
             // 
             // comboBoxModelName_GenarateItemcode_Clear
             // 
             this.comboBoxModelName_GenarateItemcode_Clear.FormattingEnabled = true;
-            this.comboBoxModelName_GenarateItemcode_Clear.Items.AddRange(new object[] {
-            "A4",
-            "RS7",
-            "Accord",
-            "Fit",
-            "Civic",
-            "Vezel",
-            "Insight",
-            "Prius",
-            "Allion"});
             this.comboBoxModelName_GenarateItemcode_Clear.Location = new System.Drawing.Point(46, 63);
             this.comboBoxModelName_GenarateItemcode_Clear.Name = "comboBoxModelName_GenarateItemcode_Clear";
             this.comboBoxModelName_GenarateItemcode_Clear.Size = new System.Drawing.Size(121, 23);
             this.comboBoxModelName_GenarateItemcode_Clear.TabIndex = 14;
+            this.comboBoxModelName_GenarateItemcode_Clear.Text = "Select Model";
+            this.comboBoxModelName_GenarateItemcode_Clear.TextChanged += new System.EventHandler(this.comboBoxModelName_GenarateItemcode_Clear_TextChanged);
             // 
             // comboBoxBrandName_GenarateItemcode_Clear
             // 
             this.comboBoxBrandName_GenarateItemcode_Clear.FormattingEnabled = true;
-            this.comboBoxBrandName_GenarateItemcode_Clear.Items.AddRange(new object[] {
-            "Honda",
-            "Toyota",
-            "Nissan",
-            "BMW",
-            "Audi"});
             this.comboBoxBrandName_GenarateItemcode_Clear.Location = new System.Drawing.Point(46, 34);
             this.comboBoxBrandName_GenarateItemcode_Clear.Name = "comboBoxBrandName_GenarateItemcode_Clear";
             this.comboBoxBrandName_GenarateItemcode_Clear.Size = new System.Drawing.Size(121, 23);
             this.comboBoxBrandName_GenarateItemcode_Clear.TabIndex = 13;
+            this.comboBoxBrandName_GenarateItemcode_Clear.Text = "Select Brand";
+            this.comboBoxBrandName_GenarateItemcode_Clear.TextChanged += new System.EventHandler(this.comboBoxBrandName_GenarateItemcode_Clear_TextChanged);
             // 
             // tabPageStockStatus
             // 
@@ -1462,16 +1306,18 @@
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(6, 130);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(729, 322);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Stock_Control
             // 
@@ -1557,7 +1403,6 @@
         private System.Windows.Forms.PictureBox pictureBoxAddButton;
         private System.Windows.Forms.TextBox textBoxUnitPrice_AddStock;
         private System.Windows.Forms.Label labelUnitPrice_AddStock;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btn_checkstock;
         private System.Windows.Forms.ComboBox comboBoxYear_AddStock;
@@ -1624,5 +1469,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker_ClearItem;
         private System.Windows.Forms.CheckBox checkBox_Repeat_Delete;
         private System.Windows.Forms.CheckBox checkBox_Repeat_Clear;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

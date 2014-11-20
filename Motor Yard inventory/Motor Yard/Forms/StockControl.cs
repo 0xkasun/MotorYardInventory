@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,12 +14,14 @@ namespace Motor_Yard
 {
     public partial class Stock_Control : Form
     {
+
+       
      
         
         public Stock_Control(int index)
         {
             InitializeComponent();
-
+            
             if (index == 1) 
             {
                 tabControl1.SelectedTab = tabPageAddNewStock;
@@ -33,6 +34,7 @@ namespace Motor_Yard
             else if (index == 2) 
             {
                 tabControl1.SelectedTab = tabPageUpdateStock;
+                generateComboItems_Brand_updt();
                 tabPageAddNewStock.Enabled = false;
                 tabPageDeleteStock.Enabled = false;
                 tabPageStockStatus.Enabled = false;
@@ -42,6 +44,7 @@ namespace Motor_Yard
             else if (index == 3)
             {
                 tabControl1.SelectedTab = tabPageDeleteStock;
+                generateComboItems_Brand_dlt();
                 tabPageAddNewStock.Enabled = false;
                 tabPageClearStock.Enabled = false;
                 tabPageStockStatus.Enabled = false;
@@ -51,6 +54,7 @@ namespace Motor_Yard
             else if (index == 4)
             {
                 tabControl1.SelectedTab = tabPageClearStock;
+                generateComboItems_Brand_clr();
                 tabPageAddNewStock.Enabled = false;
                 tabPageDeleteStock.Enabled = false;
                 tabPageStockStatus.Enabled = false;
@@ -93,6 +97,17 @@ namespace Motor_Yard
         string cat_name;
         string part_name;
 
+       /* public void fillCombo() {
+
+            MySqlDataReader newdr;
+            MySqlConnection con = new MySqlConnection("Server=localhost;DATABASE=motoryard_inventory;UID=root;");
+            DatabaseConnections db = new DatabaseConnections();
+            newdr = db.generateBrands();
+            con.Open();
+            
+           con.Close();
+        
+        }*/
 
         private void pictureBoxClearButton_Click(object sender, EventArgs e)
         {
@@ -139,7 +154,7 @@ namespace Motor_Yard
 
             else
             {
-                MessageBox.Show("Check Item Code", "", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                MessageBox.Show("Can't keep Empty Fields", "Warning", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
             }
         }
 
@@ -153,14 +168,11 @@ namespace Motor_Yard
             if (itemCode == repeatitemCode && (itemCode != "" || repeatitemCode != ""))
             {
 
-
-
-
-
                 DatabaseConnections db = new DatabaseConnections();
                 long QuantityHand = db.CheckQuantity(itemCode);
 
-
+                if (QuantityHand != -1)
+                {
                 DialogResult result1 = MessageBox.Show("ItemCode : " + itemCode + "\n Item Name : " + db.getItemDetails_String(itemCode), "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result1 == DialogResult.Yes && QuantityHand == 0)
                 {
@@ -177,6 +189,10 @@ namespace Motor_Yard
                     if (result == DialogResult.OK)
                     {
                         Stock_Control stock = new Stock_Control(4);
+                        stock.textBox_ItemCode_ClearStock.Text = itemCode;
+                        stock.textBox_RepeatItemCode_ClearStock.Text = itemCode;
+                        stock.textBox_RepeatItemCode_ClearStock.Hide();
+                        stock.label_RepeatItemCode_ClearStock.Hide();
                         stock.Show();
                     }
 
@@ -189,13 +205,13 @@ namespace Motor_Yard
                     }
                 }
 
-                else if (result1 == DialogResult.Yes && QuantityHand == -1)
+               /* else if (result1 == DialogResult.Yes && QuantityHand == -1)
                 {
                     MessageBox.Show("Invalid ItemCode", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     textBox_ItemCode_DeleteStock.Text = null;
                     textBox_RepeatItemCode_DeleteStock.Text = null;
                     textBoxDescription_DeleteItem.Text = null;
-                }
+                }*/
 
 
                 else
@@ -205,11 +221,18 @@ namespace Motor_Yard
                     textBoxDescription_DeleteItem.Text = null;
 
                 }
+                }else{
+                    MessageBox.Show("Invalid ItemCode", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    textBox_ItemCode_DeleteStock.Text = null;
+                    textBox_RepeatItemCode_DeleteStock.Text = null;
+                    textBoxDescription_DeleteItem.Text = null;
+                
+                }
             }
 
             else
             {
-                MessageBox.Show("Check Item Code", "", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                MessageBox.Show("Can't keep Empty Fields", "Warning", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
             }
         }
 
@@ -269,16 +292,16 @@ namespace Motor_Yard
             {
                 if (textBox_ItemCode_UpdateStock.Text != "")
                 {
-                    MessageBox.Show("Enter data to Quantity in data Field!", "Warnnig", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Enter data to Quantity in data Field!", "Warnig", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
                 else if (textBox_QuantityIn_UpdateStock.Text != "")
                 {
-                    MessageBox.Show("Enter data to ItemCode data Field!", "Warnnig", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Enter data to ItemCode data Field!", "Warnig", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
-                    MessageBox.Show("Can't keep empty data Field!\n Enter ItemCode and Quantity In", "Warnnig", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Can't keep empty data Field!\n Enter ItemCode and Quantity In", "Warnig", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 }
                 
@@ -292,6 +315,7 @@ namespace Motor_Yard
                 && comboBoxBrandName_AddStock.Text != "" && comboBoxModelName_AddStock.Text != "" && comboBoxFuelType_AddStock.Text != "" && comboBoxEngineCapacity_AddStock.Text != "" && comboBoxCatName_AddStock.Text != "" && comboBoxPartName_AddStock.Text != "" && comboBoxYear_AddStock.Text!="")
             {
                 brand_id = textBoxBrandId_AddStock.Text;
+
                 model_id = textBoxModelId_AddStock.Text;
                 fuel_id = textBoxFuelId_AddStock.Text;
                 engine_id = textBoxEngineId_AddStock.Text;
@@ -317,7 +341,7 @@ namespace Motor_Yard
 
             else
             {
-                MessageBox.Show("Can't keep empty feilds", "Warnning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Can't keep Empty Fields", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             
             textBoxBrandId_AddStock.Text = null;
@@ -360,14 +384,17 @@ namespace Motor_Yard
             com.Connection = con;*/
             String sqlconnection = "Server=localhost;DATABASE=motoryard_inventory;UID=root;";
             MySqlConnection con = new MySqlConnection(sqlconnection);
-
+            
             try
             {
                 con.Open();
-                String sql = "SELECT inventory_id,unit_price,quantity FROM Client_InventoryItem";
+                String sql = "SELECT inventory_id,item_name,unit_price,quantity FROM Client_InventoryItem";
+
                 MySqlDataAdapter dataadapter = new MySqlDataAdapter(sql, con);
+             
                 DataTable dt = new DataTable();
                 dataadapter.Fill(dt);
+                
                 dataGridView1.DataSource = dt;
                 con.Close();
             }
@@ -384,14 +411,33 @@ namespace Motor_Yard
 
         }     
 
+
+// COMBO BOXES ADD_STOCK
         private void comboBoxBrandName_AddStock_TextChanged(object sender, EventArgs e)
         {
+
+            
             string check = comboBoxBrandName_AddStock.Text;
-            if (check != "")
-            {
+
+            if (check != ""){  
+                
+                if(comboBoxModelName_AddStock.Items.Count!= 0)
+                {
+                comboBoxModelName_AddStock.Items.Clear();
+                comboBoxModelName_AddStock.Text = "";
+                }
+
                 DatabaseConnections db = new DatabaseConnections();
                 string ItemId1 = db.GetId(check, "Brand");
                 textBoxBrandId_AddStock.Text = ItemId1;
+               
+                String[] reader=db.generateComboItems_Model_AddStock(ItemId1);
+                int i = 0;
+                while(reader[i]!=null){
+                    comboBoxModelName_AddStock.Items.Add(reader[i]);
+                    i++;
+                
+                }
             }
 
             else
@@ -404,6 +450,7 @@ namespace Motor_Yard
 
         private void comboBoxModelName_AddStock_TextChanged(object sender, EventArgs e)
         {
+           
             string check = comboBoxModelName_AddStock.Text;
             if (check != "")
             {
@@ -472,9 +519,24 @@ namespace Motor_Yard
             string check = comboBoxCatName_AddStock.Text;
             if (check != "")
             {
+                if (comboBoxPartName_AddStock.Items.Count != 0)
+                {
+                    comboBoxPartName_AddStock.Items.Clear();
+                    comboBoxPartName_AddStock.Text = "";
+                }
+
                 DatabaseConnections db = new DatabaseConnections();
                 string ItemId6 = db.GetId(check, "Category");
+
                 textBoxCatId_AddStock.Text = ItemId6;
+                String[] reader = db.generateComboItems_part_AddStock(ItemId6);
+                int i = 0;
+                while (reader[i] != null)
+                {
+                    comboBoxPartName_AddStock.Items.Add(reader[i]);
+                    i++;
+
+                }
             }
 
             else
@@ -501,6 +563,7 @@ namespace Motor_Yard
 
         private void buttonGetItemcode_GenarateItemcode_Update_Click(object sender, EventArgs e)
         {
+            
             string brand_name = comboBoxBrandName_GenarateItemcode_Update.Text;
             string model_name = comboBoxModelName_GenarateItemcode_Update.Text;
             string fuel_type = comboBoxFuelType_GenarateItemcode_Update.Text;
@@ -513,8 +576,8 @@ namespace Motor_Yard
 
             if (brand_name != "" && model_id != "" && fuel_type != "" && engine_capacity != "" && year != "" && cat_name != "" && part_name != "")
             {
-                DatabaseConnections db = new DatabaseConnections();
 
+                DatabaseConnections db = new DatabaseConnections();
                 string Brand_id = db.GetId(brand_name, "Brand");
                 string Model_id = db.GetId(model_name, "Model");
                 string Fuel_id = db.GetId(fuel_type, "Fuel");
@@ -552,6 +615,8 @@ namespace Motor_Yard
 
         private void buttonGetItemcode_GenarateItemcode_Delete_Click(object sender, EventArgs e)
         {
+            
+
             string brand_name = comboBoxBrandName_GenarateItemcode_Delete.Text;
             string model_name = comboBoxModelName_GenarateItemcode_Delete.Text;
             string fuel_type = comboBoxFuelType_GenarateItemcode_Delete.Text;
@@ -671,6 +736,654 @@ namespace Motor_Yard
 
             }
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+
+
+//Update view
+        public void generateComboItems_Brand_updt()
+        {
+
+            DatabaseConnections db = new DatabaseConnections();
+            String[] brands = db.generateComboBrand();
+            int i = 0;
+            while (brands[i] != null)
+            {
+                comboBoxBrandName_GenarateItemcode_Update.Items.Add(brands[i]);
+                i++;
+            }
+
+
+
+        }
+
+        private void comboBoxBrandName_GenarateItemcode_Update_TextChanged(object sender, EventArgs e)
+        {
+            
+
+            string check = comboBoxBrandName_GenarateItemcode_Update.Text;
+            if (check != "")
+            {
+                if (comboBoxModelName_GenarateItemcode_Update.Items.Count != 0)
+                {
+                    comboBoxModelName_GenarateItemcode_Update.Items.Clear();
+                    comboBoxModelName_GenarateItemcode_Update.Text="";
+                }
+                DatabaseConnections db = new DatabaseConnections();
+                string ItemId = db.GetId(check, "Brand");
+                String[] reader = db.generateComboItems_Model(ItemId);
+                int i = 0;
+                while (reader[i] != null)
+                {
+                    comboBoxModelName_GenarateItemcode_Update.Items.Add(reader[i]);
+                    i++;
+
+                }
+                
+               
+            }
+
+            
+        
+        }
+        private void comboBoxModelName_GenarateItemcode_Update_TextChanged(object sender, EventArgs e)
+        {
+
+
+            string check = comboBoxModelName_GenarateItemcode_Update.Text;
+            if (check != "")
+            {
+                if (comboBoxFuelType_GenarateItemcode_Update.Items.Count != 0)
+                {
+                    comboBoxFuelType_GenarateItemcode_Update.Items.Clear();
+                    comboBoxFuelType_GenarateItemcode_Update.Text = "";
+                }
+                DatabaseConnections db = new DatabaseConnections();
+                string ItemId = db.GetId(check, "Model");
+                String[] reader = db.generateComboItems_Fuel(ItemId);
+                int i = 0;
+                while (reader[i] != null)
+                {
+                    comboBoxFuelType_GenarateItemcode_Update.Items.Add(reader[i]);
+                    i++;
+
+                }
+                
+
+            }
+
+            
+
+
+        }
+        private void comboBoxFuelType_GenarateItemcode_Update_TextChanged(object sender, EventArgs e)
+        {
+
+
+            string check = comboBoxFuelType_GenarateItemcode_Update.Text;
+            string check2 = comboBoxModelName_GenarateItemcode_Update.Text;
+            if (check != "")
+            {
+                if (comboBoxEngineCapacity_GenarateItemcode_Update.Items.Count != 0)
+                {
+                    comboBoxEngineCapacity_GenarateItemcode_Update.Items.Clear();
+                    comboBoxEngineCapacity_GenarateItemcode_Update.Text = "";
+                }
+                DatabaseConnections db = new DatabaseConnections();
+                string ItemId = db.GetId(check, "Fuel");
+                string ItemId2 = db.GetId(check2, "Model");
+                String[] reader = db.generateComboItems_Engine(ItemId,ItemId2);
+                int i = 0;
+                while (reader[i] != null)
+                {
+                    comboBoxEngineCapacity_GenarateItemcode_Update.Items.Add(reader[i]);
+                    i++;
+
+                }
+               
+
+            }
+
+            
+
+
+        }
+        private void comboBoxEngineCapacity_GenarateItemcode_Update_TextChanged(object sender, EventArgs e)
+        {
+
+
+            string check = comboBoxEngineCapacity_GenarateItemcode_Update.Text;
+            string check2=comboBoxModelName_GenarateItemcode_Update.Text;
+            if (check != "")
+            {
+                if (comboBoxYear_GenarateItemcode_Update.Items.Count != 0)
+                {
+                    comboBoxYear_GenarateItemcode_Update.Items.Clear();
+                    comboBoxYear_GenarateItemcode_Update.Text = "";
+                }
+                DatabaseConnections db = new DatabaseConnections();
+
+                string ItemId = db.GetId(check, "Engine");
+                string ItemId2 = db.GetId(check2, "Model");
+                String[] reader = db.generateComboItems_Year(ItemId,ItemId2);
+                int i = 0;
+                while (reader[i] != null)
+                {
+                    comboBoxYear_GenarateItemcode_Update.Items.Add(reader[i]);
+                    i++;
+
+                }
+             
+
+            }
+
+            
+
+
+        }
+         private void comboBoxYear_GenarateItemcode_Update_TextChanged(object sender, EventArgs e)
+          {
+
+
+              string check = comboBoxYear_GenarateItemcode_Update.Text;
+              string check2 = comboBoxModelName_GenarateItemcode_Update.Text;
+
+              if (check != "")
+              {
+                  if (comboBoxCatName_GenarateItemcode_Update.Items.Count != 0)
+                  {
+                      comboBoxCatName_GenarateItemcode_Update.Items.Clear();
+                      comboBoxCatName_GenarateItemcode_Update.Text = "";
+                  }
+                  DatabaseConnections db = new DatabaseConnections();
+                  string ItemId = db.GetId(check, "Year");
+                  string ItemId2 = db.GetId(check2, "Model");
+
+                  String[] reader = db.generateComboItems_Cat(ItemId,ItemId2);
+                  int i = 0;
+             
+                  while (reader[i] != null)
+                  {
+                      comboBoxCatName_GenarateItemcode_Update.Items.Add(reader[i]);
+                      i++;
+
+                  }
+                 
+
+              }
+
+              
+
+
+          }
+          private void comboBoxCatName_GenarateItemcode_Update_TextChanged(object sender, EventArgs e)
+         {
+
+             string check2= comboBoxCatName_GenarateItemcode_Update.Text;
+             string check = comboBoxModelName_GenarateItemcode_Update.Text;
+             if (check != "")
+             {
+                 if (comboBoxPartName_GenarateItemcode_Update.Items.Count != 0)
+                 {
+                     comboBoxPartName_GenarateItemcode_Update.Items.Clear();
+                     comboBoxPartName_GenarateItemcode_Update.Text = "";
+                 }
+                 DatabaseConnections db = new DatabaseConnections();
+                 string ItemId = db.GetId(check, "Model");
+                 string ItemId2 = db.GetId(check2,"Category");
+                 String[] reader = db.generateComboItems_Part(ItemId2,ItemId);
+                 int i = 0;
+                 while (reader[i] != null)
+                 {
+                     comboBoxPartName_GenarateItemcode_Update.Items.Add(reader[i]);
+                     i++;
+
+                 }
+               
+
+             }
+
+             
+
+
+         }
+      
+        
+
+
+
+    
+
+        // Delete View
+        public void generateComboItems_Brand_dlt()
+        {
+
+            DatabaseConnections db = new DatabaseConnections();
+            String[] brands = db.generateComboBrand();
+            int i = 0;
+            while (brands[i] != null)
+            {
+                comboBoxBrandName_GenarateItemcode_Delete.Items.Add(brands[i]);
+                i++;
+            }
+
+
+
+        }
+
+
+
+
+
+        private void comboBoxBrandName_GenarateItemcode_Delete_TextChanged(object sender, EventArgs e)
+        {
+            
+
+            string check = comboBoxBrandName_GenarateItemcode_Delete.Text;
+            if (check != "")
+            {
+                if (comboBoxModelName_GenarateItemcode_Delete.Items.Count != 0)
+                {
+                    comboBoxModelName_GenarateItemcode_Delete.Items.Clear();
+                    comboBoxModelName_GenarateItemcode_Delete.Text="";
+                }
+                DatabaseConnections db = new DatabaseConnections();
+                string ItemId = db.GetId(check, "Brand");
+                String[] reader = db.generateComboItems_Model(ItemId);
+                int i = 0;
+                while (reader[i] != null)
+                {
+                    comboBoxModelName_GenarateItemcode_Delete.Items.Add(reader[i]);
+                    i++;
+
+                }
+                
+               
+            }
+
+            
+        
+        }
+        private void comboBoxModelName_GenarateItemcode_Delete_TextChanged(object sender, EventArgs e)
+        {
+
+
+            string check = comboBoxModelName_GenarateItemcode_Delete.Text;
+            if (check != "")
+            {
+                if (comboBoxFuelType_GenarateItemcode_Delete.Items.Count != 0)
+                {
+                    comboBoxFuelType_GenarateItemcode_Delete.Items.Clear();
+                    comboBoxFuelType_GenarateItemcode_Delete.Text = "";
+                }
+                DatabaseConnections db = new DatabaseConnections();
+                string ItemId = db.GetId(check, "Model");
+                String[] reader = db.generateComboItems_Fuel(ItemId);
+                int i = 0;
+                while (reader[i] != null)
+                {
+                    comboBoxFuelType_GenarateItemcode_Delete.Items.Add(reader[i]);
+                    i++;
+
+                }
+                
+
+            }
+
+            
+
+
+        }
+        private void comboBoxFuelType_GenarateItemcode_Delete_TextChanged(object sender, EventArgs e)
+        {
+
+
+            string check = comboBoxFuelType_GenarateItemcode_Delete.Text;
+            string check2 = comboBoxModelName_GenarateItemcode_Delete.Text;
+            if (check != "")
+            {
+                if (comboBoxEngineCapacity_GenarateItemcode_Delete.Items.Count != 0)
+                {
+                    comboBoxEngineCapacity_GenarateItemcode_Delete.Items.Clear();
+                    comboBoxEngineCapacity_GenarateItemcode_Delete.Text = "";
+                }
+                DatabaseConnections db = new DatabaseConnections();
+                string ItemId = db.GetId(check, "Fuel");
+                string ItemId2 = db.GetId(check2, "Model");
+                String[] reader = db.generateComboItems_Engine(ItemId,ItemId2);
+                int i = 0;
+                while (reader[i] != null)
+                {
+                    comboBoxEngineCapacity_GenarateItemcode_Delete.Items.Add(reader[i]);
+                    i++;
+
+                }
+               
+
+            }
+
+            
+
+
+        }
+        private void comboBoxEngineCapacity_GenarateItemcode_Delete_TextChanged(object sender, EventArgs e)
+        {
+
+
+            string check = comboBoxEngineCapacity_GenarateItemcode_Delete.Text;
+            string check2=comboBoxModelName_GenarateItemcode_Delete.Text;
+            if (check != "")
+            {
+                if (comboBoxYear_GenarateItemcode_Delete.Items.Count != 0)
+                {
+                    comboBoxYear_GenarateItemcode_Delete.Items.Clear();
+                    comboBoxYear_GenarateItemcode_Delete.Text = "";
+                }
+                DatabaseConnections db = new DatabaseConnections();
+
+                string ItemId = db.GetId(check, "Engine");
+                string ItemId2 = db.GetId(check2, "Model");
+                String[] reader = db.generateComboItems_Year(ItemId,ItemId2);
+                int i = 0;
+                while (reader[i] != null)
+                {
+                    comboBoxYear_GenarateItemcode_Delete.Items.Add(reader[i]);
+                    i++;
+
+                }
+             
+
+            }
+
+            
+
+
+        }
+         private void comboBoxYear_GenarateItemcode_Delete_TextChanged(object sender, EventArgs e)
+          {
+
+
+              string check = comboBoxYear_GenarateItemcode_Delete.Text;
+              string check2 = comboBoxModelName_GenarateItemcode_Delete.Text;
+
+              if (check != "")
+              {
+                  if (comboBoxCatName_GenarateItemcode_Delete.Items.Count != 0)
+                  {
+                      comboBoxCatName_GenarateItemcode_Delete.Items.Clear();
+                      comboBoxCatName_GenarateItemcode_Delete.Text = "";
+                  }
+                  DatabaseConnections db = new DatabaseConnections();
+                  string ItemId = db.GetId(check, "Year");
+                  string ItemId2 = db.GetId(check2, "Model");
+
+                  String[] reader = db.generateComboItems_Cat(ItemId,ItemId2);
+                  int i = 0;
+             
+                  while (reader[i] != null)
+                  {
+                      comboBoxCatName_GenarateItemcode_Delete.Items.Add(reader[i]);
+                      i++;
+
+                  }
+                 
+
+              }
+
+              
+
+
+          }
+         private void comboBoxCatName_GenarateItemcode_Delete_TextChanged(object sender, EventArgs e)
+         {
+
+             string check2 = comboBoxCatName_GenarateItemcode_Delete.Text;
+             string check = comboBoxModelName_GenarateItemcode_Delete.Text;
+             if (check != "")
+             {
+                 if (comboBoxPartName_GenarateItemcode_Delete.Items.Count != 0)
+                 {
+                     comboBoxPartName_GenarateItemcode_Delete.Items.Clear();
+                     comboBoxPartName_GenarateItemcode_Delete.Text = "";
+                 }
+                 DatabaseConnections db = new DatabaseConnections();
+                 string ItemId = db.GetId(check, "Model");
+                 string ItemId2 = db.GetId(check2, "Category");
+                 String[] reader = db.generateComboItems_Part(ItemId2, ItemId);
+                 int i = 0;
+                 while (reader[i] != null)
+                 {
+                     comboBoxPartName_GenarateItemcode_Delete.Items.Add(reader[i]);
+                     i++;
+
+                 }
+
+
+             }
+         }
+
+             
+
+
+         
+
+
+
+
+
+        
+// Clear-stock view 
+        public void generateComboItems_Brand_clr()
+        {
+
+            DatabaseConnections db = new DatabaseConnections();
+            String[] brands = db.generateComboBrand();
+            int i = 0;
+            while (brands[i] != null)
+            {
+                comboBoxBrandName_GenarateItemcode_Clear.Items.Add(brands[i]);
+                i++;
+            }
+
+
+
+        }
+
+
+
+        private void comboBoxBrandName_GenarateItemcode_Clear_TextChanged(object sender, EventArgs e)
+        {
+
+
+            string check = comboBoxBrandName_GenarateItemcode_Clear.Text;
+            if (check != "")
+            {
+                if (comboBoxModelName_GenarateItemcode_Clear.Items.Count != 0)
+                {
+                    comboBoxModelName_GenarateItemcode_Clear.Items.Clear();
+                    comboBoxModelName_GenarateItemcode_Clear.Text = "";
+                }
+                DatabaseConnections db = new DatabaseConnections();
+                string ItemId = db.GetId(check, "Brand");
+                String[] reader = db.generateComboItems_Model(ItemId);
+                int i = 0;
+                while (reader[i] != null)
+                {
+                    comboBoxModelName_GenarateItemcode_Clear.Items.Add(reader[i]);
+                    i++;
+
+                }
+
+
+            }
+
+
+
+        }
+        private void comboBoxModelName_GenarateItemcode_Clear_TextChanged(object sender, EventArgs e)
+        {
+
+
+            string check = comboBoxModelName_GenarateItemcode_Clear.Text;
+            if (check != "")
+            {
+                if (comboBoxFuelType_GenarateItemcode_Clear.Items.Count != 0)
+                {
+                    comboBoxFuelType_GenarateItemcode_Clear.Items.Clear();
+                    comboBoxFuelType_GenarateItemcode_Clear.Text = "";
+                }
+                DatabaseConnections db = new DatabaseConnections();
+                string ItemId = db.GetId(check, "Model");
+                String[] reader = db.generateComboItems_Fuel(ItemId);
+                int i = 0;
+                while (reader[i] != null)
+                {
+                    comboBoxFuelType_GenarateItemcode_Clear.Items.Add(reader[i]);
+                    i++;
+
+                }
+
+
+            }
+
+
+
+
+        }
+        private void comboBoxFuelType_GenarateItemcode_Clear_TextChanged(object sender, EventArgs e)
+        {
+
+
+            string check = comboBoxFuelType_GenarateItemcode_Clear.Text;
+            string check2 = comboBoxModelName_GenarateItemcode_Clear.Text;
+            if (check != "")
+            {
+                if (comboBoxEngineCapacity_GenarateItemcode_Clear.Items.Count != 0)
+                {
+                    comboBoxEngineCapacity_GenarateItemcode_Clear.Items.Clear();
+                    comboBoxEngineCapacity_GenarateItemcode_Clear.Text = "";
+                }
+                DatabaseConnections db = new DatabaseConnections();
+                string ItemId = db.GetId(check, "Fuel");
+                string ItemId2 = db.GetId(check2, "Model");
+                String[] reader = db.generateComboItems_Engine(ItemId, ItemId2);
+                int i = 0;
+                while (reader[i] != null)
+                {
+                    comboBoxEngineCapacity_GenarateItemcode_Clear.Items.Add(reader[i]);
+                    i++;
+
+                }
+
+
+            }
+
+
+
+
+        }
+        private void comboBoxEngineCapacity_GenarateItemcode_Clear_TextChanged(object sender, EventArgs e)
+        {
+
+
+            string check = comboBoxEngineCapacity_GenarateItemcode_Clear.Text;
+            string check2 = comboBoxModelName_GenarateItemcode_Clear.Text;
+            if (check != "")
+            {
+                if (comboBoxYear_GenarateItemcode_Clear.Items.Count != 0)
+                {
+                    comboBoxYear_GenarateItemcode_Clear.Items.Clear();
+                    comboBoxYear_GenarateItemcode_Clear.Text = "";
+                }
+                DatabaseConnections db = new DatabaseConnections();
+
+                string ItemId = db.GetId(check, "Engine");
+                string ItemId2 = db.GetId(check2, "Model");
+                String[] reader = db.generateComboItems_Year(ItemId, ItemId2);
+                int i = 0;
+                while (reader[i] != null)
+                {
+                    comboBoxYear_GenarateItemcode_Clear.Items.Add(reader[i]);
+                    i++;
+
+                }
+
+
+            }
+
+
+
+
+        }
+        private void comboBoxYear_GenarateItemcode_Clear_TextChanged(object sender, EventArgs e)
+        {
+
+
+            string check = comboBoxYear_GenarateItemcode_Clear.Text;
+            string check2 = comboBoxModelName_GenarateItemcode_Clear.Text;
+
+            if (check != "")
+            {
+                if (comboBoxCatName_GenarateItemcode_Clear.Items.Count != 0)
+                {
+                    comboBoxCatName_GenarateItemcode_Clear.Items.Clear();
+                    comboBoxCatName_GenarateItemcode_Clear.Text = "";
+                }
+                DatabaseConnections db = new DatabaseConnections();
+                string ItemId = db.GetId(check, "Year");
+                string ItemId2 = db.GetId(check2, "Model");
+
+                String[] reader = db.generateComboItems_Cat(ItemId, ItemId2);
+                int i = 0;
+
+                while (reader[i] != null)
+                {
+                    comboBoxCatName_GenarateItemcode_Clear.Items.Add(reader[i]);
+                    i++;
+
+                }
+
+
+            }
+
+
+
+
+        }
+        private void comboBoxCatName_GenarateItemcode_Clear_TextChanged(object sender, EventArgs e)
+        {
+
+            string check2 = comboBoxCatName_GenarateItemcode_Clear.Text;
+            string check = comboBoxModelName_GenarateItemcode_Clear.Text;
+            if (check != "")
+            {
+                if (comboBoxPartName_GenarateItemcode_Clear.Items.Count != 0)
+                {
+                    comboBoxPartName_GenarateItemcode_Clear.Items.Clear();
+                    comboBoxPartName_GenarateItemcode_Clear.Text = "";
+                }
+                DatabaseConnections db = new DatabaseConnections();
+                string ItemId = db.GetId(check, "Model");
+                string ItemId2 = db.GetId(check2, "Category");
+                String[] reader = db.generateComboItems_Part(ItemId2, ItemId);
+                int i = 0;
+                while (reader[i] != null)
+                {
+                    comboBoxPartName_GenarateItemcode_Clear.Items.Add(reader[i]);
+                    i++;
+
+                }
+
+
+            }
+        }
+       
+       
+        
 
     }
 }

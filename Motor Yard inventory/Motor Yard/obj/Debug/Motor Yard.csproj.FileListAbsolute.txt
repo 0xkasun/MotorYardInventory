@@ -134,3 +134,4 @@ E:\MotorYard\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.pdb
 K:\Motor Yard inventory\Motor Yard\bin\Debug\Motor Yard.exe.config
 K:\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.exe
 K:\Motor Yard inventory\Motor Yard\obj\Debug\Motor Yard.pdb
+F:\Study\GIT\Git_sourcetree3\Motor Yard inventory\Motor Yard\obj\Debug\Motor_Yard.New_LogIn.resources

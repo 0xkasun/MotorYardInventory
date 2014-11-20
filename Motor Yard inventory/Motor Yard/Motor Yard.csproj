@@ -48,6 +48,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DatabaseConnections.cs" />
+    <Compile Include="Forms\New_Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\New_Login.Designer.cs">
+      <DependentUpon>New_Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\LogIn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +103,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>web_inventoryDataSet.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\New_Login.resx">
+      <DependentUpon>New_Login.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\LogIn.resx">
       <DependentUpon>LogIn.cs</DependentUpon>
     </EmbeddedResource>
