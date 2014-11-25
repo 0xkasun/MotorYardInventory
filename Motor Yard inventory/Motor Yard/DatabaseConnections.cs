@@ -1098,7 +1098,7 @@ namespace Motor_Yard
         public String[] generateComboBrand(){
                 String[] b = new String[100];
                 int i = 0;
-                string load = "select distinct brand_name from Inventory_Item natural join Brand";
+                string load = "select distinct brand_name from Inventory_Item inner join Brand where Inventory_Item.brand_id=Brand.brand_id";
                 con.Open();    
                 cmd = con.CreateCommand();
                 cmd.CommandText = load;
@@ -1117,7 +1117,7 @@ namespace Motor_Yard
         {
             String[] b = new String[100];
             int i = 0;
-            string load = "select distinct model_name from Inventory_Item natural join Model where brand_id='"+ brandId + "'";
+            string load = "select distinct model_name from Inventory_Item inner join Model where brand_id='" + brandId + "' AND Inventory_Item.model_id=Model.model_id";
             con.Open();
             cmd = con.CreateCommand();
             cmd.CommandText = load;
@@ -1138,7 +1138,7 @@ namespace Motor_Yard
         {
             String[] b = new String[100];
             int i = 0;
-            string load = "select distinct fuel_type from Inventory_Item natural join Fuel where model_id='" + modelId + "'";
+            string load = "select distinct fuel_type from Inventory_Item inner join Fuel where model_id='" + modelId + "'AND Inventory_Item.fuel_id=Fuel.fuel_id";
             con.Open();
             cmd = con.CreateCommand();
             cmd.CommandText = load;
@@ -1159,7 +1159,7 @@ namespace Motor_Yard
         {
             String[] b = new String[100];
             int i = 0;
-            string load = "select distinct engine_capacity from Inventory_Item natural join Engine where fuel_id='" + fuelId + "'AND model_id= '" + modelId + "'";
+            string load = "select distinct engine_capacity from Inventory_Item inner join Engine where fuel_id='" + fuelId + "'AND model_id= '" + modelId + "' AND Inventory_Item.engine_id=Engine.engine_id";
             con.Open();
             cmd = con.CreateCommand();
             cmd.CommandText = load;
@@ -1181,7 +1181,7 @@ namespace Motor_Yard
         {
             String[] b = new String[100];
             int i = 0;
-            string load = "select distinct year from Inventory_Item natural join Yearr where engine_id='" + engId + "'AND model_id='" + modelId +"'";
+            string load = "select distinct year from Inventory_Item inner join Yearr where engine_id='" + engId + "'AND model_id='" + modelId + "' AND Inventory_Item.year_id=Yearr.year_id";
             con.Open();
             cmd = con.CreateCommand();
             cmd.CommandText = load;
@@ -1202,7 +1202,7 @@ namespace Motor_Yard
         {
             String[] b = new String[100];
             int i = 0;
-            string load = "select distinct cat_name from Inventory_Item natural join Category where model_id='" + modelId + "'AND year_id='" + yearId + "'";
+            string load = "select distinct cat_name from Inventory_Item inner join Category where model_id='" + modelId + "'AND year_id='" + yearId + "'AND Inventory_Item.cat_id=Category.cat_id";
             con.Open();
             cmd = con.CreateCommand();
             cmd.CommandText = load;
@@ -1224,7 +1224,7 @@ namespace Motor_Yard
         {
             String[] b = new String[100];
             int i = 0;
-            string load = "select distinct part_name from Inventory_Item natural join SparePart where cat_id='" + catId + "'AND model_id='" + modelId + "'";
+            string load = "select distinct part_name from Inventory_Item inner join SparePart where cat_id='" + catId + "'AND model_id='" + modelId + "' AND Inventory_Item.part_id=SparePart.part_id";
             con.Open();
             cmd = con.CreateCommand();
             cmd.CommandText = load;
@@ -1233,6 +1233,7 @@ namespace Motor_Yard
             {
                 String x = (dr[0].ToString());
                 b[i] = x;
+                
                 i++;
             }
 

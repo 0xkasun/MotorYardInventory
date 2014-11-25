@@ -19,13 +19,7 @@ namespace Motor_Yard
             total_box.Text = "0";
         }
 
-        private void ToolStripMenuItem_Catalog_Click(object sender, EventArgs e)
-        {
-            Catalog catalog = new Catalog();
-            catalog.Show();
-            //this.Hide();
-        }
-
+        
         private void addNewStock_ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Stock_Control stock_control = new Stock_Control(1);
@@ -113,7 +107,7 @@ namespace Motor_Yard
 
             string Inventory_ItemCode;
 
-            if (brand_name != "" && model_name != "" && fuel_type != "" && engine_capacity != "" && year != "" && cat_name != "" && part_name != "")
+            if (brand_name != "" && model_name != "" && fuel_type != "" && engine_capacity != "" && year != "" && cat_name != "" && part_name != "" && quantity_box.Text != "")
             {
                 String[] ar = new String[4];
                 DatabaseConnections db = new DatabaseConnections();
@@ -131,13 +125,28 @@ namespace Motor_Yard
                 ar[2] = db.get_unit_price(Inventory_ItemCode);
                 //MessageBox.Show(Inventory_ItemCode);
                 long QuantityHand = db.CheckQuantity(Inventory_ItemCode);
-                
-                if (QuantityHand >= 0)
+                int checker = 0;
+
+
+                if (listView1.Items.Count != 0)   //to check whether the same item is added twice
+                {
+                    foreach (ListViewItem item in listView1.Items)
+                    {
+                        if (item.SubItems[0].Text == Inventory_ItemCode)
+
+                        {
+
+                            checker++;
+                        }
+
+                    }
+                }
+                if (QuantityHand >= 0 && checker==0)
                 {
                    
                     
                     int quantity = Convert.ToInt32(quantity_box.Text);
-                    if (quantity <= QuantityHand)
+                    if (quantity < QuantityHand)
                     {
                         ar[3] = quantity.ToString();
 
@@ -156,7 +165,9 @@ namespace Motor_Yard
 
 
                         ListViewItem itm = new ListViewItem(ar);
+                        
                         listView1.Items.Add(itm);
+                      
 
                         comboBox_BrandName.Text = null;
                         comboBox2_model.Text = null;
@@ -168,12 +179,26 @@ namespace Motor_Yard
                         quantity_box.Text = null;
                     }
                     else {
-                    MessageBox.Show("Sorry\nEnter a quantity less than : "+QuantityHand);
+                        if (QuantityHand == 0) {
+                            MessageBox.Show("Sorry..\nwe are out of stock at the moment for this item","Message");
+                        }
+                        else {
+                            MessageBox.Show("Sorry..\nEnter a quantity less than : " + QuantityHand,"Message");
+                        }
+                    
                     }
                 }
                 else
-                {
-                    MessageBox.Show("Check all the fiels. Invalid Itemcode." + Inventory_ItemCode, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                {   
+                    if(checker!=0){
+                        MessageBox.Show("Cannot insert duplicate items\nDelete the item from the list and continue");
+
+
+                        }
+                        else
+                        {
+                        MessageBox.Show("Check all the fiels. Invalid Itemcode." + Inventory_ItemCode, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                 }
 
             }
@@ -485,17 +510,7 @@ namespace Motor_Yard
 
         }
 
-
-
-    
-
-
-
- 
-
-     
-
-        
+   
         
     }
 }

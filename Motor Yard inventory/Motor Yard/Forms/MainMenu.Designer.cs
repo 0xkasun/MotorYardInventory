@@ -39,7 +39,6 @@
             this.sales_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.totalIncome_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.taxesPayable_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripMenuItem_Catalog = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem_Customers = new System.Windows.Forms.ToolStripMenuItem();
             this.ratings_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.discountOffered_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -83,7 +82,6 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ToolStripMenuItem_StockControl,
             this.ToolStripMenuItem_Report,
-            this.ToolStripMenuItem_Catalog,
             this.ToolStripMenuItem_Customers,
             this.optionToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -172,14 +170,6 @@
             this.taxesPayable_ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.taxesPayable_ToolStripMenuItem.Text = "Taxes Payable";
             this.taxesPayable_ToolStripMenuItem.Click += new System.EventHandler(this.taxesPayable_ToolStripMenuItem_Click);
-            // 
-            // ToolStripMenuItem_Catalog
-            // 
-            this.ToolStripMenuItem_Catalog.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ToolStripMenuItem_Catalog.Name = "ToolStripMenuItem_Catalog";
-            this.ToolStripMenuItem_Catalog.Size = new System.Drawing.Size(60, 19);
-            this.ToolStripMenuItem_Catalog.Text = "Catalog";
-            this.ToolStripMenuItem_Catalog.Click += new System.EventHandler(this.ToolStripMenuItem_Catalog_Click);
             // 
             // ToolStripMenuItem_Customers
             // 
@@ -510,12 +500,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.ClientSize = new System.Drawing.Size(995, 422);
+            this.ClientSize = new System.Drawing.Size(995, 436);
             this.ControlBox = false;
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.HelpButton = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -546,7 +537,6 @@
         private System.Windows.Forms.ToolStripMenuItem sales_ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem totalIncome_ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem taxesPayable_ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_Catalog;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_Customers;
         private System.Windows.Forms.ToolStripMenuItem ratings_ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem discountOffered_ToolStripMenuItem;
